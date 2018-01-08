@@ -11,6 +11,8 @@ public class RedirectCommand implements ICommand {
     private static final String ORDER = "/order";
     private static final String MAIN = "/main";
     private static final String INDEX = "/index";
+    private static final String ADMIN = "/admin";
+    private static final String ACCOUNT = "/account";
 
     @Override
     public String execute(HttpServletRequest request, HttpServletResponse response) {
@@ -32,6 +34,13 @@ public class RedirectCommand implements ICommand {
                 break;
             case INDEX:
                 url = ConfigurationManager.getProperty("path.page.index");
+                break;
+            case ADMIN:
+                url = ConfigurationManager.getProperty("path.page.admin");
+                break;
+            case ACCOUNT:
+                url = ConfigurationManager.getProperty("path.page.account");
+                break;
         }
         return url;
     }

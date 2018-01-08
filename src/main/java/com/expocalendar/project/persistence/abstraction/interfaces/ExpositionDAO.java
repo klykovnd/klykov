@@ -15,7 +15,7 @@ public interface ExpositionDAO {
 
     List<String> findThemes();
 
-    boolean createExposition(Exposition exposition);
+    void createExposition(Exposition exposition);
 
     Exposition findExposition(int expositionId);
 

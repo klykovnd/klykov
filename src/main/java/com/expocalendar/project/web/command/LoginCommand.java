@@ -15,13 +15,18 @@ public class LoginCommand implements ICommand {
         String login = request.getParameter("login");
         String password = request.getParameter("password");
 
-        Account account = LoginService.findAccount(login, password);
+        Account account = LoginService.getInstance().findAccount(login, password);
 
         String page;
 
         if (account != null) {
             page = ConfigurationManager.getProperty("path.page.main");
             request.getSession().setAttribute("account", account);
+
+            if (account.getRole().equals("admin")) {
+                request.getSession().setAttribute("role", "admin");
+            }
+
         } else {
             page = ConfigurationManager.getProperty("path.page.login");
             request.getSession().setAttribute("noAccount", MessageManager.getProperty("message.loginError"));

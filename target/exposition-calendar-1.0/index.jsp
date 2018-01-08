@@ -8,6 +8,6 @@
 <body>
 <jsp:useBean id="today" class="java.util.Date"/>
 <fmt:formatDate value="${today}" var="now" pattern="yyyy-MM-dd"/>
-<jsp:forward page="app?command=selection&dateFrom=${now}&dateTo=&theme=all&city=Kiev"/>
+<jsp:forward page="app?command=selection"/>
 </body>
 </html>

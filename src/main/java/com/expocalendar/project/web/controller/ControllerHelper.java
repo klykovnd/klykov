@@ -2,7 +2,12 @@ package com.expocalendar.project.web.controller;
 
 import com.expocalendar.project.web.command.*;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.util.Collections;
 import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 public class ControllerHelper {
 
@@ -17,7 +22,7 @@ public class ControllerHelper {
         commandsMap.put("registration", new RegistrationCommand());
         commandsMap.put("order", new OrderCommand());
         commandsMap.put("localization", new LocalizationCommand());
-        commandsMap.put("creation",new CreationCommand());
+        commandsMap.put("creation", new CreationCommand());
     }
 
     public static ControllerHelper getInstance() {
@@ -30,5 +35,17 @@ public class ControllerHelper {
 
     public ICommand defineCommand(String commandKey) {
         return commandsMap.get(commandKey);
+    }
+
+    public static Map<String, String> extractParameters(HttpServletRequest request) {
+        Map<String, String> requestParameters = new HashMap<>();
+
+        List<String> parameters = Collections.list(request.getParameterNames());
+
+        for (String param : parameters) {
+            requestParameters.put(param, request.getParameter(param));
+        }
+
+        return requestParameters;
     }
 }

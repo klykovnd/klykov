@@ -5,7 +5,7 @@ import java.io.Serializable;
 public class ExpoHall implements Serializable {
     private int id;
     private String name;
-    private String city;
+    private String address;
 
     public ExpoHall() {
     }
@@ -26,12 +26,12 @@ public class ExpoHall implements Serializable {
         this.name = name;
     }
 
-    public String getCity() {
-        return city;
+    public String getAddress() {
+        return address;
     }
 
-    public void setCity(String city) {
-        this.city = city;
+    public void setAddress(String city) {
+        this.address = city;
     }
 
     @Override
@@ -43,14 +43,14 @@ public class ExpoHall implements Serializable {
 
         if (id != expoHall.id) return false;
         if (name != null ? !name.equals(expoHall.name) : expoHall.name != null) return false;
-        return city != null ? city.equals(expoHall.city) : expoHall.city == null;
+        return address != null ? address.equals(expoHall.address) : expoHall.address == null;
     }
 
     @Override
     public int hashCode() {
         int result = id;
         result = 31 * result + (name != null ? name.hashCode() : 0);
-        result = 31 * result + (city != null ? city.hashCode() : 0);
+        result = 31 * result + (address != null ? address.hashCode() : 0);
         return result;
     }
 
@@ -58,7 +58,7 @@ public class ExpoHall implements Serializable {
     public String toString() {
         return "ExpoHall{" +
                 "name='" + name + '\'' +
-                ", city='" + city + '\'' +
+                ", city='" + address + '\'' +
                 '}';
     }
 }

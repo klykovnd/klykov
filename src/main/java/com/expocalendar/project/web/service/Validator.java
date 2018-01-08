@@ -14,15 +14,17 @@ public class Validator {
         return (login != null) && (password != null);
     }
 
+
     public static void validateSelectionParameters(Map<String, String> requestParameters) {
+
         requestParameters.putIfAbsent("theme", "all");
         requestParameters.putIfAbsent("hallId", "");
 
-        if (requestParameters.get("dateFrom").equals("")) {
+        if (requestParameters.get("dateFrom") == null || requestParameters.get("dateFrom").equals("")) {
             requestParameters.put("dateFrom", getCurrentDate());
         }
 
-        if (requestParameters.get("dateTo").equals("")) {
+        if (requestParameters.get("dateTo") == null || requestParameters.get("dateTo").equals("")) {
             requestParameters.put("dateTo", getCurrentDate());
         }
     }

@@ -7,11 +7,11 @@ import java.io.IOException;
 
 
 public class SecurityFilter implements Filter {
-    private String indexPath;
+    private String loginPath;
 
     @Override
     public void init(FilterConfig fConfig) {
-        indexPath = fConfig.getInitParameter("MAIN_PATH");
+        loginPath = fConfig.getInitParameter("LOGIN_PATH");
     }
 
     @Override
@@ -20,8 +20,9 @@ public class SecurityFilter implements Filter {
         HttpServletRequest httpRequest = (HttpServletRequest) request;
         HttpServletResponse httpResponse = (HttpServletResponse) response;
 
-        if (httpRequest.getParameter("current") == null) {
-            httpResponse.sendRedirect(httpRequest.getContextPath() + indexPath);
+
+        if (httpRequest.getSession().getAttribute("account") == null) {
+            httpResponse.sendRedirect(httpRequest.getContextPath() + loginPath);
         } else {
             chain.doFilter(request, response);
         }

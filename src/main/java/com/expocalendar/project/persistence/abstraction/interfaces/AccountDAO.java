@@ -11,5 +11,5 @@ public interface AccountDAO {
 
     boolean isExist(String login, String email);
 
-    void saveOrder(Account account, int expoId);
+    void saveOrder(Account account, int expoId, int remainder);
 }

@@ -1,10 +1,13 @@
 package com.expocalendar.project.web.service;
 
 import com.expocalendar.project.entities.Account;
+import com.expocalendar.project.entities.ExpoHall;
 import com.expocalendar.project.entities.Exposition;
 import com.expocalendar.project.persistence.abstraction.DAOFactory;
 import com.expocalendar.project.persistence.abstraction.interfaces.AccountDAO;
+import com.expocalendar.project.persistence.abstraction.interfaces.ExpoHallDAO;
 import com.expocalendar.project.persistence.abstraction.interfaces.ExpositionDAO;
+import com.expocalendar.project.web.management.MessageManager;
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 
@@ -14,33 +17,48 @@ import javax.mail.internet.*;
 
 
 public class OrderService {
-    private final static String MSG_SUBJECT = "Tickets Order";
     private static final Logger LOGGER = Logger.getLogger(OrderService.class);
-    private static final AccountDAO accountDAO = DAOFactory.getDAOFactory(DAOFactory.MYSQL).getAccountDAO();
-    private static final ExpositionDAO expositionDAO = DAOFactory.getDAOFactory(DAOFactory.MYSQL).getExpositionDAO();
-    private static StringBuilder stringBuilder;
+    private static OrderService instance;
+
+    private AccountDAO accountDAO;
+    private ExpositionDAO expositionDAO;
+    private ExpoHallDAO expoHallDAO;
+
 
     private OrderService() {
+        accountDAO = DAOFactory.getDAOFactory(DAOFactory.MYSQL).getAccountDAO();
+        expositionDAO = DAOFactory.getDAOFactory(DAOFactory.MYSQL).getExpositionDAO();
+        expoHallDAO = DAOFactory.getDAOFactory(DAOFactory.MYSQL).getExpoHallDAO();
     }
 
-    public static void processOrder(Account account, int expoId, int ticketNumber) {
-        accountDAO.saveOrder(account, expoId);
+    public static OrderService getInstance() {
+        if (instance == null) {
+            instance = new OrderService();
+        }
+        return instance;
+    }
+
+    public void processOrder(Account account, int expoId, int ticketNumber) {
+
         Exposition exposition = expositionDAO.findExposition(expoId);
-        stringBuilder = new StringBuilder();
-        stringBuilder.append(account);
-        stringBuilder.append(exposition.toString());
-        send(account.getEmail(), MSG_SUBJECT, stringBuilder.toString());
+        ExpoHall expoHall = expoHallDAO.findExpoHall(exposition.getExpoHallId());
+
+        int withdraw = exposition.getTicketPrice() * ticketNumber;
+
+        if (withdraw < account.getBalance()) {
+            int remainder = account.getBalance() - withdraw;
+            accountDAO.saveOrder(account, expoId, remainder);
+            sendMail(account, exposition, expoHall);
+        }
     }
 
-    public static void processOrder(String recipient, int expoId) {
-        Exposition exposition = expositionDAO.findExposition(expoId);
-        stringBuilder = new StringBuilder();
-        stringBuilder.append(exposition.toString());
-        send(recipient, MSG_SUBJECT, stringBuilder.toString());
-    }
+
+    private void sendMail(Account account, Exposition exposition, ExpoHall expoHall) {
+        String msg = String.format(MessageManager.getProperty("message.mail.content"),
+                account.getFirstName(), account.getLastName(), exposition.getTitle(),
+                expoHall.getName(), exposition.getDateFrom(), exposition.getDateTo());
 
 
-    private static void send(String to, String sub, String msg) {
         Properties properties = new Properties();
         properties.put("mail.smtp.host", "smtp.gmail.com");
         properties.put("mail.smtp.port", "587");
@@ -56,8 +74,8 @@ public class OrderService {
         try {
             MimeMessage message = new MimeMessage(session);
             message.setFrom(new InternetAddress("expocalendar2017@gmail.com"));
-            message.addRecipient(Message.RecipientType.TO, new InternetAddress(to));
-            message.setSubject(sub);
+            message.addRecipient(Message.RecipientType.TO, new InternetAddress(account.getEmail()));
+            message.setSubject("Tickets Order");
             message.setText(msg);
             Transport.send(message);
 

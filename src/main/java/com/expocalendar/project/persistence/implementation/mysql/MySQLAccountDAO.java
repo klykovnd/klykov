@@ -9,15 +9,18 @@ import org.apache.log4j.Logger;
 import java.sql.*;
 
 public class MySQLAccountDAO implements AccountDAO {
-    private static MySQLAccountDAO instance;
-    private IDataSourceManager dataSourceManager;
-
     private final static Logger LOGGER = Logger.getLogger(MySQLAccountDAO.class);
 
     private static final String INSERT_ACCOUNT = "INSERT INTO accounts" +
-            "(first_name,last_name,city,login,password,email) " + "VALUES(?,?,?,?,?,?)";
+            "(first_name,last_name,login,password,email) " + "VALUES(?,?,?,?,?)";
     private static final String FIND_ACCOUNT = "SELECT * FROM accounts WHERE login = ? AND password = ?";
     private static final String FIND_LOGIN = "SELECT * FROM accounts WHERE login = ? AND email = ? ";
+    private static final String SAVE_ORDER = "INSERT INTO orders (account_id,expo_id) VALUES (?,?)";
+    private static final String WITHDRAW = "UPDATE accounts SET balance = ? WHERE account_id = ?";
+
+    private static MySQLAccountDAO instance;
+
+    private IDataSourceManager dataSourceManager;
 
     private MySQLAccountDAO() {
         dataSourceManager = MySQLDataSourceManager.getInstance();
@@ -50,19 +53,6 @@ public class MySQLAccountDAO implements AccountDAO {
         return account;
     }
 
-    public void saveOrder(Account account, int expoId) {
-        try (Connection connection = dataSourceManager.createConnection();
-             PreparedStatement ps = connection.prepareStatement("INSERT INTO orders (account_id,expo_id) VALUES (?,?)")) {
-            ps.setInt(1, account.getId());
-            ps.setInt(2, expoId);
-            ps.executeUpdate();
-
-
-        } catch (SQLException e) {
-            LOGGER.log(Level.DEBUG, "SQLException", e);
-        }
-    }
-
     @Override
     public void createAccount(Account account) {
         boolean flag = false;
@@ -91,16 +81,38 @@ public class MySQLAccountDAO implements AccountDAO {
         return exist;
     }
 
+    @Override
+    public void saveOrder(Account account, int expoId, int remainder) {
+        try (Connection connection = dataSourceManager.createConnection();
+             PreparedStatement prepInsert = connection.prepareStatement(SAVE_ORDER);
+             PreparedStatement prepWithdraw = connection.prepareStatement(WITHDRAW)) {
+            connection.setAutoCommit(false);
+
+            prepInsert.setInt(1, account.getId());
+            prepInsert.setInt(2, expoId);
+            prepInsert.executeUpdate();
+
+            prepWithdraw.setInt(1, remainder);
+            prepWithdraw.setInt(2, account.getId());
+            prepWithdraw.executeUpdate();
+
+            connection.commit();
+        } catch (SQLException e) {
+            LOGGER.log(Level.DEBUG, "SQLException", e);
+        }
+    }
+
     private Account processRow(ResultSet rs) throws SQLException {
         Account account = new Account();
         account.setId(rs.getInt(1));
         account.setFirstName(rs.getString(2));
         account.setLastName(rs.getString(3));
-        account.setCity(rs.getString(4));
-        account.setLogin(rs.getString(5));
-        account.setPassword(rs.getString(6));
-        account.setRole(rs.getString(7));
-        account.setEmail(rs.getString(8));
+        account.setLogin(rs.getString(4));
+        account.setPassword(rs.getString(5));
+        account.setRole(rs.getString(6));
+        account.setEmail(rs.getString(7));
+        account.setBalance(rs.getInt(8));
+
         return account;
     }
 
@@ -108,9 +120,8 @@ public class MySQLAccountDAO implements AccountDAO {
     private void prepareForCreation(PreparedStatement ps, Account account) throws SQLException {
         ps.setString(1, account.getFirstName());
         ps.setString(2, account.getLastName());
-        ps.setString(3, account.getCity());
-        ps.setString(4, account.getLogin());
-        ps.setString(5, account.getPassword());
-        ps.setString(6, account.getEmail());
+        ps.setString(3, account.getLogin());
+        ps.setString(4, account.getPassword());
+        ps.setString(5, account.getEmail());
     }
 }

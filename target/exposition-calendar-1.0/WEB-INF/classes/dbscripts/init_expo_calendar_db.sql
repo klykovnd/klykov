@@ -13,7 +13,7 @@ CREATE TABLE `exposition_calendar_db`.`accounts` (
 
 CREATE TABLE `exposition_calendar_db`.`expohalls` (
   `expohall_id` INT NOT NULL AUTO_INCREMENT,
-  `name` VARCHAR(45) NOT NULL,
+  `title` VARCHAR(45) NOT NULL,
   `city` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`expohall_id`));
 

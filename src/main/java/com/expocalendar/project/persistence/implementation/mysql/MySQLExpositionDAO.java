@@ -18,9 +18,9 @@ public class MySQLExpositionDAO implements ExpositionDAO {
     private final static Logger LOGGER = Logger.getLogger(MySQLExpositionDAO.class);
 
     private static final String FIND_EXPOSITION = "SELECT * FROM expositions WHERE exposition_id = ?";
-
+    private static final String FIND_THEMES = "SELECT DISTINCT theme FROM expositions";
     private static final String INSERT_EXPOSITION = "INSERT INTO expositions" +
-            "(exposition_name, date_from, date_to, theme, ticket_price, expohall_id) " + "VALUES(?,?,?,?,?,?)";
+            "(title, date_from, date_to, theme, ticket_price, expohall_id) " + "VALUES(?,?,?,?,?,?)";
 
     private static final String SELECT_BY_DATE = "SELECT * FROM expositions WHERE " +
             "(date_from BETWEEN '%s' AND '%s' OR date_to BETWEEN '%s' AND " +
@@ -47,7 +47,7 @@ public class MySQLExpositionDAO implements ExpositionDAO {
         List<String> themes = new ArrayList<>();
         try (Connection connection = dataSourceManager.createConnection();
              Statement statement = connection.createStatement()) {
-            ResultSet rs = statement.executeQuery("SELECT DISTINCT theme FROM expositions");
+            ResultSet rs = statement.executeQuery(FIND_THEMES);
             while (rs.next()) {
                 themes.add(rs.getString(1));
             }
@@ -90,18 +90,15 @@ public class MySQLExpositionDAO implements ExpositionDAO {
 
 
     @Override
-    public boolean createExposition(Exposition exposition) {
-        boolean flag = false;
+    public void createExposition(Exposition exposition) {
         try (Connection connection = dataSourceManager.createConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(INSERT_EXPOSITION)) {
             prepareForCreation(preparedStatement, exposition);
             preparedStatement.executeUpdate();
-            flag = true;
+
         } catch (SQLException e) {
             LOGGER.log(Level.DEBUG, "SQLException", e);
         }
-
-        return flag;
     }
 
     @Override
@@ -125,18 +122,20 @@ public class MySQLExpositionDAO implements ExpositionDAO {
     private Exposition processRow(ResultSet rs) throws SQLException {
         Exposition exposition = new Exposition();
         exposition.setId(rs.getInt(1));
-        exposition.setName(rs.getString(2));
+        exposition.setTitle(rs.getString(2));
         exposition.setDateFrom(rs.getDate(3));
         exposition.setDateTo(rs.getDate(4));
         exposition.setTheme(rs.getString(5));
         exposition.setTicketPrice(rs.getInt(6));
         exposition.setExpoHallId(rs.getInt(7));
+        exposition.setPicture(rs.getURL(8));
+        exposition.setDescription(rs.getString(9));
         return exposition;
     }
 
 
     private void prepareForCreation(PreparedStatement ps, Exposition exposition) throws SQLException {
-        ps.setString(1, exposition.getName());
+        ps.setString(1, exposition.getTitle());
         ps.setDate(2, new Date(exposition.getDateFrom().getTime()));
         ps.setDate(3, new Date(exposition.getDateTo().getTime()));
         ps.setString(4, exposition.getTheme());
@@ -152,13 +151,13 @@ public class MySQLExpositionDAO implements ExpositionDAO {
 
         stringBuilder.append(String.format(SELECT_BY_DATE, dateFrom, dateTo, dateFrom, dateTo, dateFrom, dateTo));
 
-        if (!parameters.get("theme").equalsIgnoreCase("all")) {
+        if (!parameters.get("theme").equals("all")) {
             stringBuilder.append(String.format(SELECT_BY_THEME, parameters.get("theme")));
         }
         if (!parameters.get("hallId").equalsIgnoreCase("")) {
             stringBuilder.append(String.format(SELECT_BY_HALL, parameters.get("hallId")));
         }
-        stringBuilder.append(" ORDER BY date_to ASC");
+        stringBuilder.append(" ORDER BY date_from ASC");
         LOGGER.log(Level.INFO, stringBuilder.toString());
 
         return stringBuilder.toString();

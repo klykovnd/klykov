@@ -11,6 +11,6 @@
     <title>Error</title>
 </head>
 <body>
-<h1>Something wrong :(</h1>
+<h1>Something wrong</h1>
 </body>
 </html>

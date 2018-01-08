@@ -940,40 +940,45 @@
     <column id="237" parent="232" name="first_name">
       <Position>2</Position>
       <DataType>varchar(45)|0</DataType>
+      <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
     <column id="238" parent="232" name="last_name">
       <Position>3</Position>
       <DataType>varchar(45)|0</DataType>
+      <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="239" parent="232" name="city">
+    <column id="239" parent="232" name="login">
       <Position>4</Position>
       <DataType>varchar(45)|0</DataType>
+      <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="240" parent="232" name="login">
+    <column id="240" parent="232" name="password">
       <Position>5</Position>
       <DataType>varchar(45)|0</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="241" parent="232" name="password">
+    <column id="241" parent="232" name="role">
       <Position>6</Position>
       <DataType>varchar(45)|0</DataType>
       <NotNull>1</NotNull>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <column id="242" parent="232" name="role">
-      <Position>7</Position>
-      <DataType>varchar(45)|0</DataType>
       <DefaultExpression>&apos;user&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="243" parent="232" name="email">
-      <Position>8</Position>
+    <column id="242" parent="232" name="email">
+      <Position>7</Position>
       <DataType>varchar(255)|0</DataType>
       <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="243" parent="232" name="balance">
+      <Position>8</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>&apos;2000&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
     <key id="244" parent="232" name="PRIMARY">
@@ -1012,7 +1017,7 @@
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="250" parent="234" name="exposition_name">
+    <column id="250" parent="234" name="title">
       <Position>2</Position>
       <DataType>varchar(45)|0</DataType>
       <NotNull>1</NotNull>
@@ -1048,18 +1053,38 @@
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="256" parent="234" name="PRIMARY">
+    <column id="256" parent="234" name="picture">
+      <Position>8</Position>
+      <DataType>mediumtext|0</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="257" parent="234" name="description">
+      <Position>9</Position>
+      <DataType>mediumtext|0</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <index id="258" parent="234" name="exposition_id_UNIQUE">
+      <ColNames>exposition_id</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="259" parent="234" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>exposition_id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="257" parent="235" name="account_id">
+    <key id="260" parent="234" name="exposition_id_UNIQUE">
+      <ColNames>exposition_id</ColNames>
+      <UnderlyingIndexName>exposition_id_UNIQUE</UnderlyingIndexName>
+    </key>
+    <column id="261" parent="235" name="account_id">
       <Position>1</Position>
       <DataType>int(11)|0</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="258" parent="235" name="expo_id">
+    <column id="262" parent="235" name="expo_id">
       <Position>2</Position>
       <DataType>int(11)|0</DataType>
       <NotNull>1</NotNull>

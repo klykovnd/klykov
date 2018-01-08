@@ -6,11 +6,11 @@ public class Account implements Serializable {
     private int id;
     private String firstName;
     private String lastName;
-    private String city;
     private String login;
     private String password;
-    private String email;
     private String role;
+    private String email;
+    private int balance;
 
     public Account() {
     }
@@ -37,14 +37,6 @@ public class Account implements Serializable {
 
     public void setLastName(String lastName) {
         this.lastName = lastName;
-    }
-
-    public String getCity() {
-        return city;
-    }
-
-    public void setCity(String city) {
-        this.city = city;
     }
 
     public String getLogin() {
@@ -79,6 +71,14 @@ public class Account implements Serializable {
         this.role = role;
     }
 
+    public int getBalance() {
+        return balance;
+    }
+
+    public void setBalance(int balance) {
+        this.balance = balance;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -89,7 +89,6 @@ public class Account implements Serializable {
         if (id != account.id) return false;
         if (firstName != null ? !firstName.equals(account.firstName) : account.firstName != null) return false;
         if (lastName != null ? !lastName.equals(account.lastName) : account.lastName != null) return false;
-        if (city != null ? !city.equals(account.city) : account.city != null) return false;
         if (login != null ? !login.equals(account.login) : account.login != null) return false;
         if (password != null ? !password.equals(account.password) : account.password != null) return false;
         return email != null ? email.equals(account.email) : account.email == null;
@@ -100,7 +99,6 @@ public class Account implements Serializable {
         int result = id;
         result = 31 * result + (firstName != null ? firstName.hashCode() : 0);
         result = 31 * result + (lastName != null ? lastName.hashCode() : 0);
-        result = 31 * result + (city != null ? city.hashCode() : 0);
         result = 31 * result + (login != null ? login.hashCode() : 0);
         result = 31 * result + (password != null ? password.hashCode() : 0);
         result = 31 * result + (email != null ? email.hashCode() : 0);
@@ -113,7 +111,6 @@ public class Account implements Serializable {
                 "id=" + id +
                 ", firsName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
-                ", city='" + city + '\'' +
                 ", login='" + login + '\'' +
                 ", password='" + password + '\'' +
                 ", email='" + email + '\'' +

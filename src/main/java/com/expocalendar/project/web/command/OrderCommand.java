@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 public class OrderCommand implements ICommand {
+
     @Override
     public String execute(HttpServletRequest request, HttpServletResponse response) {
 
@@ -16,13 +17,9 @@ public class OrderCommand implements ICommand {
 
         Account account = (Account) request.getSession().getAttribute("account");
 
-        if (account != null) {
-            OrderService.processOrder(account, Integer.valueOf(expoId), Integer.valueOf(ticketNumber));
-        } else {
-            String recipient = request.getParameter("recipient");
-            OrderService.processOrder(recipient, Integer.valueOf(expoId));
-        }
+        OrderService.getInstance().processOrder(account, Integer.valueOf(expoId), Integer.valueOf(ticketNumber));
 
         return ConfigurationManager.getProperty("path.page.main");
+
     }
 }
