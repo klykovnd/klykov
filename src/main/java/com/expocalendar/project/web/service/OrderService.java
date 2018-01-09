@@ -1,6 +1,7 @@
 package com.expocalendar.project.web.service;
 
 import com.expocalendar.project.entities.Account;
+import com.expocalendar.project.entities.CreditCard;
 import com.expocalendar.project.entities.ExpoHall;
 import com.expocalendar.project.entities.Exposition;
 import com.expocalendar.project.persistence.abstraction.DAOFactory;
@@ -38,15 +39,19 @@ public class OrderService {
         return instance;
     }
 
-    public void processOrder(Account account, int expoId, int ticketNumber) {
+    public void processOrder(Account account, Map<String, String> requestParameters) {
+
+        int ticketNumber = Integer.valueOf(requestParameters.get("number"));
+        int expoId = Integer.valueOf(requestParameters.get("expoId"));
 
         Exposition exposition = expositionDAO.findExposition(expoId);
         ExpoHall expoHall = expoHallDAO.findExpoHall(exposition.getExpoHallId());
+        CreditCard creditCard = accountDAO.findCard(account);
 
         int withdraw = exposition.getTicketPrice() * ticketNumber;
 
-        if (withdraw < account.getBalance()) {
-            int remainder = account.getBalance() - withdraw;
+        if (creditCard != null && Validator.validCard(requestParameters, creditCard, withdraw)) {
+            int remainder = creditCard.getBalance() - withdraw;
             accountDAO.saveOrder(account, expoId, remainder);
             sendMail(account, exposition, expoHall);
         }

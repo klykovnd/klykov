@@ -35,3 +35,9 @@ CREATE TABLE `exposition_calendar_db`.`orders` (
 
 
 INSERT INTO `exposition_calendar_db`.`accounts` (`account_id`, `first_name`, `last_name`, `city`, `login`, `password`, `role`, `email`) VALUES ('1', 'mykola', 'klykov', 'kiev', 'root', 'root', 'admin', 'klykovnd@gmail.com');
+CREATE TABLE `exposition_calendar_db`.`cards` (
+  `card_id` INT NOT NULL AUTO_INCREMENT,
+  `number` VARCHAR(16) NOT NULL,
+  `cvv` VARCHAR(3) NOT NULL,
+  `balance` INT NOT NULL DEFAULT 2000,
+  PRIMARY KEY (`card_id`));

@@ -10,7 +10,6 @@ public class Account implements Serializable {
     private String password;
     private String role;
     private String email;
-    private int balance;
 
     public Account() {
     }
@@ -69,14 +68,6 @@ public class Account implements Serializable {
 
     public void setRole(String role) {
         this.role = role;
-    }
-
-    public int getBalance() {
-        return balance;
-    }
-
-    public void setBalance(int balance) {
-        this.balance = balance;
     }
 
     @Override

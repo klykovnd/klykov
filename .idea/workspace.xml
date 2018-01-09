@@ -6,156 +6,48 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1ea4f0de-087b-4185-91e0-b3b07b68eb09" name="Default" comment="update">
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/expocalendar/project/web/service/CreationService.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/account.jsp" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin.jsp" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/parts/footer.jsp" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/parts/header.jsp" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/css/materialize.css" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/css/materialize.min.css" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/fonts/roboto/Roboto-Bold.woff" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/fonts/roboto/Roboto-Bold.woff2" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/fonts/roboto/Roboto-Light.woff" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/fonts/roboto/Roboto-Light.woff2" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/fonts/roboto/Roboto-Medium.woff" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/fonts/roboto/Roboto-Medium.woff2" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/fonts/roboto/Roboto-Regular.woff" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/fonts/roboto/Roboto-Regular.woff2" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/fonts/roboto/Roboto-Thin.woff" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/fonts/roboto/Roboto-Thin.woff2" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/js/calendar.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/js/jquery.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/js/materialize.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/js/materialize.min.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/target/classes/com/expocalendar/project/web/service/CreationService.class" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/target/exposition-calendar-1.0/WEB-INF/classes/com/expocalendar/project/web/service/CreationService.class" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/target/exposition-calendar-1.0/WEB-INF/jsp/account.jsp" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/target/exposition-calendar-1.0/WEB-INF/jsp/admin.jsp" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/target/exposition-calendar-1.0/WEB-INF/jsp/parts/footer.jsp" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/target/exposition-calendar-1.0/WEB-INF/jsp/parts/header.jsp" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/target/exposition-calendar-1.0/css/materialize.css" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/target/exposition-calendar-1.0/css/materialize.min.css" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/target/exposition-calendar-1.0/fonts/roboto/Roboto-Bold.woff" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/target/exposition-calendar-1.0/fonts/roboto/Roboto-Bold.woff2" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/target/exposition-calendar-1.0/fonts/roboto/Roboto-Light.woff" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/target/exposition-calendar-1.0/fonts/roboto/Roboto-Light.woff2" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/target/exposition-calendar-1.0/fonts/roboto/Roboto-Medium.woff" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/target/exposition-calendar-1.0/fonts/roboto/Roboto-Medium.woff2" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/target/exposition-calendar-1.0/fonts/roboto/Roboto-Regular.woff" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/target/exposition-calendar-1.0/fonts/roboto/Roboto-Regular.woff2" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/target/exposition-calendar-1.0/fonts/roboto/Roboto-Thin.woff" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/target/exposition-calendar-1.0/fonts/roboto/Roboto-Thin.woff2" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/target/exposition-calendar-1.0/js/calendar.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/target/exposition-calendar-1.0/js/jquery.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/target/exposition-calendar-1.0/js/materialize.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/target/exposition-calendar-1.0/js/materialize.min.js" />
+    <list default="true" id="1ea4f0de-087b-4185-91e0-b3b07b68eb09" name="Default" comment="">
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/expocalendar/project/entities/CreditCard.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/parts/card.jsp" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/8e845d70-0ea0-44a7-b5a4-1f0f4b284307.xml" afterPath="$PROJECT_DIR$/.idea/dataSources/8e845d70-0ea0-44a7-b5a4-1f0f4b284307.xml" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/expocalendar/project/entities/Account.java" afterPath="$PROJECT_DIR$/src/main/java/com/expocalendar/project/entities/Account.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/expocalendar/project/entities/ExpoHall.java" afterPath="$PROJECT_DIR$/src/main/java/com/expocalendar/project/entities/ExpoHall.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/expocalendar/project/entities/Exposition.java" afterPath="$PROJECT_DIR$/src/main/java/com/expocalendar/project/entities/Exposition.java" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/expocalendar/project/persistence/abstraction/interfaces/AccountDAO.java" afterPath="$PROJECT_DIR$/src/main/java/com/expocalendar/project/persistence/abstraction/interfaces/AccountDAO.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/expocalendar/project/persistence/abstraction/interfaces/ExpoHallDAO.java" afterPath="$PROJECT_DIR$/src/main/java/com/expocalendar/project/persistence/abstraction/interfaces/ExpoHallDAO.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/expocalendar/project/persistence/abstraction/interfaces/ExpositionDAO.java" afterPath="$PROJECT_DIR$/src/main/java/com/expocalendar/project/persistence/abstraction/interfaces/ExpositionDAO.java" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/expocalendar/project/persistence/implementation/mysql/MySQLAccountDAO.java" afterPath="$PROJECT_DIR$/src/main/java/com/expocalendar/project/persistence/implementation/mysql/MySQLAccountDAO.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/expocalendar/project/persistence/implementation/mysql/MySQLExpoHallDAO.java" afterPath="$PROJECT_DIR$/src/main/java/com/expocalendar/project/persistence/implementation/mysql/MySQLExpoHallDAO.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/expocalendar/project/persistence/implementation/mysql/MySQLExpositionDAO.java" afterPath="$PROJECT_DIR$/src/main/java/com/expocalendar/project/persistence/implementation/mysql/MySQLExpositionDAO.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/expocalendar/project/web/command/CreationCommand.java" afterPath="$PROJECT_DIR$/src/main/java/com/expocalendar/project/web/command/CreationCommand.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/expocalendar/project/web/command/LoginCommand.java" afterPath="$PROJECT_DIR$/src/main/java/com/expocalendar/project/web/command/LoginCommand.java" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/expocalendar/project/web/command/OrderCommand.java" afterPath="$PROJECT_DIR$/src/main/java/com/expocalendar/project/web/command/OrderCommand.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/expocalendar/project/web/command/RedirectCommand.java" afterPath="$PROJECT_DIR$/src/main/java/com/expocalendar/project/web/command/RedirectCommand.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/expocalendar/project/web/command/RegistrationCommand.java" afterPath="$PROJECT_DIR$/src/main/java/com/expocalendar/project/web/command/RegistrationCommand.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/expocalendar/project/web/command/SelectionCommand.java" afterPath="$PROJECT_DIR$/src/main/java/com/expocalendar/project/web/command/SelectionCommand.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/expocalendar/project/web/controller/ControllerHelper.java" afterPath="$PROJECT_DIR$/src/main/java/com/expocalendar/project/web/controller/ControllerHelper.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/expocalendar/project/web/filter/SecurityFilter.java" afterPath="$PROJECT_DIR$/src/main/java/com/expocalendar/project/web/filter/SecurityFilter.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/expocalendar/project/web/service/LoginService.java" afterPath="$PROJECT_DIR$/src/main/java/com/expocalendar/project/web/service/LoginService.java" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/expocalendar/project/web/service/OrderService.java" afterPath="$PROJECT_DIR$/src/main/java/com/expocalendar/project/web/service/OrderService.java" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/expocalendar/project/web/service/RegistrationService.java" afterPath="$PROJECT_DIR$/src/main/java/com/expocalendar/project/web/service/RegistrationService.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/expocalendar/project/web/service/SelectionService.java" afterPath="$PROJECT_DIR$/src/main/java/com/expocalendar/project/web/service/SelectionService.java" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/expocalendar/project/web/service/Validator.java" afterPath="$PROJECT_DIR$/src/main/java/com/expocalendar/project/web/service/Validator.java" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/dbscripts/init_expo_calendar_db.sql" afterPath="$PROJECT_DIR$/src/main/resources/dbscripts/init_expo_calendar_db.sql" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/messages.properties" afterPath="$PROJECT_DIR$/src/main/resources/messages.properties" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/pagecontent_en.properties" afterPath="$PROJECT_DIR$/src/main/resources/pagecontent_en.properties" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/pagecontent_ru.properties" afterPath="$PROJECT_DIR$/src/main/resources/pagecontent_ru.properties" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/pages.properties" afterPath="$PROJECT_DIR$/src/main/resources/pages.properties" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/error.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/error.jsp" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/footer.jsp" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/header.jsp" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/login.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/login.jsp" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/main.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/main.jsp" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/order.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/order.jsp" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/registration.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/registration.jsp" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/footer.JPG" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/index.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/index.jsp" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/expocalendar/project/entities/Account.class" afterPath="$PROJECT_DIR$/target/classes/com/expocalendar/project/entities/Account.class" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/expocalendar/project/entities/ExpoHall.class" afterPath="$PROJECT_DIR$/target/classes/com/expocalendar/project/entities/ExpoHall.class" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/expocalendar/project/entities/Exposition.class" afterPath="$PROJECT_DIR$/target/classes/com/expocalendar/project/entities/Exposition.class" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/expocalendar/project/persistence/abstraction/interfaces/AccountDAO.class" afterPath="$PROJECT_DIR$/target/classes/com/expocalendar/project/persistence/abstraction/interfaces/AccountDAO.class" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/expocalendar/project/persistence/abstraction/interfaces/ExpoHallDAO.class" afterPath="$PROJECT_DIR$/target/classes/com/expocalendar/project/persistence/abstraction/interfaces/ExpoHallDAO.class" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/expocalendar/project/persistence/abstraction/interfaces/ExpositionDAO.class" afterPath="$PROJECT_DIR$/target/classes/com/expocalendar/project/persistence/abstraction/interfaces/ExpositionDAO.class" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/expocalendar/project/persistence/implementation/mysql/MySQLAccountDAO.class" afterPath="$PROJECT_DIR$/target/classes/com/expocalendar/project/persistence/implementation/mysql/MySQLAccountDAO.class" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/expocalendar/project/persistence/implementation/mysql/MySQLExpoHallDAO.class" afterPath="$PROJECT_DIR$/target/classes/com/expocalendar/project/persistence/implementation/mysql/MySQLExpoHallDAO.class" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/expocalendar/project/persistence/implementation/mysql/MySQLExpositionDAO.class" afterPath="$PROJECT_DIR$/target/classes/com/expocalendar/project/persistence/implementation/mysql/MySQLExpositionDAO.class" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/expocalendar/project/web/command/CreationCommand.class" afterPath="$PROJECT_DIR$/target/classes/com/expocalendar/project/web/command/CreationCommand.class" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/expocalendar/project/web/command/LoginCommand.class" afterPath="$PROJECT_DIR$/target/classes/com/expocalendar/project/web/command/LoginCommand.class" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/expocalendar/project/web/command/OrderCommand.class" afterPath="$PROJECT_DIR$/target/classes/com/expocalendar/project/web/command/OrderCommand.class" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/expocalendar/project/web/command/RedirectCommand.class" afterPath="$PROJECT_DIR$/target/classes/com/expocalendar/project/web/command/RedirectCommand.class" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/expocalendar/project/web/command/RegistrationCommand.class" afterPath="$PROJECT_DIR$/target/classes/com/expocalendar/project/web/command/RegistrationCommand.class" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/expocalendar/project/web/command/SelectionCommand.class" afterPath="$PROJECT_DIR$/target/classes/com/expocalendar/project/web/command/SelectionCommand.class" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/expocalendar/project/web/controller/ControllerHelper.class" afterPath="$PROJECT_DIR$/target/classes/com/expocalendar/project/web/controller/ControllerHelper.class" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/expocalendar/project/web/filter/SecurityFilter.class" afterPath="$PROJECT_DIR$/target/classes/com/expocalendar/project/web/filter/SecurityFilter.class" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/expocalendar/project/web/service/LoginService.class" afterPath="$PROJECT_DIR$/target/classes/com/expocalendar/project/web/service/LoginService.class" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/expocalendar/project/web/service/OrderService$1.class" afterPath="$PROJECT_DIR$/target/classes/com/expocalendar/project/web/service/OrderService$1.class" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/expocalendar/project/web/service/OrderService.class" afterPath="$PROJECT_DIR$/target/classes/com/expocalendar/project/web/service/OrderService.class" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/expocalendar/project/web/service/RegistrationService.class" afterPath="$PROJECT_DIR$/target/classes/com/expocalendar/project/web/service/RegistrationService.class" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/expocalendar/project/web/service/SelectionService.class" afterPath="$PROJECT_DIR$/target/classes/com/expocalendar/project/web/service/SelectionService.class" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/expocalendar/project/web/service/Validator.class" afterPath="$PROJECT_DIR$/target/classes/com/expocalendar/project/web/service/Validator.class" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/css/calendar_styles.css" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/fonts/roboto/Roboto-Bold.woff" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/fonts/roboto/Roboto-Bold.woff2" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/fonts/roboto/Roboto-Light.woff" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/fonts/roboto/Roboto-Light.woff2" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/fonts/roboto/Roboto-Medium.woff" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/fonts/roboto/Roboto-Medium.woff2" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/fonts/roboto/Roboto-Regular.woff" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/fonts/roboto/Roboto-Regular.woff2" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/fonts/roboto/Roboto-Thin.woff" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/fonts/roboto/Roboto-Thin.woff2" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/js/jquery.js" afterPath="$PROJECT_DIR$/src/main/webapp/css/card_dummy.css" />
       <change beforePath="$PROJECT_DIR$/target/classes/dbscripts/init_expo_calendar_db.sql" afterPath="$PROJECT_DIR$/target/classes/dbscripts/init_expo_calendar_db.sql" />
-      <change beforePath="$PROJECT_DIR$/target/classes/messages.properties" afterPath="$PROJECT_DIR$/target/classes/messages.properties" />
-      <change beforePath="$PROJECT_DIR$/target/classes/pagecontent_en.properties" afterPath="$PROJECT_DIR$/target/classes/pagecontent_en.properties" />
-      <change beforePath="$PROJECT_DIR$/target/classes/pagecontent_ru.properties" afterPath="$PROJECT_DIR$/target/classes/pagecontent_ru.properties" />
-      <change beforePath="$PROJECT_DIR$/target/classes/pages.properties" afterPath="$PROJECT_DIR$/target/classes/pages.properties" />
-      <change beforePath="$PROJECT_DIR$/target/exposition-calendar-1.0/WEB-INF/classes/com/expocalendar/project/entities/Account.class" afterPath="$PROJECT_DIR$/target/exposition-calendar-1.0/WEB-INF/classes/com/expocalendar/project/entities/Account.class" />
-      <change beforePath="$PROJECT_DIR$/target/exposition-calendar-1.0/WEB-INF/classes/com/expocalendar/project/entities/ExpoHall.class" afterPath="$PROJECT_DIR$/target/exposition-calendar-1.0/WEB-INF/classes/com/expocalendar/project/entities/ExpoHall.class" />
-      <change beforePath="$PROJECT_DIR$/target/exposition-calendar-1.0/WEB-INF/classes/com/expocalendar/project/entities/Exposition.class" afterPath="$PROJECT_DIR$/target/exposition-calendar-1.0/WEB-INF/classes/com/expocalendar/project/entities/Exposition.class" />
-      <change beforePath="$PROJECT_DIR$/target/exposition-calendar-1.0/WEB-INF/classes/com/expocalendar/project/persistence/abstraction/interfaces/AccountDAO.class" afterPath="$PROJECT_DIR$/target/exposition-calendar-1.0/WEB-INF/classes/com/expocalendar/project/persistence/abstraction/interfaces/AccountDAO.class" />
-      <change beforePath="$PROJECT_DIR$/target/exposition-calendar-1.0/WEB-INF/classes/com/expocalendar/project/persistence/abstraction/interfaces/ExpoHallDAO.class" afterPath="$PROJECT_DIR$/target/exposition-calendar-1.0/WEB-INF/classes/com/expocalendar/project/persistence/abstraction/interfaces/ExpoHallDAO.class" />
-      <change beforePath="$PROJECT_DIR$/target/exposition-calendar-1.0/WEB-INF/classes/com/expocalendar/project/persistence/abstraction/interfaces/ExpositionDAO.class" afterPath="$PROJECT_DIR$/target/exposition-calendar-1.0/WEB-INF/classes/com/expocalendar/project/persistence/abstraction/interfaces/ExpositionDAO.class" />
-      <change beforePath="$PROJECT_DIR$/target/exposition-calendar-1.0/WEB-INF/classes/com/expocalendar/project/persistence/implementation/mysql/MySQLAccountDAO.class" afterPath="$PROJECT_DIR$/target/exposition-calendar-1.0/WEB-INF/classes/com/expocalendar/project/persistence/implementation/mysql/MySQLAccountDAO.class" />
-      <change beforePath="$PROJECT_DIR$/target/exposition-calendar-1.0/WEB-INF/classes/com/expocalendar/project/persistence/implementation/mysql/MySQLExpoHallDAO.class" afterPath="$PROJECT_DIR$/target/exposition-calendar-1.0/WEB-INF/classes/com/expocalendar/project/persistence/implementation/mysql/MySQLExpoHallDAO.class" />
-      <change beforePath="$PROJECT_DIR$/target/exposition-calendar-1.0/WEB-INF/classes/com/expocalendar/project/persistence/implementation/mysql/MySQLExpositionDAO.class" afterPath="$PROJECT_DIR$/target/exposition-calendar-1.0/WEB-INF/classes/com/expocalendar/project/persistence/implementation/mysql/MySQLExpositionDAO.class" />
-      <change beforePath="$PROJECT_DIR$/target/exposition-calendar-1.0/WEB-INF/classes/com/expocalendar/project/web/command/CreationCommand.class" afterPath="$PROJECT_DIR$/target/exposition-calendar-1.0/WEB-INF/classes/com/expocalendar/project/web/command/CreationCommand.class" />
-      <change beforePath="$PROJECT_DIR$/target/exposition-calendar-1.0/WEB-INF/classes/com/expocalendar/project/web/command/LoginCommand.class" afterPath="$PROJECT_DIR$/target/exposition-calendar-1.0/WEB-INF/classes/com/expocalendar/project/web/command/LoginCommand.class" />
-      <change beforePath="$PROJECT_DIR$/target/exposition-calendar-1.0/WEB-INF/classes/com/expocalendar/project/web/command/OrderCommand.class" afterPath="$PROJECT_DIR$/target/exposition-calendar-1.0/WEB-INF/classes/com/expocalendar/project/web/command/OrderCommand.class" />
-      <change beforePath="$PROJECT_DIR$/target/exposition-calendar-1.0/WEB-INF/classes/com/expocalendar/project/web/command/RedirectCommand.class" afterPath="$PROJECT_DIR$/target/exposition-calendar-1.0/WEB-INF/classes/com/expocalendar/project/web/command/RedirectCommand.class" />
-      <change beforePath="$PROJECT_DIR$/target/exposition-calendar-1.0/WEB-INF/classes/com/expocalendar/project/web/command/RegistrationCommand.class" afterPath="$PROJECT_DIR$/target/exposition-calendar-1.0/WEB-INF/classes/com/expocalendar/project/web/command/RegistrationCommand.class" />
-      <change beforePath="$PROJECT_DIR$/target/exposition-calendar-1.0/WEB-INF/classes/com/expocalendar/project/web/command/SelectionCommand.class" afterPath="$PROJECT_DIR$/target/exposition-calendar-1.0/WEB-INF/classes/com/expocalendar/project/web/command/SelectionCommand.class" />
-      <change beforePath="$PROJECT_DIR$/target/exposition-calendar-1.0/WEB-INF/classes/com/expocalendar/project/web/controller/ControllerHelper.class" afterPath="$PROJECT_DIR$/target/exposition-calendar-1.0/WEB-INF/classes/com/expocalendar/project/web/controller/ControllerHelper.class" />
-      <change beforePath="$PROJECT_DIR$/target/exposition-calendar-1.0/WEB-INF/classes/com/expocalendar/project/web/filter/SecurityFilter.class" afterPath="$PROJECT_DIR$/target/exposition-calendar-1.0/WEB-INF/classes/com/expocalendar/project/web/filter/SecurityFilter.class" />
-      <change beforePath="$PROJECT_DIR$/target/exposition-calendar-1.0/WEB-INF/classes/com/expocalendar/project/web/service/LoginService.class" afterPath="$PROJECT_DIR$/target/exposition-calendar-1.0/WEB-INF/classes/com/expocalendar/project/web/service/LoginService.class" />
-      <change beforePath="$PROJECT_DIR$/target/exposition-calendar-1.0/WEB-INF/classes/com/expocalendar/project/web/service/OrderService$1.class" afterPath="$PROJECT_DIR$/target/exposition-calendar-1.0/WEB-INF/classes/com/expocalendar/project/web/service/OrderService$1.class" />
-      <change beforePath="$PROJECT_DIR$/target/exposition-calendar-1.0/WEB-INF/classes/com/expocalendar/project/web/service/OrderService.class" afterPath="$PROJECT_DIR$/target/exposition-calendar-1.0/WEB-INF/classes/com/expocalendar/project/web/service/OrderService.class" />
-      <change beforePath="$PROJECT_DIR$/target/exposition-calendar-1.0/WEB-INF/classes/com/expocalendar/project/web/service/RegistrationService.class" afterPath="$PROJECT_DIR$/target/exposition-calendar-1.0/WEB-INF/classes/com/expocalendar/project/web/service/RegistrationService.class" />
-      <change beforePath="$PROJECT_DIR$/target/exposition-calendar-1.0/WEB-INF/classes/com/expocalendar/project/web/service/SelectionService.class" afterPath="$PROJECT_DIR$/target/exposition-calendar-1.0/WEB-INF/classes/com/expocalendar/project/web/service/SelectionService.class" />
-      <change beforePath="$PROJECT_DIR$/target/exposition-calendar-1.0/WEB-INF/classes/com/expocalendar/project/web/service/Validator.class" afterPath="$PROJECT_DIR$/target/exposition-calendar-1.0/WEB-INF/classes/com/expocalendar/project/web/service/Validator.class" />
       <change beforePath="$PROJECT_DIR$/target/exposition-calendar-1.0/WEB-INF/classes/dbscripts/init_expo_calendar_db.sql" afterPath="$PROJECT_DIR$/target/exposition-calendar-1.0/WEB-INF/classes/dbscripts/init_expo_calendar_db.sql" />
-      <change beforePath="$PROJECT_DIR$/target/exposition-calendar-1.0/WEB-INF/classes/messages.properties" afterPath="$PROJECT_DIR$/target/exposition-calendar-1.0/WEB-INF/classes/messages.properties" />
-      <change beforePath="$PROJECT_DIR$/target/exposition-calendar-1.0/WEB-INF/classes/pagecontent_en.properties" afterPath="$PROJECT_DIR$/target/exposition-calendar-1.0/WEB-INF/classes/pagecontent_en.properties" />
-      <change beforePath="$PROJECT_DIR$/target/exposition-calendar-1.0/WEB-INF/classes/pagecontent_ru.properties" afterPath="$PROJECT_DIR$/target/exposition-calendar-1.0/WEB-INF/classes/pagecontent_ru.properties" />
-      <change beforePath="$PROJECT_DIR$/target/exposition-calendar-1.0/WEB-INF/classes/pages.properties" afterPath="$PROJECT_DIR$/target/exposition-calendar-1.0/WEB-INF/classes/pages.properties" />
-      <change beforePath="$PROJECT_DIR$/target/exposition-calendar-1.0/WEB-INF/jsp/error.jsp" afterPath="$PROJECT_DIR$/target/exposition-calendar-1.0/WEB-INF/jsp/error.jsp" />
-      <change beforePath="$PROJECT_DIR$/target/exposition-calendar-1.0/WEB-INF/jsp/footer.jsp" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/target/exposition-calendar-1.0/WEB-INF/jsp/header.jsp" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/target/exposition-calendar-1.0/WEB-INF/jsp/login.jsp" afterPath="$PROJECT_DIR$/target/exposition-calendar-1.0/WEB-INF/jsp/login.jsp" />
-      <change beforePath="$PROJECT_DIR$/target/exposition-calendar-1.0/WEB-INF/jsp/main.jsp" afterPath="$PROJECT_DIR$/target/exposition-calendar-1.0/WEB-INF/jsp/main.jsp" />
       <change beforePath="$PROJECT_DIR$/target/exposition-calendar-1.0/WEB-INF/jsp/order.jsp" afterPath="$PROJECT_DIR$/target/exposition-calendar-1.0/WEB-INF/jsp/order.jsp" />
-      <change beforePath="$PROJECT_DIR$/target/exposition-calendar-1.0/WEB-INF/jsp/registration.jsp" afterPath="$PROJECT_DIR$/target/exposition-calendar-1.0/WEB-INF/jsp/registration.jsp" />
-      <change beforePath="$PROJECT_DIR$/target/exposition-calendar-1.0/WEB-INF/web.xml" afterPath="$PROJECT_DIR$/target/exposition-calendar-1.0/WEB-INF/web.xml" />
-      <change beforePath="$PROJECT_DIR$/target/exposition-calendar-1.0/footer.JPG" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/target/exposition-calendar-1.0/index.jsp" afterPath="$PROJECT_DIR$/target/exposition-calendar-1.0/index.jsp" />
+      <change beforePath="$PROJECT_DIR$/target/exposition-calendar-1.0/css/calendar_styles.css" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/exposition-calendar-1.0/fonts/roboto/Roboto-Bold.woff" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/exposition-calendar-1.0/fonts/roboto/Roboto-Bold.woff2" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/exposition-calendar-1.0/fonts/roboto/Roboto-Light.woff" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/exposition-calendar-1.0/fonts/roboto/Roboto-Light.woff2" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/exposition-calendar-1.0/fonts/roboto/Roboto-Medium.woff" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/exposition-calendar-1.0/fonts/roboto/Roboto-Medium.woff2" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/exposition-calendar-1.0/fonts/roboto/Roboto-Regular.woff" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/exposition-calendar-1.0/fonts/roboto/Roboto-Regular.woff2" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/exposition-calendar-1.0/fonts/roboto/Roboto-Thin.woff" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/exposition-calendar-1.0/fonts/roboto/Roboto-Thin.woff2" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/exposition-calendar-1.0/js/jquery.js" afterPath="" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -196,104 +88,149 @@
         <item name="exposition_calendar_db@localhost" type="feb32156:DbDataSourceImpl" />
         <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
         <item name="exposition_calendar_db: schema" type="c314c289:MysqlImplModel$Schema" />
-        <item name="accounts: table" type="98d5ac3d:MysqlImplModel$Table" />
-      </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="exposition_calendar_db@localhost" type="feb32156:DbDataSourceImpl" />
-        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="exposition_calendar_db: schema" type="c314c289:MysqlImplModel$Schema" />
-        <item name="expositions: table" type="98d5ac3d:MysqlImplModel$Table" />
+        <item name="cards: table" type="98d5ac3d:MysqlImplModel$Table" />
       </path>
     </expand>
     <select />
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="RegistrationCommand.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/expocalendar/project/web/command/RegistrationCommand.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="33" column="1" lean-forward="true" selection-start-line="33" selection-start-column="1" selection-end-line="33" selection-end-column="1" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="registration.jsp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/registration.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="948">
-              <caret line="101" column="0" lean-forward="true" selection-start-line="101" selection-start-column="0" selection-end-line="101" selection-end-column="0" />
+            <state relative-caret-position="341">
+              <caret line="133" column="45" lean-forward="false" selection-start-line="133" selection-start-column="45" selection-end-line="133" selection-end-column="45" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="account.jsp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/account.jsp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="438">
-              <caret line="29" column="24" lean-forward="true" selection-start-line="29" selection-start-column="24" selection-end-line="29" selection-end-column="24" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="RedirectCommand.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/expocalendar/project/web/command/RedirectCommand.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="540">
-              <caret line="41" column="73" lean-forward="false" selection-start-line="41" selection-start-column="73" selection-end-line="41" selection-end-column="73" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="header.jsp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/parts/header.jsp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="302">
-              <caret line="27" column="47" lean-forward="true" selection-start-line="27" selection-start-column="47" selection-end-line="27" selection-end-column="47" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="web.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
-              <caret line="5" column="4" lean-forward="false" selection-start-line="5" selection-start-column="4" selection-end-line="5" selection-end-column="4" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CreationService.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/expocalendar/project/web/service/CreationService.java">
+      <file leaf-file-name="order.jsp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/order.jsp">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="833">
-              <caret line="49" column="42" lean-forward="true" selection-start-line="49" selection-start-column="42" selection-end-line="49" selection-end-column="42" />
+              <caret line="91" column="26" lean-forward="true" selection-start-line="91" selection-start-column="26" selection-end-line="91" selection-end-column="26" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CreditCard.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/expocalendar/project/entities/CreditCard.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="578">
+              <caret line="46" column="0" lean-forward="false" selection-start-line="46" selection-start-column="0" selection-end-line="46" selection-end-column="0" />
               <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#490#491#0" expanded="true" />
-                <element signature="e#583#584#0" expanded="true" />
+                <element signature="e#907#908#0" expanded="true" />
+                <element signature="e#932#933#0" expanded="true" />
+                <element signature="e#965#966#0" expanded="true" />
+                <element signature="e#993#994#0" expanded="true" />
+                <element signature="e#1024#1025#0" expanded="true" />
+                <element signature="e#1054#1055#0" expanded="true" />
+                <element signature="e#1097#1098#0" expanded="true" />
+                <element signature="e#1135#1136#0" expanded="true" />
+                <element signature="e#1168#1169#0" expanded="true" />
+                <element signature="e#1197#1198#0" expanded="true" />
+                <element signature="e#1241#1242#0" expanded="true" />
+                <element signature="e#1277#1278#0" expanded="true" />
+                <element signature="e#1307#1308#0" expanded="true" />
+                <element signature="e#1333#1334#0" expanded="true" />
+                <element signature="e#1371#1372#0" expanded="true" />
+                <element signature="e#1401#1402#0" expanded="true" />
+                <element signature="e#1434#1435#0" expanded="true" />
+                <element signature="e#1463#1464#0" expanded="true" />
+                <element signature="e#1507#1508#0" expanded="true" />
+                <element signature="e#1543#1544#0" expanded="true" />
+                <element signature="e#1575#1576#0" expanded="true" />
+                <element signature="e#1603#1604#0" expanded="true" />
+                <element signature="e#1645#1646#0" expanded="true" />
+                <element signature="e#1679#1680#0" expanded="true" />
+                <element signature="e#1710#1711#0" expanded="true" />
+                <element signature="e#1737#1738#0" expanded="true" />
+                <element signature="e#1777#1778#0" expanded="true" />
+                <element signature="e#1809#1810#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="admin.jsp" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin.jsp">
+      <file leaf-file-name="RegistrationService.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/expocalendar/project/web/service/RegistrationService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-140">
-              <caret line="17" column="39" lean-forward="true" selection-start-line="17" selection-start-column="39" selection-end-line="17" selection-end-column="39" />
+            <state relative-caret-position="698">
+              <caret line="47" column="52" lean-forward="false" selection-start-line="47" selection-start-column="52" selection-end-line="47" selection-end-column="52" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#476#477#0" expanded="true" />
+                <element signature="e#563#564#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Account.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/expocalendar/project/entities/Account.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="561">
+              <caret line="70" column="5" lean-forward="false" selection-start-line="70" selection-start-column="5" selection-end-line="70" selection-end-column="5" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AccountDAO.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/expocalendar/project/persistence/abstraction/interfaces/AccountDAO.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="153">
+              <caret line="10" column="61" lean-forward="false" selection-start-line="10" selection-start-column="61" selection-end-line="10" selection-end-column="61" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="OrderCommand.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/expocalendar/project/web/command/OrderCommand.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="357">
+              <caret line="21" column="66" lean-forward="false" selection-start-line="21" selection-start-column="66" selection-end-line="21" selection-end-column="66" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Validator.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/expocalendar/project/web/service/Validator.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="612">
+              <caret line="43" column="79" lean-forward="false" selection-start-line="43" selection-start-column="79" selection-end-line="43" selection-end-column="79" />
+              <folding>
+                <element signature="e#472#473#0" expanded="true" />
+                <element signature="e#532#533#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MySQLAccountDAO.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/expocalendar/project/persistence/implementation/mysql/MySQLAccountDAO.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="392">
+              <caret line="73" column="32" lean-forward="false" selection-start-line="73" selection-start-column="32" selection-end-line="73" selection-end-column="32" />
+              <folding>
+                <element signature="e#1465#1466#0" expanded="true" />
+                <element signature="e#1537#1538#0" expanded="true" />
+                <marker date="1515457129744" expanded="true" signature="607:710" ph="INSERT INTO accounts... " />
+                <marker date="1515457129744" expanded="true" signature="760:847" ph="INSERT INTO cards... " />
+                <marker date="1515457129744" expanded="true" signature="898:953" ph="SELECT * FRO... accounts" />
+                <marker date="1515457129744" expanded="true" signature="1002:1050" ph="SELECT * FRO... accounts" />
+                <marker date="1515457129744" expanded="true" signature="1002:1054" ph="SELECT * FRO... accounts" />
+                <marker date="1515457129744" expanded="true" signature="1104:1156" ph="INSERT INTO orders... " />
+                <marker date="1515457129744" expanded="true" signature="1203:1249" ph="UPDATE accounts... " />
+                <marker date="1515457129744" expanded="true" signature="1297:1333" ph="SELECT * FRO... accounts" />
+                <marker date="1515457129744" expanded="true" signature="1297:1334" ph="SELECT * FRO... cards" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -304,11 +241,12 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Enum" />
-        <option value="Interface" />
         <option value="HTML File" />
         <option value="JavaScript File" />
         <option value="Class" />
+        <option value="CSS File" />
         <option value="Jsp File" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
@@ -329,14 +267,7 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/com/expocalendar/project/web/service/MailService.java" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/calendar.js" />
-        <option value="$PROJECT_DIR$/src/main/webapp/calendar.js" />
-        <option value="$PROJECT_DIR$/src/main/webapp/js/jquery-3.2.1.min.js" />
-        <option value="$PROJECT_DIR$/src/main/webapp/js/jquery.js" />
-        <option value="$PROJECT_DIR$/src/main/webapp/index.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/js/calendar.js" />
-        <option value="$PROJECT_DIR$/src/main/java/com/expocalendar/project/web/service/Validator.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/expocalendar/project/persistence/abstraction/interfaces/ExpositionDAO.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/expocalendar/project/entities/Exposition.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/META-INF/context.xml" />
@@ -349,12 +280,6 @@
         <option value="$PROJECT_DIR$/src/main/resources/messages.properties" />
         <option value="$PROJECT_DIR$/src/main/java/com/expocalendar/project/web/service/LoginService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/expocalendar/project/web/service/SelectionService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/expocalendar/project/web/command/OrderCommand.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/expocalendar/project/web/service/RegistrationService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/expocalendar/project/entities/Account.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/expocalendar/project/persistence/abstraction/interfaces/AccountDAO.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/expocalendar/project/web/service/OrderService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/expocalendar/project/persistence/implementation/mysql/MySQLAccountDAO.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/expocalendar/project/persistence/implementation/mysql/MySQLExpositionDAO.java" />
         <option value="$PROJECT_DIR$/src/main/resources/pagecontent_ru.properties" />
         <option value="$PROJECT_DIR$/src/main/webapp/registration.jsp" />
@@ -365,8 +290,6 @@
         <option value="$PROJECT_DIR$/src/main/resources/pagecontent_en.properties" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/main.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/footer.jsp" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/registration.jsp" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/order.jsp" />
         <option value="$PROJECT_DIR$/src/main/java/com/expocalendar/project/web/service/ExpositionService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/expocalendar/project/web/command/CreationCommand.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/expocalendar/project/web/controller/ControllerHelper.java" />
@@ -380,6 +303,21 @@
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/parts/header.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" />
         <option value="$PROJECT_DIR$/src/main/resources/pages.properties" />
+        <option value="$PROJECT_DIR$/src/main/resources/dbscripts/init_expo_calendar_db.sql" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/parts/card.jsp" />
+        <option value="$PROJECT_DIR$/src/main/java/com/expocalendar/project/entities/Account.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/expocalendar/project/persistence/abstraction/interfaces/CrediCardDAO.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/expocalendar/project/persistence/abstraction/interfaces/CreditCardDAO.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/expocalendar/project/entities/CreditCard.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/expocalendar/project/web/command/OrderCommand.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/order.jsp" />
+        <option value="$PROJECT_DIR$/src/main/java/com/expocalendar/project/web/service/Validator.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/expocalendar/project/web/service/OrderService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/expocalendar/project/persistence/abstraction/interfaces/AccountDAO.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/expocalendar/project/persistence/implementation/mysql/MySQLAccountDAO.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/registration.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/css/card_dummy.css" />
+        <option value="$PROJECT_DIR$/src/main/java/com/expocalendar/project/web/service/RegistrationService.java" />
       </list>
     </option>
   </component>
@@ -396,11 +334,16 @@
     <option name="FILTER_DEBUG" value="true" />
     <option name="CUSTOM_FILTER" />
   </component>
-  <component name="ProjectFrameBounds" extendedState="1">
-    <option name="x" value="148" />
-    <option name="y" value="156" />
-    <option name="width" value="1265" />
-    <option name="height" value="713" />
+  <component name="MavenProjectNavigator">
+    <treeState>
+      <expand />
+      <select />
+    </treeState>
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="19" />
+    <option name="width" value="1604" />
+    <option name="height" value="876" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -827,9 +770,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="PackagesPane" />
-      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -983,6 +924,14 @@
               <item name="final_project" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="dbscripts" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="expocalendar" type="b2602c69:ProjectViewProjectNode" />
+              <item name="final_project" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="webapp" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -1001,14 +950,6 @@
               <item name="webapp" type="462c0819:PsiDirectoryNode" />
               <item name="css" type="462c0819:PsiDirectoryNode" />
               <item name="materialize.css" type="620a8d5e:NestingTreeNode" />
-            </path>
-            <path>
-              <item name="expocalendar" type="b2602c69:ProjectViewProjectNode" />
-              <item name="final_project" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="webapp" type="462c0819:PsiDirectoryNode" />
-              <item name="fonts" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="expocalendar" type="b2602c69:ProjectViewProjectNode" />
@@ -1062,7 +1003,9 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
       <pane id="AndroidView" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -1075,6 +1018,7 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../bootstraptest" />
     <property name="com.intellij.database.dataSource.DataSourceTemplate" value="MySQL" />
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="list.type.of.created.stylesheet" value="CSS" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -1315,7 +1259,8 @@
       <workItem from="1515275747955" duration="9171000" />
       <workItem from="1515329245108" duration="11160000" />
       <workItem from="1515349455977" duration="22710000" />
-      <workItem from="1515413221555" duration="8611000" />
+      <workItem from="1515413221555" duration="9351000" />
+      <workItem from="1515442680008" duration="16981000" />
     </task>
     <task id="LOCAL-00001" summary="update">
       <created>1513521849638</created>
@@ -1510,7 +1455,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="455404000" />
+    <option name="totallyTimeSpent" value="473125000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1522,30 +1467,30 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="148" y="156" width="1265" height="713" extended-state="1" />
+    <frame x="-8" y="-8" width="1616" height="876" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.27284947" sideWeight="0.09383033" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3293011" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32969153" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.19794345" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15167095" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39919356" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3293011" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24596775" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24596775" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3293011" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.19758065" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.5989673" sideWeight="0.90616965" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.19892474" sideWeight="0.90616965" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.60349464" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2954357" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21529563" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="true" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3293011" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -1635,91 +1580,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/js/calendar.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="25" lean-forward="false" selection-start-line="3" selection-start-column="25" selection-end-line="3" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/main.jsp" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/expocalendar/project/persistence/abstraction/interfaces/ExpoHallDAO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="8" column="34" lean-forward="false" selection-start-line="8" selection-start-column="34" selection-end-line="8" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/expocalendar/project/persistence/abstraction/interfaces/ExpositionDAO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="9" column="51" lean-forward="true" selection-start-line="9" selection-start-column="51" selection-end-line="9" selection-end-column="51" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/expocalendar/project/web/filter/SecurityFilter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="233">
-          <caret line="25" column="16" lean-forward="true" selection-start-line="25" selection-start-column="16" selection-end-line="25" selection-end-column="16" />
-          <folding>
-            <element signature="e#329#330#0" expanded="false" />
-            <element signature="e#395#396#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/messages.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="140" lean-forward="true" selection-start-line="6" selection-start-column="140" selection-end-line="6" selection-end-column="140" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/footer.JPG">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/expocalendar/project/persistence/abstraction/interfaces/AccountDAO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="13" column="61" lean-forward="false" selection-start-line="13" selection-start-column="61" selection-end-line="13" selection-end-column="61" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/expocalendar/project/web/service/OrderService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="459">
-          <caret line="33" column="4" lean-forward="false" selection-start-line="33" selection-start-column="4" selection-end-line="33" selection-end-column="4" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#2645#2858#0" expanded="false" />
-            <element signature="e#2857#2858#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/expocalendar/project/entities/Account.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="634">
-          <caret line="73" column="29" lean-forward="false" selection-start-line="73" selection-start-column="29" selection-end-line="73" selection-end-column="29" />
-          <folding>
-            <element signature="e#1402#1403#0" expanded="false" />
-            <element signature="e#1445#1446#0" expanded="false" />
-            <element signature="e#1483#1484#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/expocalendar/project/entities/ExpoHall.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="36" column="13" lean-forward="true" selection-start-line="36" selection-start-column="13" selection-end-line="36" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1745,30 +1605,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/old.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1224">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/registration.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="663">
-          <caret line="39" column="18" lean-forward="true" selection-start-line="39" selection-start-column="18" selection-end-line="39" selection-end-column="18" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/header.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="44" column="29" lean-forward="true" selection-start-line="44" selection-start-column="29" selection-end-line="44" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/old.jsp" />
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/registration.jsp" />
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/header.jsp" />
     <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/error.jsp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="272">
@@ -1787,63 +1626,31 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/pagecontent_en.properties">
-      <provider editor-type-id="ResourceBundle">
-        <state />
-      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
           <caret line="6" column="9" lean-forward="true" selection-start-line="6" selection-start-column="9" selection-end-line="6" selection-end-column="20" />
-          <folding />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/pagecontent_ru.properties">
       <provider editor-type-id="ResourceBundle">
         <state />
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/pagecontent_ru.properties">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="340">
           <caret line="20" column="0" lean-forward="false" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/parts/footer.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="547">
-          <caret line="35" column="0" lean-forward="true" selection-start-line="35" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
-          <folding />
-        </state>
+      <provider editor-type-id="ResourceBundle">
+        <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/login.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="19" column="0" lean-forward="true" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/expocalendar/project/web/service/ExpositionService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="4" lean-forward="false" selection-start-line="3" selection-start-column="4" selection-end-line="3" selection-end-column="4" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/login.jsp" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/expocalendar/project/web/service/ExpositionService.java" />
     <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/login.jsp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="833">
           <caret line="79" column="5" lean-forward="false" selection-start-line="79" selection-start-column="5" selection-end-line="79" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/order.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="455">
-          <caret line="64" column="5" lean-forward="false" selection-start-line="64" selection-start-column="5" selection-end-line="64" selection-end-column="5" />
           <folding />
         </state>
       </provider>
@@ -1861,21 +1668,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/expocalendar/project/web/service/RegistrationService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="24" column="69" lean-forward="false" selection-start-line="24" selection-start-column="32" selection-end-line="24" selection-end-column="69" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/expocalendar/project/web/controller/ControllerHelper.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="340">
           <caret line="39" column="82" lean-forward="false" selection-start-line="39" selection-start-column="82" selection-end-line="39" selection-end-column="82" />
           <folding>
-            <element signature="e#1131#1132#0" expanded="true" />
-            <element signature="e#1181#1182#0" expanded="true" />
+            <element signature="e#1131#1132#0" expanded="false" />
+            <element signature="e#1181#1182#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1884,14 +1683,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
           <caret line="19" column="100" lean-forward="true" selection-start-line="19" selection-start-column="8" selection-end-line="19" selection-end-column="100" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/expocalendar/project/web/command/OrderCommand.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="12" column="59" lean-forward="false" selection-start-line="12" selection-start-column="59" selection-end-line="12" selection-end-column="59" />
           <folding />
         </state>
       </provider>
@@ -1916,7 +1707,7 @@
         <state relative-caret-position="-34">
           <caret line="16" column="13" lean-forward="true" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1926,7 +1717,7 @@
         <state relative-caret-position="34">
           <caret line="2" column="7" lean-forward="true" selection-start-line="2" selection-start-column="7" selection-end-line="2" selection-end-column="7" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1936,22 +1727,7 @@
         <state relative-caret-position="34">
           <caret line="2" column="7" lean-forward="true" selection-start-line="2" selection-start-column="7" selection-end-line="2" selection-end-column="7" />
           <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/expocalendar/project/persistence/implementation/mysql/MySQLAccountDAO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1173">
-          <caret line="21" column="0" lean-forward="false" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
-          <folding>
-            <marker date="1515338928345" expanded="true" signature="554:657" ph="INSERT INTO accounts... " />
-            <marker date="1515338928345" expanded="true" signature="708:763" ph="SELECT * FRO... accounts" />
-            <marker date="1515338928345" expanded="true" signature="812:860" ph="SELECT * FRO... accounts" />
-            <marker date="1515338928345" expanded="true" signature="812:864" ph="SELECT * FRO... accounts" />
-            <marker date="1515338928345" expanded="true" signature="914:966" ph="INSERT INTO orders... " />
-            <marker date="1515338928345" expanded="true" signature="1013:1065" ph="UPDATE accounts... " />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1961,11 +1737,11 @@
         <state relative-caret-position="102">
           <caret line="6" column="13" lean-forward="false" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#378#379#0" expanded="true" />
-            <element signature="e#465#466#0" expanded="true" />
-            <element signature="e#695#696#0" expanded="true" />
-            <element signature="e#757#758#0" expanded="true" />
+            <element signature="imports" expanded="false" />
+            <element signature="e#378#379#0" expanded="false" />
+            <element signature="e#465#466#0" expanded="false" />
+            <element signature="e#695#696#0" expanded="false" />
+            <element signature="e#757#758#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1975,7 +1751,7 @@
         <state relative-caret-position="421">
           <caret line="26" column="64" lean-forward="false" selection-start-line="26" selection-start-column="64" selection-end-line="26" selection-end-column="64" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1993,8 +1769,8 @@
         <state relative-caret-position="238">
           <caret line="14" column="0" lean-forward="true" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
           <folding>
-            <element signature="e#306#307#0" expanded="true" />
-            <element signature="e#358#359#0" expanded="true" />
+            <element signature="e#306#307#0" expanded="false" />
+            <element signature="e#358#359#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -2003,71 +1779,26 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="31" lean-forward="true" selection-start-line="0" selection-start-column="31" selection-end-line="0" selection-end-column="31" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/expocalendar/project/web/service/CreationService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="833">
-          <caret line="49" column="42" lean-forward="true" selection-start-line="49" selection-start-column="42" selection-end-line="49" selection-end-column="42" />
+        <state relative-caret-position="697">
+          <caret line="49" column="42" lean-forward="false" selection-start-line="49" selection-start-column="42" selection-end-line="49" selection-end-column="42" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#490#491#0" expanded="true" />
-            <element signature="e#583#584#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/expocalendar/project/web/command/RedirectCommand.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="540">
-          <caret line="41" column="73" lean-forward="false" selection-start-line="41" selection-start-column="73" selection-end-line="41" selection-end-column="73" />
-          <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
+            <element signature="e#490#491#0" expanded="false" />
+            <element signature="e#583#584#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/account.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="438">
-          <caret line="29" column="24" lean-forward="true" selection-start-line="29" selection-start-column="24" selection-end-line="29" selection-end-column="24" />
+        <state relative-caret-position="493">
+          <caret line="29" column="24" lean-forward="false" selection-start-line="29" selection-start-column="24" selection-end-line="29" selection-end-column="24" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/registration.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="948">
-          <caret line="101" column="0" lean-forward="true" selection-start-line="101" selection-start-column="0" selection-end-line="101" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/parts/header.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="302">
-          <caret line="27" column="47" lean-forward="true" selection-start-line="27" selection-start-column="47" selection-end-line="27" selection-end-column="47" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="4" lean-forward="false" selection-start-line="5" selection-start-column="4" selection-end-line="5" selection-end-column="4" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/expocalendar/project/web/command/RegistrationCommand.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="33" column="1" lean-forward="true" selection-start-line="33" selection-start-column="1" selection-end-line="33" selection-end-column="1" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -2081,9 +1812,231 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-140">
-          <caret line="17" column="39" lean-forward="true" selection-start-line="17" selection-start-column="39" selection-end-line="17" selection-end-column="39" />
+        <state relative-caret-position="289">
+          <caret line="17" column="39" lean-forward="false" selection-start-line="17" selection-start-column="39" selection-end-line="17" selection-end-column="39" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/dbscripts/init_expo_calendar_db.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="570">
+          <caret line="43" column="0" lean-forward="false" selection-start-line="43" selection-start-column="0" selection-end-line="43" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="4" lean-forward="false" selection-start-line="5" selection-start-column="4" selection-end-line="5" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/js/jquery.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/expocalendar/project/persistence/abstraction/interfaces/CreditCardDAO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/expocalendar/project/persistence/abstraction/interfaces/ExpositionDAO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="7" column="17" lean-forward="false" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/parts/header.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="850">
+          <caret line="50" column="0" lean-forward="true" selection-start-line="50" selection-start-column="0" selection-end-line="50" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/parts/footer.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="459">
+          <caret line="35" column="0" lean-forward="false" selection-start-line="35" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/parts/card.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="15" column="18" lean-forward="true" selection-start-line="15" selection-start-column="18" selection-end-line="15" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/expocalendar/project/web/command/RedirectCommand.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="551">
+          <caret line="41" column="73" lean-forward="false" selection-start-line="41" selection-start-column="73" selection-end-line="41" selection-end-column="73" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/expocalendar/project/web/service/OrderService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-271">
+          <caret line="51" column="0" lean-forward="false" selection-start-line="51" selection-start-column="0" selection-end-line="51" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#2972#3185#0" expanded="false" />
+            <element signature="e#3184#3185#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/expocalendar/project/web/command/RegistrationCommand.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="21" column="20" lean-forward="true" selection-start-line="21" selection-start-column="20" selection-end-line="21" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/expocalendar/project/persistence/abstraction/interfaces/AccountDAO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="10" column="61" lean-forward="false" selection-start-line="10" selection-start-column="61" selection-end-line="10" selection-end-column="61" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/expocalendar/project/entities/Account.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="561">
+          <caret line="70" column="5" lean-forward="false" selection-start-line="70" selection-start-column="5" selection-end-line="70" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/expocalendar/project/web/service/Validator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="612">
+          <caret line="43" column="79" lean-forward="false" selection-start-line="43" selection-start-column="79" selection-end-line="43" selection-end-column="79" />
+          <folding>
+            <element signature="e#472#473#0" expanded="true" />
+            <element signature="e#532#533#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/expocalendar/project/web/command/OrderCommand.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="21" column="66" lean-forward="false" selection-start-line="21" selection-start-column="66" selection-end-line="21" selection-end-column="66" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/expocalendar/project/persistence/implementation/mysql/MySQLAccountDAO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="392">
+          <caret line="73" column="32" lean-forward="false" selection-start-line="73" selection-start-column="32" selection-end-line="73" selection-end-column="32" />
+          <folding>
+            <element signature="e#1465#1466#0" expanded="true" />
+            <element signature="e#1537#1538#0" expanded="true" />
+            <marker date="1515457129744" expanded="true" signature="607:710" ph="INSERT INTO accounts... " />
+            <marker date="1515457129744" expanded="true" signature="760:847" ph="INSERT INTO cards... " />
+            <marker date="1515457129744" expanded="true" signature="898:953" ph="SELECT * FRO... accounts" />
+            <marker date="1515457129744" expanded="true" signature="1002:1050" ph="SELECT * FRO... accounts" />
+            <marker date="1515457129744" expanded="true" signature="1002:1054" ph="SELECT * FRO... accounts" />
+            <marker date="1515457129744" expanded="true" signature="1104:1156" ph="INSERT INTO orders... " />
+            <marker date="1515457129744" expanded="true" signature="1203:1249" ph="UPDATE accounts... " />
+            <marker date="1515457129744" expanded="true" signature="1297:1333" ph="SELECT * FRO... accounts" />
+            <marker date="1515457129744" expanded="true" signature="1297:1334" ph="SELECT * FRO... cards" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/registration.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="341">
+          <caret line="133" column="45" lean-forward="false" selection-start-line="133" selection-start-column="45" selection-end-line="133" selection-end-column="45" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/css/card_dummy.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="19" column="0" lean-forward="false" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/order.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="833">
+          <caret line="91" column="26" lean-forward="true" selection-start-line="91" selection-start-column="26" selection-end-line="91" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/expocalendar/project/entities/CreditCard.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="578">
+          <caret line="46" column="0" lean-forward="false" selection-start-line="46" selection-start-column="0" selection-end-line="46" selection-end-column="0" />
+          <folding>
+            <element signature="e#907#908#0" expanded="true" />
+            <element signature="e#932#933#0" expanded="true" />
+            <element signature="e#965#966#0" expanded="true" />
+            <element signature="e#993#994#0" expanded="true" />
+            <element signature="e#1024#1025#0" expanded="true" />
+            <element signature="e#1054#1055#0" expanded="true" />
+            <element signature="e#1097#1098#0" expanded="true" />
+            <element signature="e#1135#1136#0" expanded="true" />
+            <element signature="e#1168#1169#0" expanded="true" />
+            <element signature="e#1197#1198#0" expanded="true" />
+            <element signature="e#1241#1242#0" expanded="true" />
+            <element signature="e#1277#1278#0" expanded="true" />
+            <element signature="e#1307#1308#0" expanded="true" />
+            <element signature="e#1333#1334#0" expanded="true" />
+            <element signature="e#1371#1372#0" expanded="true" />
+            <element signature="e#1401#1402#0" expanded="true" />
+            <element signature="e#1434#1435#0" expanded="true" />
+            <element signature="e#1463#1464#0" expanded="true" />
+            <element signature="e#1507#1508#0" expanded="true" />
+            <element signature="e#1543#1544#0" expanded="true" />
+            <element signature="e#1575#1576#0" expanded="true" />
+            <element signature="e#1603#1604#0" expanded="true" />
+            <element signature="e#1645#1646#0" expanded="true" />
+            <element signature="e#1679#1680#0" expanded="true" />
+            <element signature="e#1710#1711#0" expanded="true" />
+            <element signature="e#1737#1738#0" expanded="true" />
+            <element signature="e#1777#1778#0" expanded="true" />
+            <element signature="e#1809#1810#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/expocalendar/project/web/service/RegistrationService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="698">
+          <caret line="47" column="52" lean-forward="false" selection-start-line="47" selection-start-column="52" selection-end-line="47" selection-end-column="52" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#476#477#0" expanded="true" />
+            <element signature="e#563#564#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

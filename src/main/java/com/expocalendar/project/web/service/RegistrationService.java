@@ -1,6 +1,7 @@
 package com.expocalendar.project.web.service;
 
 import com.expocalendar.project.entities.Account;
+import com.expocalendar.project.entities.CreditCard;
 import com.expocalendar.project.persistence.abstraction.DAOFactory;
 import com.expocalendar.project.persistence.abstraction.interfaces.AccountDAO;
 
@@ -37,6 +38,13 @@ public class RegistrationService {
         account.setLogin(requestParameters.get("login"));
         account.setPassword(requestParameters.get("password"));
         account.setEmail(requestParameters.get("email"));
-        accountDAO.createAccount(account);
+
+
+        CreditCard creditCard = new CreditCard(requestParameters.get("cardNumber"),
+                requestParameters.get("cvv"), requestParameters.get("cardHolder"),
+                requestParameters.get("month"), requestParameters.get("year"));
+
+
+        accountDAO.createAccount(account, creditCard);
     }
 }

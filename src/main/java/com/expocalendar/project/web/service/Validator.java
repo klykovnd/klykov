@@ -1,5 +1,7 @@
 package com.expocalendar.project.web.service;
 
+import com.expocalendar.project.entities.CreditCard;
+
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Map;
@@ -35,4 +37,11 @@ public class Validator {
         return sdf.format(date);
     }
 
+    public static boolean validCard(Map<String, String> requestParameters, CreditCard creditCard, int withdraw) {
+        return creditCard.getBalance() >= withdraw && requestParameters.get("cardHolder").equals(creditCard.getHolder()) &&
+                requestParameters.get("cardNumber").equals(creditCard.getNumber()) &&
+                requestParameters.get("cvv").equals(creditCard.getCVV()) &&
+                requestParameters.get("month").equals(creditCard.getMonth()) &&
+                requestParameters.get("year").equals(creditCard.getYear());
+    }
 }
