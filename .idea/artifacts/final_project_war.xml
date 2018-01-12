@@ -1,8 +1,0 @@
-<component name="ArtifactManager">
-  <artifact type="war" name="final_project:war">
-    <output-path>$PROJECT_DIR$/target</output-path>
-    <root id="archive" name="exposition-calendar-1.0.war">
-      <element id="artifact" artifact-name="final_project:war exploded" />
-    </root>
-  </artifact>
-</component>
