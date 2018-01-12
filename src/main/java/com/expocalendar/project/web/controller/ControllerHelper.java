@@ -3,7 +3,6 @@ package com.expocalendar.project.web.controller;
 import com.expocalendar.project.web.command.*;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
@@ -23,6 +22,9 @@ public class ControllerHelper {
         commandsMap.put("order", new OrderCommand());
         commandsMap.put("localization", new LocalizationCommand());
         commandsMap.put("creation", new CreationCommand());
+        commandsMap.put("showExposition", new ShowExpositionCommand());
+        commandsMap.put("update", new UpdateCommand());
+        commandsMap.put("delete", new DeleteCommand());
     }
 
     public static ControllerHelper getInstance() {

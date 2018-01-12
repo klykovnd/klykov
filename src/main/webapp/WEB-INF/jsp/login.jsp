@@ -44,7 +44,7 @@
                     <div class="input-field col s6 offset-s3">
                         <i class="material-icons prefix">account_circle</i>
                         <input id="icon_prefix" type="text" class="validate" name="login"
-                               value="${sessionScope.account.login}">
+                               value="${sessionScope.account.login}" required>
                         <label for="icon_prefix"><fmt:message key="register.login" bundle="${lang}"/></label>
                     </div>
                 </div>
@@ -52,7 +52,7 @@
                 <div class="row">
                     <div class="input-field col s6 offset-s3">
                         <i class="material-icons prefix">lock</i>
-                        <input id="icon_lock" class="validate" type="password" name="password" value="">
+                        <input id="icon_lock" class="validate" type="password" name="password" value="" required>
                         <label for="icon_lock"><fmt:message key="register.password" bundle="${lang}"/></label>
                     </div>
                 </div>

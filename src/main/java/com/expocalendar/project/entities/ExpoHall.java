@@ -10,6 +10,17 @@ public class ExpoHall implements Serializable {
     public ExpoHall() {
     }
 
+    public ExpoHall(String name, String address) {
+        this.name = name;
+        this.address = address;
+    }
+
+    public ExpoHall(int id, String name, String address) {
+        this.id = id;
+        this.name = name;
+        this.address = address;
+    }
+
     public int getId() {
         return id;
     }

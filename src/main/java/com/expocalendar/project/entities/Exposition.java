@@ -2,7 +2,8 @@ package com.expocalendar.project.entities;
 
 import java.io.Serializable;
 import java.net.URL;
-import java.util.Date;
+import java.sql.Time;
+import java.sql.Date;
 
 public class Exposition implements Serializable {
     private int id;
@@ -10,12 +11,27 @@ public class Exposition implements Serializable {
     private String theme;
     private Date dateFrom;
     private Date dateTo;
-    private int ticketPrice;
+    private Time beginTime;
+    private double ticketPrice;
     private int expoHallId;
     private URL picture;
     private String description;
 
     public Exposition() {
+    }
+
+    public Exposition(int id, String title, String theme, Date dateFrom, Date dateTo,
+                      Time beginTime, double ticketPrice, int expoHallId, URL picture, String description) {
+        this.id = id;
+        this.title = title;
+        this.theme = theme;
+        this.dateFrom = dateFrom;
+        this.dateTo = dateTo;
+        this.beginTime = beginTime;
+        this.ticketPrice = ticketPrice;
+        this.expoHallId = expoHallId;
+        this.picture = picture;
+        this.description = description;
     }
 
     public int getId() {
@@ -58,11 +74,19 @@ public class Exposition implements Serializable {
         this.dateTo = dateTo;
     }
 
-    public int getTicketPrice() {
+    public Time getBeginTime() {
+        return beginTime;
+    }
+
+    public void setBeginTime(Time beginTime) {
+        this.beginTime = beginTime;
+    }
+
+    public double getTicketPrice() {
         return ticketPrice;
     }
 
-    public void setTicketPrice(int ticketPrice) {
+    public void setTicketPrice(double ticketPrice) {
         this.ticketPrice = ticketPrice;
     }
 
@@ -127,5 +151,82 @@ public class Exposition implements Serializable {
                 ", startDate=" + dateFrom +
                 ", endDate=" + dateTo +
                 '}';
+    }
+
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
+    public static class Builder {
+        private int id;
+        private String title;
+        private String theme;
+        private Date dateFrom;
+        private Date dateTo;
+        private Time beginTime;
+        private double ticketPrice;
+        private int expoHallId;
+        private URL picture;
+        private String description;
+
+        private Builder() {
+        }
+
+        public Builder setId(int id) {
+            this.id = id;
+            return this;
+        }
+
+        public Builder setTitle(String title) {
+            this.title = title;
+            return this;
+        }
+
+        public Builder setTheme(String theme) {
+            this.theme = theme;
+            return this;
+        }
+
+        public Builder setDateFrom(Date dateFrom) {
+            this.dateFrom = dateFrom;
+            return this;
+        }
+
+        public Builder setDateTo(Date dateTo) {
+            this.dateTo = dateTo;
+            return this;
+        }
+
+        public Builder setBeginTime(Time beginTime) {
+            this.beginTime = beginTime;
+            return this;
+        }
+
+        public Builder setTicketPrice(double ticketPrice) {
+            this.ticketPrice = ticketPrice;
+            return this;
+        }
+
+        public Builder setExpoHallId(int expoHallId) {
+            this.expoHallId = expoHallId;
+            return this;
+        }
+
+        public Builder setPicture(URL picture) {
+            this.picture = picture;
+            return this;
+        }
+
+        public Builder setDescription(String description) {
+            this.description = description;
+            return this;
+        }
+
+        public Exposition build() {
+            return new Exposition(id, title, theme, dateFrom, dateTo,
+                    beginTime, ticketPrice, expoHallId, picture, description);
+        }
+
     }
 }

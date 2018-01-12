@@ -4,8 +4,10 @@ import com.expocalendar.project.entities.Exposition;
 import com.expocalendar.project.persistence.abstraction.DAOFactory;
 import com.expocalendar.project.persistence.abstraction.interfaces.ExpositionDAO;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.sql.Date;
+import java.sql.Time;
 import java.util.Map;
 
 public class CreationService {
@@ -23,29 +25,17 @@ public class CreationService {
         return instance;
     }
 
-    public void createExposition(Map<String, String> requestParameters){
-        String from = requestParameters.get("from");
-        String to = requestParameters.get("to");
-        String name = requestParameters.get("title");
-        String theme = requestParameters.get("theme");
-        String hallId = requestParameters.get("hallId");
-        String price = requestParameters.get("price");
+    public void createExposition(Map<String, String> requestParameters) throws MalformedURLException {
 
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
-
-        Exposition exposition = new Exposition();
-
-        try {
-            exposition.setDateFrom(simpleDateFormat.parse(from));
-            exposition.setDateTo(simpleDateFormat.parse(to));
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
-
-        exposition.setTitle(name);
-        exposition.setTheme(theme);
-        exposition.setExpoHallId(Integer.valueOf(hallId));
-        exposition.setTicketPrice(Integer.valueOf(price));
+        Exposition exposition = Exposition.newBuilder().setTitle(requestParameters.get("title")).
+                setDateFrom(Date.valueOf(requestParameters.get("dateFrom"))).
+                setDateTo(Date.valueOf(requestParameters.get("dateFrom"))).
+                setTheme(requestParameters.get("theme")).
+                setTicketPrice(Double.valueOf(requestParameters.get("price"))).
+                setExpoHallId(Integer.valueOf(requestParameters.get("hallId"))).
+                setDescription(requestParameters.get("description")).
+                setBeginTime(Time.valueOf(requestParameters.get("beginTime") + ":00")).
+                setPicture(new URL(requestParameters.get("url"))).build();
 
         expositionDAO.createExposition(exposition);
     }

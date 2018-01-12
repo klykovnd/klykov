@@ -21,7 +21,8 @@ public class SelectionCommand implements ICommand {
         String page;
 
         if (request.getParameter("expositionId") != null) {
-            Exposition exposition = SelectionService.getInstance().getExposition(Integer.valueOf(request.getParameter("expositionId")));
+            Exposition exposition = SelectionService.getInstance().
+                    getExposition(Integer.valueOf(request.getParameter("expositionId")));
             request.getSession().setAttribute("exposition", exposition);
             page = ConfigurationManager.getProperty("path.page.order");
         } else {
@@ -35,10 +36,24 @@ public class SelectionCommand implements ICommand {
 
     private void setAttributes(HttpServletRequest request, Map<String, String> requestParameters) {
 
+        int numberOfExpositions = SelectionService.getInstance().getNumberOfExpositions(requestParameters);
+        int page = 1;
+        int recordsPerPage = 3;
+        int numberOfPages = (int) Math.ceil(numberOfExpositions * 1.0 / recordsPerPage);
+
+        if (request.getParameter("page") != null) {
+            page = Integer.parseInt(request.getParameter("page"));
+        }
+
+
         List<ExpoHall> expoHalls = SelectionService.getInstance().getExpoHalls();
         List<String> themes = SelectionService.getInstance().findThemes();
-        List<Exposition> expositions = SelectionService.getInstance().findExpositions(requestParameters);
+        List<Exposition> expositions = SelectionService.getInstance().findExpositions(requestParameters,
+                recordsPerPage, (page - 1) * recordsPerPage);
 
+
+        request.getSession().setAttribute("numberOfPages", numberOfPages);
+        request.getSession().setAttribute("currentPage", page);
         request.getSession().setAttribute("dateFrom", requestParameters.get("dateFrom"));
         request.getSession().setAttribute("dateTo", requestParameters.get("dateTo"));
         request.getSession().setAttribute("theme", requestParameters.get("theme"));

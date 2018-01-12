@@ -15,7 +15,7 @@
     <link type="text/css" rel="stylesheet" href="css/card_dummy.css"/>
     <title>Sign Up</title>
 </head>
-<body class="grey lighten-2">
+<body>
 
 <c:choose>
     <c:when test="${empty sessionScope.locale}">
@@ -28,7 +28,7 @@
 
 <c:import url="parts/header.jsp"/><br/>
 
-<div class="container grey lighten-2">
+<div class="container">
 
     <div class="row">
         <!--offset row-->

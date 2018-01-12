@@ -32,17 +32,17 @@ public class RegistrationService {
     }
 
     public void createAccount(Map<String, String> requestParameters) {
-        Account account = new Account();
-        account.setFirstName(requestParameters.get("firstName"));
-        account.setLastName(requestParameters.get("lastName"));
-        account.setLogin(requestParameters.get("login"));
-        account.setPassword(requestParameters.get("password"));
-        account.setEmail(requestParameters.get("email"));
+        Account account = Account.newBuilder().setFirstName(requestParameters.get("firstName")).
+                setLastName(requestParameters.get("lastName")).
+                setLogin(requestParameters.get("login")).
+                setPassword(requestParameters.get("password")).
+                setPassword(requestParameters.get("email")).build();
 
-
-        CreditCard creditCard = new CreditCard(requestParameters.get("cardNumber"),
-                requestParameters.get("cvv"), requestParameters.get("cardHolder"),
-                requestParameters.get("month"), requestParameters.get("year"));
+        CreditCard creditCard = CreditCard.newBuilder().setNumber(requestParameters.get("cardNumber")).
+                setCVV(Integer.valueOf(requestParameters.get("cvv"))).
+                setHolder(requestParameters.get("cardHolder")).
+                setMonth(Integer.valueOf(requestParameters.get("month"))).
+                setYear(Integer.valueOf(requestParameters.get("year"))).build();
 
 
         accountDAO.createAccount(account, creditCard);

@@ -10,7 +10,19 @@ import org.apache.log4j.Logger;
 import java.sql.*;
 
 public class MySQLAccountDAO implements AccountDAO {
+    private static MySQLAccountDAO instance;
+    private IDataSourceManager dataSourceManager;
     private final static Logger LOGGER = Logger.getLogger(MySQLAccountDAO.class);
+
+
+    private static final int ID = 1;
+    private static final int FIRST_NAME = 2;
+    private static final int LAST_NAME = 3;
+    private static final int LOGIN = 4;
+    private static final int PASSWORD = 5;
+    private static final int ROLE = 6;
+    private static final int EMAIL = 7;
+
 
     private static final String INSERT_ACCOUNT = "INSERT INTO accounts" +
             "(first_name,last_name,login,password,email) " + "VALUES(?,?,?,?,?)";
@@ -22,9 +34,6 @@ public class MySQLAccountDAO implements AccountDAO {
     private static final String WITHDRAW = "UPDATE cards SET balance = ? WHERE card_id = ?";
     private static final String FIND_CARD = "SELECT * FROM cards WHERE card_id = ?";
 
-    private static MySQLAccountDAO instance;
-
-    private IDataSourceManager dataSourceManager;
 
     private MySQLAccountDAO() {
         dataSourceManager = MySQLDataSourceManager.getInstance();
@@ -59,7 +68,6 @@ public class MySQLAccountDAO implements AccountDAO {
 
     @Override
     public void createAccount(Account account, CreditCard creditCard) {
-        boolean flag = false;
         try (Connection connection = dataSourceManager.createConnection();
              PreparedStatement prepareAccount = connection.prepareStatement(INSERT_ACCOUNT);
              PreparedStatement prepareCard = connection.prepareStatement(INSERT_CARD)) {
@@ -72,7 +80,6 @@ public class MySQLAccountDAO implements AccountDAO {
             prepareCard.executeUpdate();
 
             connection.commit();
-            flag = true;
         } catch (SQLException e) {
             LOGGER.log(Level.DEBUG, "SQLException", e);
         }
@@ -94,17 +101,17 @@ public class MySQLAccountDAO implements AccountDAO {
     }
 
     @Override
-    public void saveOrder(Account account, int expoId, int remainder) {
+    public void saveOrder(Account account, int expositionId, double remainder) {
         try (Connection connection = dataSourceManager.createConnection();
              PreparedStatement prepInsert = connection.prepareStatement(SAVE_ORDER);
              PreparedStatement prepWithdraw = connection.prepareStatement(WITHDRAW)) {
             connection.setAutoCommit(false);
 
             prepInsert.setInt(1, account.getId());
-            prepInsert.setInt(2, expoId);
+            prepInsert.setInt(2, expositionId);
             prepInsert.executeUpdate();
 
-            prepWithdraw.setInt(1, remainder);
+            prepWithdraw.setDouble(1, remainder);
             prepWithdraw.setInt(2, account.getId());
             prepWithdraw.executeUpdate();
 
@@ -114,37 +121,14 @@ public class MySQLAccountDAO implements AccountDAO {
         }
     }
 
-    @Override
-    public CreditCard findCard(Account account) {
-        CreditCard creditCard = null;
-        try (Connection connection = dataSourceManager.createConnection();
-             PreparedStatement ps = connection.prepareStatement(FIND_CARD)) {
-            ps.setInt(1, account.getId());
-            ResultSet rs = ps.executeQuery();
-            if (rs.next()) {
-                creditCard = new CreditCard(rs.getInt(1),
-                        rs.getString(2), rs.getString(3),
-                        rs.getInt(4), rs.getString(5),
-                        rs.getString(6), rs.getString(7));
-            }
-        } catch (SQLException e) {
-            LOGGER.log(Level.DEBUG, "SQLException", e);
-        }
-        return creditCard;
-    }
-
-
     private Account processRow(ResultSet rs) throws SQLException {
-        Account account = new Account();
-        account.setId(rs.getInt(1));
-        account.setFirstName(rs.getString(2));
-        account.setLastName(rs.getString(3));
-        account.setLogin(rs.getString(4));
-        account.setPassword(rs.getString(5));
-        account.setRole(rs.getString(6));
-        account.setEmail(rs.getString(7));
-
-        return account;
+        return Account.newBuilder().setId(rs.getInt(ID)).
+                setFirstName(rs.getString(FIRST_NAME)).
+                setLastName(rs.getString(LAST_NAME)).
+                setLogin(rs.getString(LOGIN)).
+                setPassword(rs.getString(PASSWORD)).
+                setRole(rs.getString(ROLE)).
+                setEmail(rs.getString(EMAIL)).build();
     }
 
 
@@ -158,9 +142,9 @@ public class MySQLAccountDAO implements AccountDAO {
 
     private void prepareCard(PreparedStatement ps, CreditCard creditCard) throws SQLException {
         ps.setString(1, creditCard.getNumber());
-        ps.setString(2, creditCard.getCVV());
+        ps.setInt(2, creditCard.getCVV());
         ps.setString(3, creditCard.getHolder());
-        ps.setString(4, creditCard.getMonth());
-        ps.setString(5, creditCard.getYear());
+        ps.setInt(4, creditCard.getMonth());
+        ps.setInt(5, creditCard.getYear());
     }
 }

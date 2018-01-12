@@ -11,9 +11,11 @@
     <link type="text/css" rel="stylesheet" href="css/materialize.min.css" media="screen,projection"/>
     <!--Let browser know website is optimized for mobile-->
     <meta title="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Room</title>
+    <!--Card StyleSheet-->
+    <link type="text/css" rel="stylesheet" href="css/card_dummy.css"/>
+    <title>Sign Up</title>
 </head>
-<body class="grey lighten-2">
+<body>
 
 <c:choose>
     <c:when test="${empty sessionScope.locale}">
@@ -23,14 +25,69 @@
         <fmt:setLocale value="${sessionScope.locale}"/>
     </c:otherwise>
 </c:choose>
+
 <c:import url="parts/header.jsp"/><br/>
 
+<div class="container">
+
+    <div class="row">
+        <!--offset row-->
+    </div>
+
+    <div class="row">
+        <form class="col s12" action="app" method="post">
+            <input type="hidden" name="command" value="updateAccount"/>
+            <div class="row">
+                <div class="input-field col s3 offset-s3">
+                    <i class="material-icons prefix">person</i>
+                    <input id="icon_prefix1" type="text" class="validate" name="firstName" value="${sessionScope.account.firstName}" required>
+                    <label for="icon_prefix1"><fmt:message key="register.firstname" bundle="${lang}"/></label>
+                </div>
+
+                <div class="input-field col s3">
+                    <i class="material-icons prefix">person</i>
+                    <input id="icon_prefix2" type="text" class="validate" name="lastName" value="${sessionScope.account.lastName}" required>
+                    <label for="icon_prefix2"><fmt:message key="register.lastname" bundle="${lang}"/></label>
+                </div>
+            </div>
 
 
-<!--content goes here-->
+            <div class="row">
+                <div class="input-field col s6 offset-s3">
+                    <i class="material-icons prefix">lock</i>
+                    <input id="icon_lock1" class="validate" type="password" name="password" value="" required>
+                    <label for="icon_lock1"><fmt:message key="register.password" bundle="${lang}"/></label>
+                </div>
+            </div>
 
+            <div class="row">
+                <div class="input-field col s6 offset-s3">
+                    <i class="material-icons prefix">lock</i>
+                    <input id="icon_lock2" class="validate" type="password" name="repeat" value="" required>
+                    <label for="icon_lock2"><fmt:message key="register.repeat" bundle="${lang}"/></label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s6 offset-s3">
+                    <i class="material-icons prefix">mail</i>
+                    <input id="icon_mail" class="validate" type="email" name="email" value="${sessionScope.account.email}" required>
+                    <label for="icon_mail"><fmt:message key="register.email" bundle="${lang}"/></label>
+                </div>
+            </div>
 
-
+            <div class="row">
+                <div class="input-field col s8 offset-s3">
+                    <button class="btn waves-effect waves-light pink darken-4" type="submit" name="action"><fmt:message
+                            key="register.sign" bundle="${lang}"/>
+                        <i class="material-icons right">send</i>
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+    ${sessionScope.regFail}
+</div>
+<br/>
 <c:import url="parts/footer.jsp"/>
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 <script type="text/javascript" src="js/materialize.min.js"></script>

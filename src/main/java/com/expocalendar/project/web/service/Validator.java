@@ -9,7 +9,7 @@ import java.util.Map;
 public class Validator {
 
     public static boolean validAccountParameters(Map<String, String> requestParameters) {
-        return (!requestParameters.containsKey(null)) && (!requestParameters.containsValue(null));
+        return !requestParameters.containsValue(null);
     }
 
     public static boolean validLogin(String login, String password) {
@@ -37,11 +37,12 @@ public class Validator {
         return sdf.format(date);
     }
 
-    public static boolean validCard(Map<String, String> requestParameters, CreditCard creditCard, int withdraw) {
-        return creditCard.getBalance() >= withdraw && requestParameters.get("cardHolder").equals(creditCard.getHolder()) &&
+    public static boolean validCard(Map<String, String> requestParameters, CreditCard creditCard, double withdraw) {
+        return creditCard.getBalance() >= withdraw &&
+                requestParameters.get("cardHolder").equals(creditCard.getHolder()) &&
                 requestParameters.get("cardNumber").equals(creditCard.getNumber()) &&
-                requestParameters.get("cvv").equals(creditCard.getCVV()) &&
-                requestParameters.get("month").equals(creditCard.getMonth()) &&
-                requestParameters.get("year").equals(creditCard.getYear());
+                Integer.valueOf(requestParameters.get("cvv")) == (creditCard.getCVV()) &&
+                Integer.valueOf(requestParameters.get("month")) == (creditCard.getMonth()) &&
+                Integer.valueOf(requestParameters.get("year")) == (creditCard.getYear());
     }
 }

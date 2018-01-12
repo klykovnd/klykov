@@ -1,5 +1,7 @@
 package com.expocalendar.project.web.command;
 
+import com.expocalendar.project.entities.Exposition;
+import com.expocalendar.project.persistence.abstraction.DAOFactory;
 import com.expocalendar.project.web.management.ConfigurationManager;
 
 import javax.servlet.http.HttpServletRequest;
@@ -19,6 +21,7 @@ public class RedirectCommand implements ICommand {
         String userPath = request.getServletPath();
 
         String url = ConfigurationManager.getProperty("path.page.error");
+
         switch (userPath) {
             case LOGIN:
                 url = ConfigurationManager.getProperty("path.page.login");
@@ -36,6 +39,7 @@ public class RedirectCommand implements ICommand {
                 url = ConfigurationManager.getProperty("path.page.index");
                 break;
             case ADMIN:
+                request.getSession().setAttribute("allExpositions",DAOFactory.getDAOFactory(DAOFactory.MYSQL).getExpositionDAO().findAll());
                 url = ConfigurationManager.getProperty("path.page.admin");
                 break;
             case ACCOUNT:

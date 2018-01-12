@@ -1,16 +1,10 @@
 package com.expocalendar.project.web.service;
 
-import com.expocalendar.project.entities.Account;
-import com.expocalendar.project.entities.CreditCard;
-import com.expocalendar.project.entities.ExpoHall;
-import com.expocalendar.project.entities.Exposition;
+import com.expocalendar.project.entities.*;
 import com.expocalendar.project.persistence.abstraction.DAOFactory;
-import com.expocalendar.project.persistence.abstraction.interfaces.AccountDAO;
-import com.expocalendar.project.persistence.abstraction.interfaces.ExpoHallDAO;
-import com.expocalendar.project.persistence.abstraction.interfaces.ExpositionDAO;
+import com.expocalendar.project.persistence.abstraction.interfaces.*;
 import com.expocalendar.project.web.management.MessageManager;
-import org.apache.log4j.Level;
-import org.apache.log4j.Logger;
+import org.apache.log4j.*;
 
 import java.util.*;
 import javax.mail.*;
@@ -24,12 +18,14 @@ public class OrderService {
     private AccountDAO accountDAO;
     private ExpositionDAO expositionDAO;
     private ExpoHallDAO expoHallDAO;
+    private CreditCardDAO creditCardDAO;
 
 
     private OrderService() {
         accountDAO = DAOFactory.getDAOFactory(DAOFactory.MYSQL).getAccountDAO();
         expositionDAO = DAOFactory.getDAOFactory(DAOFactory.MYSQL).getExpositionDAO();
         expoHallDAO = DAOFactory.getDAOFactory(DAOFactory.MYSQL).getExpoHallDAO();
+        creditCardDAO = DAOFactory.getDAOFactory(DAOFactory.MYSQL).getCreditCardDAO();
     }
 
     public static OrderService getInstance() {
@@ -46,12 +42,12 @@ public class OrderService {
 
         Exposition exposition = expositionDAO.findExposition(expoId);
         ExpoHall expoHall = expoHallDAO.findExpoHall(exposition.getExpoHallId());
-        CreditCard creditCard = accountDAO.findCard(account);
+        CreditCard creditCard = creditCardDAO.findCard(account.getId());
 
-        int withdraw = exposition.getTicketPrice() * ticketNumber;
+        double withdraw = exposition.getTicketPrice() * ticketNumber;
 
         if (creditCard != null && Validator.validCard(requestParameters, creditCard, withdraw)) {
-            int remainder = creditCard.getBalance() - withdraw;
+            double remainder = creditCard.getBalance() - withdraw;
             accountDAO.saveOrder(account, expoId, remainder);
             sendMail(account, exposition, expoHall);
         }

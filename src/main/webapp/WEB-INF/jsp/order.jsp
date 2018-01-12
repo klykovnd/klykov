@@ -17,10 +17,10 @@
 </head>
 
 
-<body class="grey lighten-2">
+<body>
 <c:import url="parts/header.jsp"/><br/>
 
-<div class="container grey lighten-2">
+<div class="container">
 
     <table class="bordered">
         <tr>
@@ -29,8 +29,7 @@
             <th><fmt:message key="order.price" bundle="${lang}"/></th>
         </tr>
         <tr>
-            <td><fmt:formatDate type="date" value="${sessionScope.exposition.dateFrom}"/> - <fmt:formatDate type="date"
-                                                                                                            value="${sessionScope.exposition.dateTo}"/></td>
+            <td><fmt:formatDate type="date" value="${sessionScope.exposition.dateFrom}"/> - <fmt:formatDate type="date" value="${sessionScope.exposition.dateTo}"/></td>
             <td><c:out value="${sessionScope.exposition.title}"/></td>
             <td><c:out value="${sessionScope.exposition.ticketPrice}"/></td>
         </tr>
@@ -40,7 +39,7 @@
 
 <br/>
 
-<div class="container grey lighten-2">
+<div class="container">
     <div class="row">
         <div class="demo">
             <form class="payment-card" action="app" method="post">

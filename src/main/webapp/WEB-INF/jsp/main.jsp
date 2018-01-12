@@ -12,7 +12,7 @@
     <meta title="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Title</title>
 </head>
-<body class="grey lighten-2">
+<body>
 
 <c:choose>
     <c:when test="${empty sessionScope.locale}">
@@ -30,22 +30,25 @@
 <c:import url="parts/header.jsp"/><br/>
 
 <!--Search form here -->
-<div class="container grey lighten-2">
+<div class="container">
     <div class="row">
         ${requestScope.nothingFound}
-        <form class="col s12" action="app" method="post">
+        <form class="col s12" action="app" method="get">
             <input type="hidden" name="command" value="selection">
-            <div class="input-field col s3">
+            <div class="input-field col s2">
+                <i class="material-icons prefix">date_range</i>
                 <label for="dateFrom"><fmt:message key="main.from" bundle="${lang}"/></label>
                 <input id="dateFrom" type="text" class="datepicker" placeholder="Date From" name="dateFrom" min="${now}"
                        value="${sessionScope.dateFrom}">
             </div>
-            <div class="input-field col s3">
+            <div class="input-field col s2">
+                <i class="material-icons prefix">date_range</i>
                 <label for="dateTo"><fmt:message key="main.to" bundle="${lang}"/></label>
                 <input id="dateTo" type="text" class="datepicker" placeholder="Date To" name="dateTo" min="${now}"
                        value="${sessionScope.dateTo}">
             </div>
-            <div class="input-field col s2">
+            <div class="input-field col s3">
+                <i class="material-icons prefix">color_lens</i>
                 <select name="theme">
                     <option value="all" data-selected="all"><fmt:message key="main.all" bundle="${lang}"/></option>
                     <c:forEach var="theme" items="${sessionScope.themes}">
@@ -54,7 +57,8 @@
                 </select>
                 <label><fmt:message key="main.theme" bundle="${lang}"/></label>
             </div>
-            <div class="input-field col s2">
+            <div class="input-field col s3">
+                <i class="material-icons prefix">account_balance</i>
                 <select name="hallId">
                     <option value=""><fmt:message key="main.all" bundle="${lang}"/></option>
                     <c:forEach var="hall" items="${sessionScope.halls}">
@@ -64,7 +68,8 @@
                 <label><fmt:message key="main.expohall" bundle="${lang}"/></label>
             </div>
             <div class="input-field col s2">
-                <button class="btn waves-effect waves-light pink darken-4" type="submit" name="action"><fmt:message key="main.search" bundle="${lang}"/>
+                <button class="btn waves-effect waves-light pink darken-4" type="submit"><fmt:message key="main.search"
+                                                                                                      bundle="${lang}"/>
                     <i class="material-icons right">search</i>
                 </button>
             </div>
@@ -89,7 +94,7 @@
                             <form action="order" method="post">
                                 <input type="hidden" name="command" value="selection">
                                 <input type="hidden" name="expositionId" value="${exposition.id}">
-                                <button class="btn waves-effect waves-light pink darken-4" type="submit" name="action">
+                                <button class="btn waves-effect waves-light pink darken-4" type="submit">
                                     <fmt:message key="main.buy" bundle="${lang}"/>
                                     <i class="material-icons right">add_shopping_cart</i>
                                 </button>
@@ -102,12 +107,54 @@
                         <p><fmt:formatDate type="date" value="${exposition.dateFrom}"/> - <fmt:formatDate type="date"
                                                                                                           value="${exposition.dateTo}"/></p>
                         <p><c:out value="${exposition.theme}"/></p>
+
+                        <p><c:out value="${exposition.description}"/></p>
+
                     </div>
                 </div>
             </div>
         </c:forEach>
     </div>
+
+
+    <div class="row">
+
+        <ul class="pagination">
+
+
+            <c:if test="${sessionScope.currentPage != 1}">
+                <li class="waves-effect"><a
+                        href="app?command=selection&dateFrom=${sessionScope.dateFrom}&dateTo=${sessionScope.dateTo}&theme=${sessionScope.theme}&hallId=${sessionScope.hallId}&page=${sessionScope.currentPage - 1}"><i
+                        class="material-icons">chevron_left</i></a></li>
+            </c:if>
+
+
+            <c:forEach begin="1" end="${sessionScope.numberOfPages}" var="i">
+                <c:choose>
+                    <c:when test="${sessionScope.currentPage eq i}">
+                        <li class="active"><a
+                                href="app?command=selection&dateFrom=${sessionScope.dateFrom}&dateTo=${sessionScope.dateTo}&theme=${sessionScope.theme}&hallId=${sessionScope.hallId}&page=${i}">${i}</a>
+                        </li>
+                    </c:when>
+                    <c:otherwise>
+                        <li class="waves-effect"><a
+                                href="app?command=selection&dateFrom=${sessionScope.dateFrom}&dateTo=${sessionScope.dateTo}&theme=${sessionScope.theme}&hallId=${sessionScope.hallId}&page=${i}">${i}</a>
+                        </li>
+                    </c:otherwise>
+                </c:choose>
+            </c:forEach>
+
+
+            <c:if test="${sessionScope.currentPage lt sessionScope.numberOfPages}">
+                <li class="waves-effect"><a
+                        href="app?command=selection&dateFrom=${sessionScope.dateFrom}&dateTo=${sessionScope.dateTo}&theme=${sessionScope.theme}&hallId=${sessionScope.hallId}&page=${sessionScope.currentPage + 1}"><i
+                        class="material-icons">chevron_right</i></a></li>
+            </c:if>
+
+        </ul>
+    </div>
 </div>
+
 
 <br/>
 <c:import url="parts/footer.jsp"/>

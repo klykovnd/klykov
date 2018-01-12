@@ -14,6 +14,17 @@ public class Account implements Serializable {
     public Account() {
     }
 
+    public Account(int id, String firstName, String lastName,
+                   String login, String password, String role, String email) {
+        this.id = id;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.login = login;
+        this.password = password;
+        this.role = role;
+        this.email = email;
+    }
+
     public int getId() {
         return id;
     }
@@ -107,5 +118,62 @@ public class Account implements Serializable {
                 ", email='" + email + '\'' +
                 ", role='" + role + '\'' +
                 '}';
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
+
+    public static class Builder {
+        private int id;
+        private String firstName;
+        private String lastName;
+        private String login;
+        private String password;
+        private String role;
+        private String email;
+
+        private Builder() {
+        }
+
+        public Builder setId(int id) {
+            this.id = id;
+            return this;
+        }
+
+        public Builder setFirstName(String firstName) {
+            this.firstName = firstName;
+            return this;
+        }
+
+        public Builder setLastName(String lastName) {
+            this.lastName = lastName;
+            return this;
+        }
+
+        public Builder setLogin(String login) {
+            this.login = login;
+            return this;
+        }
+
+        public Builder setPassword(String password) {
+            this.password = password;
+            return this;
+        }
+
+        public Builder setRole(String role) {
+            this.role = role;
+            return this;
+        }
+
+        public Builder setEmail(String email) {
+            this.email = email;
+            return this;
+        }
+
+        public Account build() {
+            return new Account(id, firstName, lastName, login, password, role, email);
+        }
+
     }
 }

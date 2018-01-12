@@ -12,7 +12,5 @@ public interface AccountDAO {
 
     boolean isExist(String login, String email);
 
-    void saveOrder(Account account, int expoId, int remainder);
-
-    CreditCard findCard(Account account);
+    void saveOrder(Account account, int expoId, double remainder);
 }

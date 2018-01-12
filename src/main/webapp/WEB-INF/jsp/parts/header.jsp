@@ -21,22 +21,22 @@
         <ul id="nav" class="right hide-on-med-and-down">
             <c:choose>
                 <c:when test="${sessionScope.account != null}">
-                    <li><fmt:message key="main.hello" bundle="${lang}"/>, <c:out value="${sessionScope.account.firstName}"/></li>
+                    <li><fmt:message key="main.hello" bundle="${lang}"/>, <c:out
+                            value="${sessionScope.account.firstName}"/></li>
                     <!-- Dropdown Trigger -->
                     <li><a class='dropdown-button btn pink darken-4' href='#' data-activates='dropdown1'><i
                             class="material-icons">account_circle</i></a></li>
                     <!-- Dropdown Structure -->
                     <ul id='dropdown1' class='dropdown-content'>
-                        <li><a href="account"><i class="material-icons">account_circle</i>Account</a></li>
+                        <li><a href="account"><i class="material-icons">edit</i><fmt:message key="main.account" bundle="${lang}"/></a></li>
 
-                        <c:if test="${sessionScope.account.role != null}">
-                        <li><a href="admin"><i class="material-icons">account_circle</i>Admin</a></li>
+                        <c:if test="${sessionScope.account.role eq 'admin'}">
+                            <li><a href="admin"><i class="material-icons">build</i><fmt:message key="main.admin" bundle="${lang}"/></a></li>
                         </c:if>
 
                         <li class="divider"></li>
 
-                        <li><a href="app?command=logout"><i class="material-icons">exit_to_app</i><fmt:message
-                                key="main.exit" bundle="${lang}"/></a></li>
+                        <li><a href="app?command=logout"><i class="material-icons">exit_to_app</i><fmt:message key="main.exit" bundle="${lang}"/></a></li>
                     </ul>
                 </c:when>
                 <c:otherwise>

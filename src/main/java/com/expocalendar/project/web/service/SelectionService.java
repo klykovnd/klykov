@@ -30,9 +30,14 @@ public class SelectionService {
         return expoHallDAO.findAll();
     }
 
-    public List<Exposition> findExpositions(Map<String, String> requestParameters) {
-        String query = expositionDAO.parseQuery(requestParameters);
+    public List<Exposition> findExpositions(Map<String, String> requestParameters, int limit, int offset) {
+        String query = expositionDAO.parseQuery(requestParameters, limit,offset);
         return expositionDAO.findExpositions(query);
+    }
+
+    public int getNumberOfExpositions(Map<String, String> requestParameters) {
+        String countQuery = expositionDAO.countQuery(requestParameters);
+        return expositionDAO.countExpositions(countQuery);
     }
 
     public List<String> findThemes() {

@@ -1110,26 +1110,32 @@
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="266" parent="235" name="exposition_id_UNIQUE">
+    <column id="266" parent="235" name="begin_time">
+      <Position>10</Position>
+      <DataType>time|0</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <index id="267" parent="235" name="exposition_id_UNIQUE">
       <ColNames>exposition_id</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="267" parent="235" name="PRIMARY">
+    <key id="268" parent="235" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>exposition_id</ColNames>
       <Primary>1</Primary>
     </key>
-    <key id="268" parent="235" name="exposition_id_UNIQUE">
+    <key id="269" parent="235" name="exposition_id_UNIQUE">
       <ColNames>exposition_id</ColNames>
       <UnderlyingIndexName>exposition_id_UNIQUE</UnderlyingIndexName>
     </key>
-    <column id="269" parent="236" name="account_id">
+    <column id="270" parent="236" name="account_id">
       <Position>1</Position>
       <DataType>int(11)|0</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="270" parent="236" name="expo_id">
+    <column id="271" parent="236" name="expo_id">
       <Position>2</Position>
       <DataType>int(11)|0</DataType>
       <NotNull>1</NotNull>
