@@ -35,27 +35,41 @@
     </div>
 
     <div class="row">
+        <div>
+            <c:if test="${not empty sessionScope.notEqualPasswords}">
+                <h6 class="center-align red-text text-darken-2 "><fmt:message key="message.notEqual" bundle="${lang}"/></h6>
+            </c:if>
+
+            <c:if test="${not empty sessionScope.loginExists}">
+                <h6 class="center-align red-text text-darken-2 "><fmt:message key="message.loginExists" bundle="${lang}"/></h6>
+            </c:if>
+
+            <c:if test="${not empty sessionScope.fillAllFields}">
+                <h6 class="center-align red-text text-darken-2 "><fmt:message key="message.fillAllFields" bundle="${lang}"/></h6>
+            </c:if>
+        </div>
+
         <form class="col s12" action="app" method="post">
             <input type="hidden" name="command" value="registration"/>
             <div class="row">
                 <div class="input-field col s3 offset-s3">
                     <i class="material-icons prefix">person</i>
-                    <input id="icon_prefix1" type="text" class="validate" name="firstName" value="" required>
-                    <label for="icon_prefix1"><fmt:message key="register.firstname" bundle="${lang}"/></label>
+                    <input id="icon_prefix1" type="text" class="validate" name="firstName" value="${sessionScope.firstName}" required>
+                    <label for="icon_prefix1"><fmt:message key="account.firstname" bundle="${lang}"/></label>
                 </div>
 
                 <div class="input-field col s3">
                     <i class="material-icons prefix">person</i>
-                    <input id="icon_prefix2" type="text" class="validate" name="lastName" value="" required>
-                    <label for="icon_prefix2"><fmt:message key="register.lastname" bundle="${lang}"/></label>
+                    <input id="icon_prefix2" type="text" class="validate" name="lastName" value="${sessionScope.lastName}" required>
+                    <label for="icon_prefix2"><fmt:message key="account.lastname" bundle="${lang}"/></label>
                 </div>
             </div>
 
             <div class="row">
                 <div class="input-field col s6 offset-s3">
                     <i class="material-icons prefix">account_circle</i>
-                    <input id="icon_prefix" type="text" class="validate" name="login" value="" required>
-                    <label for="icon_prefix"><fmt:message key="register.login" bundle="${lang}"/></label>
+                    <input id="icon_prefix" type="text" class="validate" name="login" value="${sessionScope.login}" required>
+                    <label for="icon_prefix"><fmt:message key="account.login" bundle="${lang}"/></label>
                 </div>
             </div>
 
@@ -63,7 +77,7 @@
                 <div class="input-field col s6 offset-s3">
                     <i class="material-icons prefix">lock</i>
                     <input id="icon_lock1" class="validate" type="password" name="password" value="" required>
-                    <label for="icon_lock1"><fmt:message key="register.password" bundle="${lang}"/></label>
+                    <label for="icon_lock1"><fmt:message key="account.password" bundle="${lang}"/></label>
                 </div>
             </div>
 
@@ -71,14 +85,14 @@
                 <div class="input-field col s6 offset-s3">
                     <i class="material-icons prefix">lock</i>
                     <input id="icon_lock2" class="validate" type="password" name="repeat" value="" required>
-                    <label for="icon_lock2"><fmt:message key="register.repeat" bundle="${lang}"/></label>
+                    <label for="icon_lock2"><fmt:message key="account.repeat" bundle="${lang}"/></label>
                 </div>
             </div>
             <div class="row">
                 <div class="input-field col s6 offset-s3">
                     <i class="material-icons prefix">mail</i>
-                    <input id="icon_mail" class="validate" type="email" name="email" value="" required>
-                    <label for="icon_mail"><fmt:message key="register.email" bundle="${lang}"/></label>
+                    <input id="icon_mail" class="validate" type="email" name="email" value="${sessionScope.email}" required>
+                    <label for="icon_mail"><fmt:message key="account.email" bundle="${lang}"/></label>
                 </div>
             </div>
 
@@ -132,21 +146,19 @@
                             </div>
 
                             <div class="row">
-                                <div class="input-field col s8 offset-s3">
+                                <div class="input-field col s8">
                                     <button class="btn waves-effect waves-light pink darken-4" type="submit" name="action"><fmt:message
                                             key="register.sign" bundle="${lang}"/>
                                         <i class="material-icons right">send</i>
                                     </button>
                                 </div>
                             </div>
-
                         </div>
                     </div>
                 </div>
             </div>
         </form>
     </div>
-    ${sessionScope.regFail}
 </div>
 <br/>
 <c:import url="parts/footer.jsp"/>

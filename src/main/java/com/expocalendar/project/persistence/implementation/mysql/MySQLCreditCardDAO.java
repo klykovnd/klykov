@@ -3,7 +3,6 @@ package com.expocalendar.project.persistence.implementation.mysql;
 import com.expocalendar.project.entities.CreditCard;
 import com.expocalendar.project.persistence.abstraction.interfaces.CreditCardDAO;
 import com.expocalendar.project.persistence.abstraction.interfaces.IDataSourceManager;
-import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 
 import java.sql.Connection;
@@ -50,8 +49,9 @@ public class MySQLCreditCardDAO implements CreditCardDAO {
                 creditCard = processRow(rs);
             }
         } catch (SQLException e) {
-            LOGGER.log(Level.DEBUG, "SQLException", e);
+            LOGGER.error("SQLException occurred in " + getClass().getSimpleName(), e);
         }
+        LOGGER.info("Requested CreditCard found for further validation");
         return creditCard;
     }
 
@@ -64,8 +64,9 @@ public class MySQLCreditCardDAO implements CreditCardDAO {
             ps.executeUpdate();
 
         } catch (SQLException e) {
-            LOGGER.log(Level.DEBUG, "SQLException", e);
+            LOGGER.error("SQLException occurred in " + getClass().getSimpleName(), e);
         }
+        LOGGER.info("Funds added");
     }
 
     private CreditCard processRow(ResultSet rs) throws SQLException {

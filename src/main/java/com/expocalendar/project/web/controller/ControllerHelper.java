@@ -22,9 +22,11 @@ public class ControllerHelper {
         commandsMap.put("order", new OrderCommand());
         commandsMap.put("localization", new LocalizationCommand());
         commandsMap.put("creation", new CreationCommand());
-        commandsMap.put("showExposition", new ShowExpositionCommand());
+        commandsMap.put("show", new ShowCommand());
         commandsMap.put("update", new UpdateCommand());
         commandsMap.put("delete", new DeleteCommand());
+        commandsMap.put("send", new SendMailCommand());
+        commandsMap.put("redirect", new RedirectCommand());
     }
 
     public static ControllerHelper getInstance() {
@@ -36,10 +38,16 @@ public class ControllerHelper {
     }
 
     public ICommand defineCommand(String commandKey) {
-        return commandsMap.get(commandKey);
+        ICommand command = commandsMap.get(commandKey);
+
+        if (command == null) {
+            command = commandsMap.get("redirect");
+        }
+
+        return command;
     }
 
-    public static Map<String, String> extractParameters(HttpServletRequest request) {
+    public Map<String, String> extractParameters(HttpServletRequest request) {
         Map<String, String> requestParameters = new HashMap<>();
 
         List<String> parameters = Collections.list(request.getParameterNames());

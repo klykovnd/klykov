@@ -10,7 +10,8 @@ public interface AccountDAO {
 
     void createAccount(Account account, CreditCard creditCard);
 
-    boolean isExist(String login, String email);
+    boolean isExist(String login);
 
-    void saveOrder(Account account, int expoId, double remainder);
+    void updateAccount(Account account);
+
 }

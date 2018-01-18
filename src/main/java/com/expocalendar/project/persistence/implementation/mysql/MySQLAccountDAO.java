@@ -4,7 +4,6 @@ import com.expocalendar.project.entities.Account;
 import com.expocalendar.project.entities.CreditCard;
 import com.expocalendar.project.persistence.abstraction.interfaces.AccountDAO;
 import com.expocalendar.project.persistence.abstraction.interfaces.IDataSourceManager;
-import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 
 import java.sql.*;
@@ -29,10 +28,9 @@ public class MySQLAccountDAO implements AccountDAO {
     private static final String INSERT_CARD = "INSERT INTO cards" +
             "(number,cvv,holder,month,year) " + "VALUES(?,?,?,?,?)";
     private static final String FIND_ACCOUNT = "SELECT * FROM accounts WHERE login = ? AND password = ?";
-    private static final String FIND_LOGIN = "SELECT * FROM accounts WHERE login = ? AND email = ? ";
-    private static final String SAVE_ORDER = "INSERT INTO orders (account_id,expo_id) VALUES (?,?)";
-    private static final String WITHDRAW = "UPDATE cards SET balance = ? WHERE card_id = ?";
-    private static final String FIND_CARD = "SELECT * FROM cards WHERE card_id = ?";
+    private static final String FIND_LOGIN = "SELECT * FROM accounts WHERE login = ?";
+    private static final String UPDATE_ACCOUNT = "UPDATE accounts SET first_name = ?, " +
+            "last_name = ?, email = ? WHERE account_id = ?";
 
 
     private MySQLAccountDAO() {
@@ -55,14 +53,14 @@ public class MySQLAccountDAO implements AccountDAO {
             ps.setString(1, login);
             ps.setString(2, password);
             ResultSet rs = ps.executeQuery();
-
             if (rs.next()) {
                 account = processRow(rs);
             }
 
         } catch (SQLException e) {
-            LOGGER.log(Level.DEBUG, "SQLException", e);
+            LOGGER.error("SQLException occurred in " + getClass().getSimpleName(), e);
         }
+        LOGGER.info("Requested account found in DB");
         return account;
     }
 
@@ -80,13 +78,16 @@ public class MySQLAccountDAO implements AccountDAO {
             prepareCard.executeUpdate();
 
             connection.commit();
+
         } catch (SQLException e) {
-            LOGGER.log(Level.DEBUG, "SQLException", e);
+            LOGGER.error("SQLException occurred in " + getClass().getSimpleName(), e);
         }
+
+        LOGGER.info("New Account created with related CreditCard");
     }
 
     @Override
-    public boolean isExist(String login, String email) {
+    public boolean isExist(String login) {
         boolean exist = false;
         try (Connection connection = dataSourceManager.createConnection();
              PreparedStatement ps = connection.prepareStatement(FIND_LOGIN)) {
@@ -95,30 +96,26 @@ public class MySQLAccountDAO implements AccountDAO {
             exist = rs.next();
 
         } catch (SQLException e) {
-            LOGGER.log(Level.DEBUG, "SQLException", e);
+            LOGGER.error("SQLException occurred in " + getClass().getSimpleName(), e);
         }
+        LOGGER.info("Account existence checked in DB");
         return exist;
     }
 
     @Override
-    public void saveOrder(Account account, int expositionId, double remainder) {
+    public void updateAccount(Account account) {
         try (Connection connection = dataSourceManager.createConnection();
-             PreparedStatement prepInsert = connection.prepareStatement(SAVE_ORDER);
-             PreparedStatement prepWithdraw = connection.prepareStatement(WITHDRAW)) {
-            connection.setAutoCommit(false);
+             PreparedStatement preparedStatement = connection.prepareStatement(UPDATE_ACCOUNT)) {
+            preparedStatement.setString(1, account.getFirstName());
+            preparedStatement.setString(2, account.getLastName());
+            preparedStatement.setString(3, account.getEmail());
+            preparedStatement.setInt(4, account.getId());
+            preparedStatement.executeUpdate();
 
-            prepInsert.setInt(1, account.getId());
-            prepInsert.setInt(2, expositionId);
-            prepInsert.executeUpdate();
-
-            prepWithdraw.setDouble(1, remainder);
-            prepWithdraw.setInt(2, account.getId());
-            prepWithdraw.executeUpdate();
-
-            connection.commit();
         } catch (SQLException e) {
-            LOGGER.log(Level.DEBUG, "SQLException", e);
+            LOGGER.error("SQLException occurred in " + getClass().getSimpleName(), e);
         }
+        LOGGER.info("Account data updated");
     }
 
     private Account processRow(ResultSet rs) throws SQLException {
@@ -130,7 +127,6 @@ public class MySQLAccountDAO implements AccountDAO {
                 setRole(rs.getString(ROLE)).
                 setEmail(rs.getString(EMAIL)).build();
     }
-
 
     private void prepareAccount(PreparedStatement ps, Account account) throws SQLException {
         ps.setString(1, account.getFirstName());

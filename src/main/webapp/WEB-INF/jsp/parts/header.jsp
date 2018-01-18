@@ -40,9 +40,9 @@
                     </ul>
                 </c:when>
                 <c:otherwise>
-                    <li><a href="login"><fmt:message key="register.signIn" bundle="${lang}"/></a></li>
+                    <li><a href="login"><fmt:message key="account.signIn" bundle="${lang}"/></a></li>
                     <li><fmt:message key="register.or" bundle="${lang}"/></li>
-                    <li><a href="registration"><fmt:message key="register.signUp" bundle="${lang}"/></a></li>
+                    <li><a href="registration"><fmt:message key="account.signUp" bundle="${lang}"/></a></li>
                 </c:otherwise>
             </c:choose>
         </ul>

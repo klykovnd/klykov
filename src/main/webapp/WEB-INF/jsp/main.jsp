@@ -32,7 +32,6 @@
 <!--Search form here -->
 <div class="container">
     <div class="row">
-        ${requestScope.nothingFound}
         <form class="col s12" action="app" method="get">
             <input type="hidden" name="command" value="selection">
             <div class="input-field col s2">
@@ -77,22 +76,31 @@
     </div>
     <!--Expositions Cards there-->
     <div class="row">
+
+        <c:if test="${not empty sessionScope.nothingFound}">
+            <fmt:message key="message.nothingFound" bundle="${lang}"/>
+        </c:if>
+
+
         <c:forEach items="${sessionScope.expositions}" var="exposition">
             <div class="col s4">
-                <div class="card medium sticky-action">
+                <div class="card medium">
                     <div class="card-image waves-effect waves-block waves-light">
                         <img class="activator" src="${exposition.picture}">
                     </div>
                     <div class="card-content">
                         <span class="card-title activator grey-text text-darken-4"> <c:out value="${exposition.title}"/> <i
                                 class="material-icons right">more_vert</i></span>
-                        <p><c:out value="${sessionScope.halls[exposition.expoHallId - 1].name}"/></p>
+                        <c:forEach var="hall" items="${sessionScope.halls}">
+                            <c:if test="${hall.id == exposition.expoHallId}">
+                                <p><c:out value="${hall.name}"/></p>
+                            </c:if>
+                        </c:forEach>
                     </div>
                     <div class="card-action">
                         <!--Order Page link-->
                         <c:if test="${exposition.dateTo gt now}">
                             <form action="order" method="post">
-                                <input type="hidden" name="command" value="selection">
                                 <input type="hidden" name="expositionId" value="${exposition.id}">
                                 <button class="btn waves-effect waves-light pink darken-4" type="submit">
                                     <fmt:message key="main.buy" bundle="${lang}"/>
@@ -107,6 +115,10 @@
                         <p><fmt:formatDate type="date" value="${exposition.dateFrom}"/> - <fmt:formatDate type="date"
                                                                                                           value="${exposition.dateTo}"/></p>
                         <p><c:out value="${exposition.theme}"/></p>
+
+                        <fmt:formatDate value="${exposition.beginTime}" var="time" pattern="HH:mm"/>
+
+                        <p><c:out value="${time}"/></p>
 
                         <p><c:out value="${exposition.description}"/></p>
 
@@ -157,8 +169,23 @@
 
 
 <br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
 <c:import url="parts/footer.jsp"/>
-
 <!--Import jQuery before materialize.js-->
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 <script type="text/javascript" src="js/materialize.min.js"></script>

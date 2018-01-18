@@ -35,58 +35,90 @@
     </div>
 
     <div class="row">
-        <form class="col s12" action="app" method="post">
-            <input type="hidden" name="command" value="updateAccount"/>
+        <form class="col s6" action="app" method="post">
+            <input type="hidden" name="command" value="update"/>
+            <input type="hidden" name="object" value="account">
+            <input type="hidden" name="accountId" value="${sessionScope.account.id}"/>
+
             <div class="row">
-                <div class="input-field col s3 offset-s3">
+                <div class="input-field col s6">
                     <i class="material-icons prefix">person</i>
-                    <input id="icon_prefix1" type="text" class="validate" name="firstName" value="${sessionScope.account.firstName}" required>
-                    <label for="icon_prefix1"><fmt:message key="register.firstname" bundle="${lang}"/></label>
+                    <input id="icon_prefix1" type="text" class="validate" name="firstName"
+                           value="${sessionScope.account.firstName}" required>
+                    <label for="icon_prefix1"><fmt:message key="account.firstname" bundle="${lang}"/></label>
                 </div>
+            </div>
 
-                <div class="input-field col s3">
+
+            <div class="row">
+                <div class="input-field col s6">
                     <i class="material-icons prefix">person</i>
-                    <input id="icon_prefix2" type="text" class="validate" name="lastName" value="${sessionScope.account.lastName}" required>
-                    <label for="icon_prefix2"><fmt:message key="register.lastname" bundle="${lang}"/></label>
+                    <input id="icon_prefix2" type="text" class="validate" name="lastName"
+                           value="${sessionScope.account.lastName}" required>
+                    <label for="icon_prefix2"><fmt:message key="account.lastname" bundle="${lang}"/></label>
                 </div>
             </div>
 
 
             <div class="row">
-                <div class="input-field col s6 offset-s3">
-                    <i class="material-icons prefix">lock</i>
-                    <input id="icon_lock1" class="validate" type="password" name="password" value="" required>
-                    <label for="icon_lock1"><fmt:message key="register.password" bundle="${lang}"/></label>
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="input-field col s6 offset-s3">
-                    <i class="material-icons prefix">lock</i>
-                    <input id="icon_lock2" class="validate" type="password" name="repeat" value="" required>
-                    <label for="icon_lock2"><fmt:message key="register.repeat" bundle="${lang}"/></label>
-                </div>
-            </div>
-            <div class="row">
-                <div class="input-field col s6 offset-s3">
+                <div class="input-field col s6">
                     <i class="material-icons prefix">mail</i>
-                    <input id="icon_mail" class="validate" type="email" name="email" value="${sessionScope.account.email}" required>
-                    <label for="icon_mail"><fmt:message key="register.email" bundle="${lang}"/></label>
+                    <input id="icon_mail" class="validate" type="email" name="email"
+                           value="${sessionScope.account.email}" required>
+                    <label for="icon_mail"><fmt:message key="account.email" bundle="${lang}"/></label>
                 </div>
             </div>
 
             <div class="row">
-                <div class="input-field col s8 offset-s3">
-                    <button class="btn waves-effect waves-light pink darken-4" type="submit" name="action"><fmt:message
-                            key="register.sign" bundle="${lang}"/>
+                <div class="input-field col s8">
+                    <button class="btn waves-effect waves-light pink darken-4" type="submit"><fmt:message
+                            key="account.update" bundle="${lang}"/>
                         <i class="material-icons right">send</i>
                     </button>
                 </div>
             </div>
         </form>
+
+        <div class="col s6">
+            <ul class="collection with-header">
+                <li class="collection-header"><h4>Мои Билеты</h4></li>
+                <c:forEach items="${sessionScope.orders}" var="entry">
+                    <li class="collection-item">
+                        <div>
+                            № Заказа: <c:out value="${entry.key.orderKey}"/><br>
+                            Название выставки: <c:out value="${entry.value.title}"/><br>
+                            Количество билетов: <c:out value="${entry.key.ticketNumber}"/><br>
+
+                            <form action="app" method="post">
+                                <input type="hidden" name="command" value="send">
+                                <input type="hidden" name="hallId" value="${entry.value.expoHallId}">
+                                <input type="hidden" name="orderKey" value="${entry.key.orderKey}">
+                                <input type="hidden" name="ticketsNumber" value="${entry.key.ticketNumber}">
+                                <div class="row">
+                                    <div class="input-field col s8">
+                                        <button class="btn waves-effect waves-light pink darken-4" type="submit"><fmt:message
+                                                key="account.send" bundle="${lang}"/>
+                                            <i class="material-icons right">send</i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
+
+
+                        </div>
+                    </li>
+                </c:forEach>
+            </ul>
+
+
+        </div>
+
+
     </div>
-    ${sessionScope.regFail}
+
 </div>
+
+
 <br/>
 <c:import url="parts/footer.jsp"/>
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>

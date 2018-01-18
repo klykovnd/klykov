@@ -136,10 +136,14 @@ public class Exposition implements Serializable {
         result = id;
         result = 31 * result + (title != null ? title.hashCode() : 0);
         result = 31 * result + (theme != null ? theme.hashCode() : 0);
-        result = 31 * result + (dateTo != null ? dateTo.hashCode() : 0);
         result = 31 * result + (dateFrom != null ? dateFrom.hashCode() : 0);
+        result = 31 * result + (dateTo != null ? dateTo.hashCode() : 0);
+        result = 31 * result + (beginTime != null ? beginTime.hashCode() : 0);
         temp = Double.doubleToLongBits(ticketPrice);
         result = 31 * result + (int) (temp ^ (temp >>> 32));
+        result = 31 * result + expoHallId;
+        result = 31 * result + (picture != null ? picture.hashCode() : 0);
+        result = 31 * result + (description != null ? description.hashCode() : 0);
         return result;
     }
 

@@ -18,6 +18,7 @@
         <url-pattern>/lang</url-pattern>
         <url-pattern>/main</url-pattern>
         <url-pattern>/admin</url-pattern>
+        <url-pattern>/index</url-pattern>
         <url-pattern>/account</url-pattern>
     </servlet-mapping>
 
@@ -50,7 +51,78 @@
     <filter-mapping>
         <filter-name>SecurityFilter</filter-name>
         <url-pattern>/order</url-pattern>
+        <url-pattern>/account</url-pattern>
     </filter-mapping>
+
+    <filter>
+        <filter-name>AdminSecurityFilter</filter-name>
+        <filter-class>com.expocalendar.project.web.filter.AdminSecurityFilter</filter-class>
+        <init-param>
+            <param-name>MAIN_PATH</param-name>
+            <param-value>/main</param-value>
+        </init-param>
+    </filter>
+
+    <filter-mapping>
+        <filter-name>AdminSecurityFilter</filter-name>
+        <url-pattern>/admin</url-pattern>
+    </filter-mapping>
+
+    <filter>
+        <filter-name>Authorization</filter-name>
+        <filter-class>com.expocalendar.project.web.filter.AuthorizationFilter</filter-class>
+        <init-param>
+            <param-name>MAIN_PATH</param-name>
+            <param-value>/main</param-value>
+        </init-param>
+    </filter>
+
+    <filter-mapping>
+        <filter-name>Authorization</filter-name>
+        <url-pattern>/login</url-pattern>
+        <url-pattern>/registration</url-pattern>
+    </filter-mapping>
+
+
+    <listener>
+        <listener-class>com.expocalendar.project.web.listeners.SessionListenerImpl</listener-class>
+    </listener>
+
+    <listener>
+        <listener-class>com.expocalendar.project.web.listeners.SessionAttributeListenerImpl</listener-class>
+    </listener>
+
+    <listener>
+        <listener-class>com.expocalendar.project.web.listeners.RequestListenerImpl</listener-class>
+    </listener>
+
+
+
+    <error-page>
+        <!-- Missing login -->
+        <error-code>401</error-code>
+        <location>/WEB-INF/jsp/error.jsp</location>
+    </error-page>
+    <error-page>
+        <!-- Forbidden directory listing -->
+        <error-code>403</error-code>
+        <location>/WEB-INF/jsp/error.jsp</location>
+    </error-page>
+    <error-page>
+        <!-- Missing resource -->
+        <error-code>404</error-code>
+        <location>/WEB-INF/jsp/error.jsp</location>
+    </error-page>
+    <error-page>
+        <!-- Uncaught exception -->
+        <error-code>500</error-code>
+        <location>/WEB-INF/jsp/error.jsp</location>
+    </error-page>
+    <error-page>
+        <!-- Unsupported servlet method -->
+        <error-code>503</error-code>
+        <location>/WEB-INF/jsp/error.jsp</location>
+    </error-page>
 
 
 </web-app>

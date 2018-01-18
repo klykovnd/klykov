@@ -1,10 +1,7 @@
 package com.expocalendar.project.persistence.implementation.mysql;
 
-
 import com.expocalendar.project.persistence.abstraction.interfaces.IDataSourceManager;
-import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
-
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import javax.sql.DataSource;
@@ -34,8 +31,10 @@ public class MySQLDataSourceManager implements IDataSourceManager {
         try {
             dataSource = (DataSource) new InitialContext().lookup(RESOURCE_NAME);
         } catch (NamingException e) {
-            LOGGER.log(Level.DEBUG, "NamingException", e);
+            LOGGER.error("NamingException occurred in " + getClass().getSimpleName(), e);
         }
+
+        LOGGER.info("New DataSource connection created");
         return dataSource.getConnection();
     }
 

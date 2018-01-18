@@ -9,4 +9,10 @@ public interface ExpoHallDAO {
     List<ExpoHall> findAll();
 
     ExpoHall findExpoHall(int id);
+
+    void createExpoHall(ExpoHall expoHall);
+
+    void updateExpoHall(ExpoHall expoHall);
+
+    void deleteExpoHall(int id);
 }

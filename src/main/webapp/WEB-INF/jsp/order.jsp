@@ -22,30 +22,41 @@
 
 <div class="container">
 
-    <table class="bordered">
-        <tr>
-            <th><fmt:message key="order.date" bundle="${lang}"/></th>
-            <th><fmt:message key="order.title" bundle="${lang}"/></th>
-            <th><fmt:message key="order.price" bundle="${lang}"/></th>
-        </tr>
-        <tr>
-            <td><fmt:formatDate type="date" value="${sessionScope.exposition.dateFrom}"/> - <fmt:formatDate type="date" value="${sessionScope.exposition.dateTo}"/></td>
-            <td><c:out value="${sessionScope.exposition.title}"/></td>
-            <td><c:out value="${sessionScope.exposition.ticketPrice}"/></td>
-        </tr>
-    </table>
 
-</div>
+    <div class="row">
+        <table class="bordered">
+            <tr>
 
-<br/>
+                <th><i class="material-icons prefix">date_range</i> <fmt:message key="order.date" bundle="${lang}"/></th>
 
-<div class="container">
+                <th><i class="material-icons prefix">title</i><fmt:message key="order.title" bundle="${lang}"/></th>
+
+                <th><i class="material-icons prefix">attach_money</i><fmt:message key="order.price" bundle="${lang}"/></th>
+            </tr>
+            <tr>
+                <td><fmt:formatDate type="date" value="${sessionScope.exposition.dateFrom}"/> - <fmt:formatDate type="date" value="${sessionScope.exposition.dateTo}"/></td>
+                <td><c:out value="${sessionScope.exposition.title}"/></td>
+                <td><c:out value="${sessionScope.exposition.ticketPrice}"/></td>
+            </tr>
+        </table>
+    </div>
+    <br/>
+
+
     <div class="row">
         <div class="demo">
             <form class="payment-card" action="app" method="post">
                 <input type="hidden" name="command" value="order"/>
                 <input type="hidden" name="expoId" value="${sessionScope.exposition.id}"/>
-                <input type="number" name="number" min="1" value="1"/>
+
+
+                <div class="row">
+                    <div class="col s3">
+                        <fmt:message key="order.number" bundle="${lang}"/>
+                        <input type="number" name="number" min="1" value="1"/>
+                    </div>
+                </div>
+
                 <div class="bank-card">
                     <div class="bank-card__side bank-card__side_front">
                         <div class="bank-card__inner">

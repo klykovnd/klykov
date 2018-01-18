@@ -8,6 +8,7 @@ import org.apache.log4j.Logger;
 
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -41,9 +42,6 @@ public class MySQLExpositionDAO implements ExpositionDAO {
     private static final String DELETE_EXPOSITION = "DELETE FROM expositions WHERE exposition_id = ?";
 
 
-    //private static final String COUNT = "SELECT COUNT(*)";
-
-
     private static final String SELECT_BY_DATE = "expositions WHERE " +
             "(date_from BETWEEN '%s' AND '%s' OR date_to BETWEEN '%s' AND " +
             "'%s' OR date_from <= '%s' AND date_to >= '%s')";
@@ -74,8 +72,10 @@ public class MySQLExpositionDAO implements ExpositionDAO {
             }
 
         } catch (SQLException e) {
-            LOGGER.log(Level.DEBUG, "SQLException", e);
+            LOGGER.error("SQLException occurred in " + getClass().getSimpleName(), e);
         }
+
+        LOGGER.info("All expositions obtained from DB");
         return expositions;
     }
 
@@ -90,9 +90,9 @@ public class MySQLExpositionDAO implements ExpositionDAO {
             }
 
         } catch (SQLException e) {
-            LOGGER.log(Level.DEBUG, "SQLException", e);
+            LOGGER.error("SQLException occurred in " + getClass().getSimpleName(), e);
         }
-
+        LOGGER.info("List of themes obtained from DB");
         return themes;
     }
 
@@ -107,8 +107,10 @@ public class MySQLExpositionDAO implements ExpositionDAO {
             }
 
         } catch (SQLException e) {
-            LOGGER.log(Level.DEBUG, "SQLException", e);
+            LOGGER.error("SQLException occurred in " + getClass().getSimpleName(), e);
         }
+
+        LOGGER.info("List of expositions related on request parameters obtained from DB");
         return expositions;
     }
 
@@ -123,8 +125,9 @@ public class MySQLExpositionDAO implements ExpositionDAO {
             }
 
         } catch (SQLException e) {
-            LOGGER.log(Level.DEBUG, "SQLException", e);
+            LOGGER.error("SQLException occurred in " + getClass().getSimpleName(), e);
         }
+        LOGGER.info(count + " expositions found, based on request criteria");
         return count;
     }
 
@@ -136,8 +139,9 @@ public class MySQLExpositionDAO implements ExpositionDAO {
             preparedStatement.executeUpdate();
 
         } catch (SQLException e) {
-            LOGGER.log(Level.DEBUG, "SQLException", e);
+            LOGGER.error("SQLException occurred in " + getClass().getSimpleName(), e);
         }
+        LOGGER.info("New Expositions created");
     }
 
     @Override
@@ -152,8 +156,10 @@ public class MySQLExpositionDAO implements ExpositionDAO {
             }
 
         } catch (SQLException e) {
-            LOGGER.log(Level.DEBUG, "SQLException", e);
+            LOGGER.error("SQLException occurred in " + getClass().getSimpleName(), e);
         }
+
+        LOGGER.info("Requested Exposition found in DB");
         return exposition;
     }
 
@@ -167,8 +173,10 @@ public class MySQLExpositionDAO implements ExpositionDAO {
             preparedStatement.executeUpdate();
 
         } catch (SQLException e) {
-            LOGGER.log(Level.DEBUG, "SQLException", e);
+            LOGGER.error("SQLException occurred in " + getClass().getSimpleName(), e);
         }
+
+        LOGGER.info("Expositions data updated");
     }
 
     @Override
@@ -179,9 +187,12 @@ public class MySQLExpositionDAO implements ExpositionDAO {
             preparedStatement.executeUpdate();
 
         } catch (SQLException e) {
-            LOGGER.log(Level.DEBUG, "SQLException", e);
+            LOGGER.error("SQLException occurred in " + getClass().getSimpleName(), e);
         }
+
+        LOGGER.info("Expositions deleted from DB");
     }
+
 
     private Exposition processRow(ResultSet rs) throws SQLException {
         return Exposition.newBuilder().setId(rs.getInt(ID)).setTitle(rs.getString(TITLE)).
@@ -220,7 +231,6 @@ public class MySQLExpositionDAO implements ExpositionDAO {
         }
         stringBuilder.append(" ORDER BY date_from ASC");
         stringBuilder.append(String.format(LIMIT_OFFSET, limit, offset));
-        LOGGER.log(Level.INFO, stringBuilder.toString());
 
         return stringBuilder.toString();
     }
@@ -240,7 +250,6 @@ public class MySQLExpositionDAO implements ExpositionDAO {
         if (!parameters.get("hallId").equalsIgnoreCase("")) {
             stringBuilder.append(String.format(SELECT_BY_HALL, parameters.get("hallId")));
         }
-        LOGGER.log(Level.INFO, stringBuilder.toString());
 
         return stringBuilder.toString();
     }

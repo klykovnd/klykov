@@ -11,9 +11,16 @@ public class Account implements Serializable {
     private String role;
     private String email;
 
+    /**
+     *default Account constructor.
+     */
     public Account() {
     }
 
+
+    /**
+     *Account constructor for all fields.
+     */
     public Account(int id, String firstName, String lastName,
                    String login, String password, String role, String email) {
 
@@ -26,58 +33,129 @@ public class Account implements Serializable {
         this.email = email;
     }
 
+
+    /**
+     *Getter for Account id
+     *
+     * @return id
+     */
     public int getId() {
         return id;
     }
 
+    /**
+     *Setter for Account id
+     *
+     * @param id primary identifier
+     */
     public void setId(int id) {
         this.id = id;
     }
 
+    /**
+     *Getter for Account firstName
+     *
+     * @return firstName Account holder's first name
+     */
     public String getFirstName() {
         return firstName;
     }
 
+    /**
+     *Setter for Account firstName
+     *
+     * @param firstName Account holder's first name
+     */
     public void setFirstName(String firstName) {
         this.firstName = firstName;
     }
 
+    /**
+     *Getter for Id
+     *
+     * @return lastName Account holder's last name
+     */
     public String getLastName() {
         return lastName;
     }
 
+    /**
+     *Setter for lastName
+     *
+     *@param lastName Account holder's last name
+     */
     public void setLastName(String lastName) {
         this.lastName = lastName;
     }
 
+    /**
+     *Getter for Login
+     *
+     * @return login
+     */
     public String getLogin() {
         return login;
     }
 
+    /**
+     *Setter for login
+     *
+     * @param login for authentication
+     */
     public void setLogin(String login) {
         this.login = login;
     }
 
+    /**
+     *Getter for password
+     *
+     * @return password
+     */
     public String getPassword() {
         return password;
     }
 
+    /**
+     *Getter for password
+     *
+     * @param password for authentication
+     */
     public void setPassword(String password) {
         this.password = password;
     }
 
+    /**
+     *Getter for email
+     *
+     * @return email
+     */
     public String getEmail() {
         return email;
     }
 
+    /**
+     *Setter for email
+     *
+     *@param email real Account email
+     */
     public void setEmail(String email) {
         this.email = email;
     }
 
+    /**
+     *Getter for Account role
+     *
+     * @return Account role
+     */
     public String getRole() {
         return role;
     }
 
+    /**
+     *Setter for role
+     *
+     * @param role Account authentication role
+     */
     public void setRole(String role) {
         this.role = role;
     }

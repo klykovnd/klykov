@@ -33,11 +33,26 @@
 
 <div class="container">
 
-    <h5>Добавить новую выставку</h5>
-    <hr>
+
+    <div class="row">
+
+        <div class="col s6">
+            <h5>Добавить новую выставку</h5>
+            <hr>
+        </div>
+
+        <div class="col s6">
+            <h5>Добавить выставочный зал</h5>
+            <hr>
+        </div>
+
+    </div>
+
+
     <div class="row">
         <form class="col s6" action="app" method="post">
             <input type="hidden" name="command" value="creation">
+            <input type="hidden" name="object" value="exposition">
             <div class="row">
                 <div class="input-field col s6">
                     <i class="material-icons prefix">date_range</i>
@@ -98,7 +113,7 @@
             <div class="row">
                 <div class="input-field col s6">
                     <i class="material-icons prefix">access_time</i>
-                    <label for="time1"><fmt:message key="main.begintime" bundle="${lang}"/></label>
+                    <label for="time1"><fmt:message key="exposition.begintime" bundle="${lang}"/></label>
                     <input id="time1" type="text" class="timepicker" name="beginTime" required>
                 </div>
             </div>
@@ -117,7 +132,7 @@
                 <div class="input-field col s12">
                     <i class="material-icons prefix">description</i>
                     <textarea name="description" id="textarea" class="materialize-textarea" required></textarea>
-                    <label for="textarea"><fmt:message key="main.description" bundle="${lang}"/></label>
+                    <label for="textarea"><fmt:message key="exposition.description" bundle="${lang}"/></label>
                 </div>
             </div>
 
@@ -125,148 +140,277 @@
             <div class="row">
                 <div class="input-field col s6">
                     <button class="btn waves-effect waves-light pink darken-4" type="submit">
-                        <fmt:message key="admin.exposition.create" bundle="${lang}"/>
+                        <fmt:message key="admin.create" bundle="${lang}"/>
                         <i class="material-icons right">add_box</i>
                     </button>
                 </div>
             </div>
         </form>
+
+
+        <div class="row">
+            <form class="col s6" action="app" method="post">
+                <input type="hidden" name="command" value="creation">
+                <input type="hidden" name="object" value="hall">
+                <div class="row">
+                    <div class="input-field col s12">
+                        <i class="material-icons prefix">location_city</i>
+                        <input id="icon_prefix6" type="text" class="validate" name="name" required>
+                        <label for="icon_prefix6"><fmt:message key="expohall.name" bundle="${lang}"/></label>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="input-field col s12">
+                        <i class="material-icons prefix">location_on</i>
+                        <input id="icon_prefix7" type="text" class="validate" name="address" required>
+                        <label for="icon_prefix7"><fmt:message key="expohall.address" bundle="${lang}"/></label>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="input-field col s6">
+                        <button class="btn waves-effect waves-light pink darken-4" type="submit">
+                            <fmt:message key="admin.create" bundle="${lang}"/>
+                            <i class="material-icons right">add_box</i>
+                        </button>
+                    </div>
+                </div>
+
+            </form>
+        </div>
+
+
     </div>
 
 
     <br/>
     <br/>
 
-    <!--SELECT UPDATE-->
-    <h5>Редактировать выставку</h5>
-    <hr>
-
+    <!--SELECT WHICH TO UPDATE-->
     <div class="row">
-        <form class="col s6" action="app" method="get">
-            <input type="hidden" name="command" value="showExposition">
-            <select name="expositionId" onchange="submit()">
+
+        <div class="col s6">
+            <h5>Редактировать выставку</h5>
+            <hr>
+        </div>
+
+        <div class="col s6">
+            <h5>Редактировать зал</h5>
+            <hr>
+        </div>
+
+    </div>
+
+
+    <!--EXPOSITION-->
+    <div class="row">
+        <form class="col s6" action="admin" method="get">
+            <input type="hidden" name="command" value="show">
+            <input type="hidden" name="object" value="exposition">
+            <select name="expositionId" class="validate" onchange="submit()">
                 <c:forEach var="exposition" items="${sessionScope.allExpositions}">
                     <option value="${exposition.id}" ${exposition.id == sessionScope.updExposition.id ? "selected" : ""}> ${exposition.title}</option>
                 </c:forEach>
             </select>
         </form>
+
+        <!--EXPOHALL-->
+        <form class="col s6" action="admin" method="get">
+            <input type="hidden" name="command" value="show">
+            <input type="hidden" name="object" value="hall">
+            <select name="hallId" class="validate" onchange="submit()">
+                <c:forEach var="hall" items="${sessionScope.halls}">
+                    <option value="${hall.id}" ${hall.id == sessionScope.updHall.id ? "selected" : ""}> ${hall.name}</option>
+                </c:forEach>
+            </select>
+        </form>
+
+
     </div>
 
 
     <!--UPDATE FORM-->
-    <c:if test="${sessionScope.updExposition!=null}">
-        <div class="row">
-            <form class="col s6" action="app" method="post">
-                <input type="hidden" name="command" value="update">
-                <input type="hidden" name="expositionId" value="${sessionScope.updExposition.id}"/>
-                <div class="row">
+    <div class="row">
+        <div class="col s12">
+            <div class="col s6">
+                <c:if test="${sessionScope.updExposition!=null}">
 
-                    <div class="input-field col s6">
-                        <i class="material-icons prefix">date_range</i>
-                        <label for="dateFrom1"><fmt:message key="main.from" bundle="${lang}"/></label>
-                        <input id="dateFrom1" type="text" class="datepicker" placeholder="Date From" name="dateFrom"
-                               min="${now}"
-                               value="${sessionScope.updExposition.dateFrom}" required>
+                    <form action="app" method="post">
+                        <input type="hidden" name="command" value="update">
+                        <input type="hidden" name="object" value="exposition">
+                        <input type="hidden" name="expositionId" value="${sessionScope.updExposition.id}"/>
+                        <div class="row">
+
+                            <div class="input-field col s6">
+                                <i class="material-icons prefix">date_range</i>
+                                <label for="dateFrom1"><fmt:message key="main.from" bundle="${lang}"/></label>
+                                <input id="dateFrom1" type="text" class="datepicker" placeholder="Date From"
+                                       name="dateFrom"
+                                       min="${now}"
+                                       value="${sessionScope.updExposition.dateFrom}" required>
+                            </div>
+                            <div class="input-field col s6">
+                                <i class="material-icons prefix">date_range</i>
+                                <label for="dateTo1"><fmt:message key="main.to" bundle="${lang}"/></label>
+                                <input id="dateTo1" type="text" class="datepicker" placeholder="Date To" name="dateTo"
+                                       min="${now}"
+                                       value="${sessionScope.updExposition.dateTo}" required>
+                            </div>
+                        </div>
+
+
+                        <div class="row">
+                            <div class="input-field col s6">
+                                <i class="material-icons prefix">title</i>
+                                <input id="icon_prefix3" type="text" class="validate" name="title"
+                                       value="${sessionScope.updExposition.title}" required>
+                                <label for="icon_prefix3"><fmt:message key="order.title" bundle="${lang}"/></label>
+                            </div>
+
+                            <div class="input-field col s6">
+                                <i class="material-icons prefix">attach_money</i>
+                                <input id="price2" type="number" name="price" step=0.1 min="1"
+                                       value="${sessionScope.updExposition.ticketPrice}" required/>
+                                <label for="price2"><fmt:message key="order.price" bundle="${lang}"/></label>
+                            </div>
+                        </div>
+
+
+                        <div class="row">
+                            <div class="input-field col s6">
+                                <i class="material-icons prefix">color_lens</i>
+                                <input id="icon_prefix5" type="text" class="validate" name="theme"
+                                       value="${sessionScope.updExposition.theme}">
+                                <label for="icon_prefix5"><fmt:message key="main.theme" bundle="${lang}"/></label>
+                            </div>
+
+                            <div class="input-field col s6">
+                                <i class="material-icons prefix">account_balance</i>
+                                <select name="hallId">
+                                    <c:forEach var="hall" items="${sessionScope.halls}">
+                                        <option value="${hall.id}" ${hall.id == sessionScope.updExposition.expoHallId ? "selected" :""}>${hall.name}</option>
+                                    </c:forEach>
+                                </select>
+                                <label><fmt:message key="main.expohall" bundle="${lang}"/></label>
+                            </div>
+                        </div>
+
+
+                        <div class="row">
+                            <div class="input-field col s6">
+                                <i class="material-icons prefix">access_time</i>
+                                <label for="time2"><fmt:message key="exposition.begintime" bundle="${lang}"/></label>
+                                <input id="time2" type="text" class="timepicker" name="beginTime"
+                                       value="${sessionScope.updExposition.beginTime}" required>
+                            </div>
+                        </div>
+
+
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <i class="material-icons prefix">link</i>
+                                <input id="icon_prefix4" type="url" class="validate" name="url"
+                                       value="${sessionScope.updExposition.picture}" required>
+                                <label for="icon_prefix4">URL</label>
+                            </div>
+                        </div>
+
+
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <i class="material-icons prefix">description</i>
+                                <textarea name="description" id="textarea1"
+                                          class="materialize-textarea"
+                                          required>${sessionScope.updExposition.description}</textarea>
+                                <label for="textarea1"><fmt:message key="exposition.description"
+                                                                    bundle="${lang}"/></label>
+                            </div>
+                        </div>
+
+
+                        <div class="row">
+                            <div class="input-field col s6">
+                                <button class="btn waves-effect waves-light pink darken-4" type="submit">
+                                    <fmt:message key="admin.update" bundle="${lang}"/>
+                                    <i class="material-icons right">update</i>
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+
+                    <div class="row">
+                        <div class="col s6">
+                            <form action="app" method="post">
+                                <input type="hidden" name="command" value="delete">
+                                <input type="hidden" name="object" value="exposition">
+                                <input type="hidden" name="expositionId" value="${sessionScope.updExposition.id}"/>
+                                <button class="btn waves-effect waves-light pink darken-4" type="submit">
+                                    <fmt:message key="admin.delete" bundle="${lang}"/>
+                                    <i class="material-icons right">delete</i>
+                                </button>
+                            </form>
+                        </div>
                     </div>
-                    <div class="input-field col s6">
-                        <i class="material-icons prefix">date_range</i>
-                        <label for="dateTo1"><fmt:message key="main.to" bundle="${lang}"/></label>
-                        <input id="dateTo1" type="text" class="datepicker" placeholder="Date To" name="dateTo"
-                               min="${now}"
-                               value="${sessionScope.updExposition.dateTo}" required>
-                    </div>
-                </div>
 
 
-                <div class="row">
-                    <div class="input-field col s6">
-                        <i class="material-icons prefix">title</i>
-                        <input id="icon_prefix3" type="text" class="validate" name="title"
-                               value="${sessionScope.updExposition.title}" required>
-                        <label for="icon_prefix3"><fmt:message key="order.title" bundle="${lang}"/></label>
-                    </div>
+                </c:if>
+            </div>
 
-                    <div class="input-field col s6">
-                        <i class="material-icons prefix">attach_money</i>
-                        <input id="price2" type="number" name="price" step=0.1 min="1"
-                               value="${sessionScope.updExposition.ticketPrice}" required/>
-                        <label for="price2"><fmt:message key="order.price" bundle="${lang}"/></label>
-                    </div>
-                </div>
+            <div class="col s6">
+                <c:if test="${sessionScope.updHall!=null}">
+                    <form action="app" method="post">
+                        <input type="hidden" name="command" value="update">
+                        <input type="hidden" name="object" value="hall">
+                        <input type="hidden" name="hallId" value="${sessionScope.updHall.id}"/>
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <i class="material-icons prefix">location_city</i>
+                                <input id="icon_prefix9" type="text" class="validate" name="name"
+                                       value="${sessionScope.updHall.name}" required>
+                                <label for="icon_prefix9"><fmt:message key="expohall.name" bundle="${lang}"/></label>
+                            </div>
+                        </div>
 
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <i class="material-icons prefix">location_on</i>
+                                <input id="icon_prefix8" type="text" class="validate" name="address"
+                                       value="${sessionScope.updHall.address}" required>
+                                <label for="icon_prefix8"><fmt:message key="expohall.address" bundle="${lang}"/></label>
+                            </div>
+                        </div>
 
-                <div class="row">
-                    <div class="input-field col s6">
-                        <i class="material-icons prefix">color_lens</i>
-                        <input id="icon_prefix5" type="text" class="validate" name="theme"
-                               value="${sessionScope.updExposition.theme}">
-                        <label for="icon_prefix5"><fmt:message key="main.theme" bundle="${lang}"/></label>
-                    </div>
+                        <div class="row">
+                            <div class="input-field col s6">
+                                <button class="btn waves-effect waves-light pink darken-4" type="submit">
+                                    <fmt:message key="admin.update" bundle="${lang}"/>
+                                    <i class="material-icons right">update</i>
+                                </button>
+                            </div>
+                        </div>
+                    </form>
 
-                    <div class="input-field col s6">
-                        <i class="material-icons prefix">account_balance</i>
-                        <select name="hallId">
-                            <c:forEach var="hall" items="${sessionScope.halls}">
-                                <option value="${hall.id}" ${hall.id == sessionScope.updExposition.expoHallId ? "selected" :""}>${hall.name}</option>
-                            </c:forEach>
-                        </select>
-                        <label><fmt:message key="main.expohall" bundle="${lang}"/></label>
-                    </div>
-                </div>
-
-
-                <div class="row">
-                    <div class="input-field col s6">
-                        <i class="material-icons prefix">access_time</i>
-                        <label for="time2"><fmt:message key="main.begintime" bundle="${lang}"/></label>
-                        <input id="time2" type="text" class="timepicker" name="beginTime"
-                               value="${sessionScope.updExposition.beginTime}" required>
-                    </div>
-                </div>
-
-
-                <div class="row">
-                    <div class="input-field col s12">
-                        <i class="material-icons prefix">link</i>
-                        <input id="icon_prefix4" type="url" class="validate" name="url"
-                               value="${sessionScope.updExposition.picture}" required>
-                        <label for="icon_prefix4">URL</label>
-                    </div>
-                </div>
-
-
-                <div class="row">
-                    <div class="input-field col s12">
-                        <i class="material-icons prefix">description</i>
-                        <textarea name="description" id="textarea1"
-                                  class="materialize-textarea" required>${sessionScope.updExposition.description}</textarea>
-                        <label for="textarea1"><fmt:message key="main.description" bundle="${lang}"/></label>
-                    </div>
-                </div>
-
-
-                <div class="row">
-                    <div class="input-field col s6">
-                        <button class="btn waves-effect waves-light pink darken-4" type="submit">
-                            <fmt:message key="admin.exposition.update" bundle="${lang}"/>
-                            <i class="material-icons right">update</i>
-                        </button>
+                    <div class="row">
+                        <div class="col s6">
+                            <form action="app" method="post">
+                                <input type="hidden" name="command" value="delete">
+                                <input type="hidden" name="object" value="hall">
+                                <input type="hidden" name="hallId" value="${sessionScope.updHall.id}"/>
+                                <button class="btn waves-effect waves-light pink darken-4" type="submit">
+                                    <fmt:message key="admin.delete" bundle="${lang}"/>
+                                    <i class="material-icons right">delete</i>
+                                </button>
+                            </form>
+                        </div>
                     </div>
 
-                    <div class="input-field col s6">
-                        <form action="app" method="post">
-                            <input type="hidden" name="command" value="delete">
-                            <input type="hidden" name="expoId" value="${sessionScope.updExposition.id}"/>
-                            <button class="btn waves-effect waves-light pink darken-4" type="submit">
-                                <fmt:message key="admin.exposition.delete" bundle="${lang}"/>
-                                <i class="material-icons right">delete</i>
-                            </button>
-                        </form>
-                    </div>
-                </div>
-            </form>
+
+                </c:if>
+            </div>
+
         </div>
-    </c:if>
+    </div>
 </div>
 
 

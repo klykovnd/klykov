@@ -1,8 +1,7 @@
 package com.expocalendar.project.web.controller;
 
 import com.expocalendar.project.web.command.ICommand;
-import com.expocalendar.project.web.command.RedirectCommand;
-import com.expocalendar.project.web.management.ConfigurationManager;
+
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -29,21 +28,8 @@ public class Controller extends HttpServlet {
             throws ServletException, IOException {
         String page;
 
-        try {
-
-            ICommand command = ControllerHelper.getInstance().defineCommand(request.getParameter("command"));
-
-            if (command == null) {
-                command = new RedirectCommand();
-            }
-
-            page = command.execute(request, response);
-
-        } catch (Exception e) {
-            page = ConfigurationManager.getProperty("path.page.error");
-            e.printStackTrace();
-        }
-
+        ICommand command = ControllerHelper.getInstance().defineCommand(request.getParameter("command"));
+        page = command.execute(request, response);
 
         RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(page);
         dispatcher.forward(request, response);

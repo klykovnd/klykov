@@ -3,7 +3,6 @@ package com.expocalendar.project.persistence.implementation.mysql;
 import com.expocalendar.project.entities.ExpoHall;
 import com.expocalendar.project.persistence.abstraction.interfaces.ExpoHallDAO;
 import com.expocalendar.project.persistence.abstraction.interfaces.IDataSourceManager;
-import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 
 import java.sql.*;
@@ -22,6 +21,9 @@ public class MySQLExpoHallDAO implements ExpoHallDAO {
 
     private static final String FIND_ALL_EXPOHALLS = "SELECT * FROM expohalls";
     private static final String FIND_EXPOHAll = "SELECT * FROM expohalls WHERE expohall_id = ?";
+    private static final String INSERT_EXPOHALL = "INSERT INTO expohalls (name, address) VALUES(?,?)";
+    private static final String UPDATE_EXPOHALL = "UPDATE expohalls SET name = ?, address = ? WHERE expohall_id = ?";
+    private static final String DELETE_EXPOHALL = "DELETE FROM expohalls WHERE expohall_id = ?";
 
 
     private MySQLExpoHallDAO() {
@@ -44,9 +46,9 @@ public class MySQLExpoHallDAO implements ExpoHallDAO {
                 expoHalls.add(processRow(rs));
             }
         } catch (SQLException e) {
-            LOGGER.log(Level.DEBUG, "SQLException", e);
+            LOGGER.error("SQLException occurred in " + getClass().getSimpleName(), e);
         }
-
+        LOGGER.info("List of ExpoHalls obtained from DB");
         return expoHalls;
     }
 
@@ -62,9 +64,53 @@ public class MySQLExpoHallDAO implements ExpoHallDAO {
             }
 
         } catch (SQLException e) {
-            LOGGER.log(Level.DEBUG, "SQLException", e);
+            LOGGER.error("SQLException occurred in " + getClass().getSimpleName(), e);
         }
+        LOGGER.info("Requested ExpoHall obtained from DB");
         return expoHall;
+    }
+
+    @Override
+    public void createExpoHall(ExpoHall expoHall) {
+        try (Connection connection = dataSourceManager.createConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(INSERT_EXPOHALL)) {
+            preparedStatement.setString(1, expoHall.getName());
+            preparedStatement.setString(2, expoHall.getAddress());
+            preparedStatement.executeUpdate();
+
+        } catch (SQLException e) {
+            LOGGER.error("SQLException occurred in " + getClass().getSimpleName(), e);
+        }
+        LOGGER.info("New ExpoHall created");
+
+    }
+
+    @Override
+    public void updateExpoHall(ExpoHall expoHall) {
+        try (Connection connection = dataSourceManager.createConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(UPDATE_EXPOHALL)) {
+            preparedStatement.setString(1, expoHall.getName());
+            preparedStatement.setString(2, expoHall.getAddress());
+            preparedStatement.setInt(3, expoHall.getId());
+            preparedStatement.executeUpdate();
+
+        } catch (SQLException e) {
+            LOGGER.error("SQLException occurred in " + getClass().getSimpleName(), e);
+        }
+        LOGGER.info("ExpoHall data updated");
+    }
+
+    @Override
+    public void deleteExpoHall(int id) {
+        try (Connection connection = dataSourceManager.createConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(DELETE_EXPOHALL)) {
+            preparedStatement.setInt(1, id);
+            preparedStatement.executeUpdate();
+
+        } catch (SQLException e) {
+            LOGGER.error("SQLException occurred in " + getClass().getSimpleName(), e);
+        }
+        LOGGER.info("ExpoHall deleted");
     }
 
     private ExpoHall processRow(ResultSet rs) throws SQLException {
