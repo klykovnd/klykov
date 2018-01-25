@@ -1,4 +1,4 @@
-package com.expocalendar.project.web.service;
+package com.expocalendar.project.service;
 
 import com.expocalendar.project.entities.CreditCard;
 
@@ -49,7 +49,7 @@ public class Validator {
         return date1.after(date2);
 
     }
-
+    
     private static void swapDate(Map<String, String> requestParameters) {
         String dateFrom = requestParameters.get("dateFrom");
         String dateTo = requestParameters.get("dateTo");

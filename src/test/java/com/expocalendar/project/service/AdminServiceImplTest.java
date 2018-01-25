@@ -1,10 +1,10 @@
-package com.expocalendar.project.web.service;
+package com.expocalendar.project.service;
 
 import com.expocalendar.project.entities.ExpoHall;
 import com.expocalendar.project.persistence.abstraction.interfaces.ExpoHallDAO;
 import com.expocalendar.project.persistence.abstraction.interfaces.ExpositionDAO;
-import com.expocalendar.project.web.service.implementation.AdminServiceImpl;
-import com.expocalendar.project.web.service.interfaces.AdminService;
+import com.expocalendar.project.service.implementation.AdminServiceImpl;
+import com.expocalendar.project.service.interfaces.AdminService;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mock;

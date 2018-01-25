@@ -1,11 +1,11 @@
-package com.expocalendar.project.web.service.implementation;
+package com.expocalendar.project.service.implementation;
 
 import com.expocalendar.project.entities.ExpoHall;
 import com.expocalendar.project.entities.Exposition;
 import com.expocalendar.project.persistence.QueryHelper;
 import com.expocalendar.project.persistence.abstraction.interfaces.ExpoHallDAO;
 import com.expocalendar.project.persistence.abstraction.interfaces.ExpositionDAO;
-import com.expocalendar.project.web.service.interfaces.SelectionService;
+import com.expocalendar.project.service.interfaces.SelectionService;
 import org.apache.log4j.Logger;
 
 import java.util.*;

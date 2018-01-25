@@ -1,12 +1,12 @@
-package com.expocalendar.project.web.service;
+package com.expocalendar.project.service;
 
 
 import com.expocalendar.project.entities.ExpoHall;
 import com.expocalendar.project.entities.Exposition;
 import com.expocalendar.project.persistence.abstraction.interfaces.ExpoHallDAO;
 import com.expocalendar.project.persistence.abstraction.interfaces.ExpositionDAO;
-import com.expocalendar.project.web.service.implementation.SelectionServiceImpl;
-import com.expocalendar.project.web.service.interfaces.SelectionService;
+import com.expocalendar.project.service.implementation.SelectionServiceImpl;
+import com.expocalendar.project.service.interfaces.SelectionService;
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;

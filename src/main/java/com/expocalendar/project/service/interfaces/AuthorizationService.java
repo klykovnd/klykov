@@ -1,4 +1,4 @@
-package com.expocalendar.project.web.service.interfaces;
+package com.expocalendar.project.service.interfaces;
 
 import com.expocalendar.project.entities.Account;
 import com.expocalendar.project.web.exceptions.RegistrationException;

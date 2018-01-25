@@ -10,8 +10,7 @@
     <link type="text/css" rel="stylesheet" href="css/materialize.min.css" media="screen,projection"/>
     <!--Let browser know website is optimized for mobile-->
     <meta title="viewport" content="width=device-width, initial-scale=1.0"/>
-    <fmt:setBundle basename="pagecontent" var="lang"/>
-    <title><fmt:message key="page.main" bundle="${lang}"/></title>
+    <title>Expositions Calendar</title>
 </head>
 <body>
 

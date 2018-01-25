@@ -1,9 +1,9 @@
-package com.expocalendar.project.web.service;
+package com.expocalendar.project.service;
 
 import com.expocalendar.project.entities.*;
 import com.expocalendar.project.persistence.abstraction.interfaces.*;
-import com.expocalendar.project.web.service.implementation.OrderServiceImpl;
-import com.expocalendar.project.web.service.interfaces.OrderService;
+import com.expocalendar.project.service.implementation.OrderServiceImpl;
+import com.expocalendar.project.service.interfaces.OrderService;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mock;

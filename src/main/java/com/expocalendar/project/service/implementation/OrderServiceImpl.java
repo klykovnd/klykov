@@ -1,10 +1,10 @@
-package com.expocalendar.project.web.service.implementation;
+package com.expocalendar.project.service.implementation;
 
 import com.expocalendar.project.entities.*;
 import com.expocalendar.project.persistence.abstraction.interfaces.*;
 import com.expocalendar.project.web.management.MessageManager;
-import com.expocalendar.project.web.service.Validator;
-import com.expocalendar.project.web.service.interfaces.OrderService;
+import com.expocalendar.project.service.Validator;
+import com.expocalendar.project.service.interfaces.OrderService;
 import org.apache.commons.mail.DefaultAuthenticator;
 import org.apache.commons.mail.Email;
 import org.apache.commons.mail.EmailException;

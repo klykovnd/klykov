@@ -1,11 +1,11 @@
-package com.expocalendar.project.web.service;
+package com.expocalendar.project.service;
 
 import com.expocalendar.project.persistence.abstraction.DAOFactory;
-import com.expocalendar.project.web.service.implementation.AdminServiceImpl;
-import com.expocalendar.project.web.service.implementation.AuthorizationServiceImpl;
-import com.expocalendar.project.web.service.implementation.OrderServiceImpl;
-import com.expocalendar.project.web.service.implementation.SelectionServiceImpl;
-import com.expocalendar.project.web.service.interfaces.*;
+import com.expocalendar.project.service.implementation.AdminServiceImpl;
+import com.expocalendar.project.service.implementation.AuthorizationServiceImpl;
+import com.expocalendar.project.service.implementation.OrderServiceImpl;
+import com.expocalendar.project.service.implementation.SelectionServiceImpl;
+import com.expocalendar.project.service.interfaces.*;
 
 /**
  * Singleton Factory allows to get services implementations

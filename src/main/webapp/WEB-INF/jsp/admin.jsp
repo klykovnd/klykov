@@ -12,7 +12,7 @@
     <link type="text/css" rel="stylesheet" href="css/materialize.min.css" media="screen,projection"/>
     <!--Let browser know website is optimized for mobile-->
     <meta title="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title><fmt:message key="page.admin" bundle="${lang}"/></title>
+    <title>Admin</title>
 </head>
 <body>
 <c:import url="parts/header.jsp"/><br/>

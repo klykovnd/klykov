@@ -3,7 +3,7 @@ package com.expocalendar.project.web.command;
 import com.expocalendar.project.entities.Account;
 
 import com.expocalendar.project.web.management.PagesManager;
-import com.expocalendar.project.web.service.ServiceFactory;
+import com.expocalendar.project.service.ServiceFactory;
 import org.apache.log4j.Logger;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;

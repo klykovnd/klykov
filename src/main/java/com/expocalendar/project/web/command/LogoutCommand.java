@@ -13,9 +13,7 @@ public class LogoutCommand implements ICommand {
     @Override
     public String execute(HttpServletRequest request, HttpServletResponse response) {
         request.getSession().invalidate();
-
         LOGGER.info(this.getClass().getSimpleName() + " executed");
-
         return PagesManager.getProperty("path.page.index");
     }
 }

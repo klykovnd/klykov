@@ -1,12 +1,10 @@
 package com.expocalendar.project.web.command;
 
 import com.expocalendar.project.entities.Account;
-import com.expocalendar.project.entities.Exposition;
-import com.expocalendar.project.entities.Order;
 import com.expocalendar.project.web.management.PagesManager;
-import com.expocalendar.project.web.service.ServiceFactory;
-import com.expocalendar.project.web.service.interfaces.OrderService;
-import com.expocalendar.project.web.service.interfaces.SelectionService;
+import com.expocalendar.project.service.ServiceFactory;
+import com.expocalendar.project.service.interfaces.OrderService;
+import com.expocalendar.project.service.interfaces.SelectionService;
 import org.apache.log4j.Logger;
 import static com.expocalendar.project.web.management.PagesManager.getProperty;
 
@@ -14,7 +12,6 @@ import static com.expocalendar.project.web.management.PagesManager.getProperty;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import java.util.Map;
 
 public class RedirectCommand implements ICommand {
     private static final String LOGIN = "/login";

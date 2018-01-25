@@ -4,12 +4,11 @@ import com.expocalendar.project.entities.Account;
 import com.expocalendar.project.entities.Exposition;
 import com.expocalendar.project.web.controller.ControllerHelper;
 import com.expocalendar.project.web.management.PagesManager;
-import com.expocalendar.project.web.service.ServiceFactory;
+import com.expocalendar.project.service.ServiceFactory;
 import org.apache.log4j.Logger;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.io.IOException;
 import java.util.Map;
 
 public class OrderCommand implements ICommand {
@@ -29,12 +28,6 @@ public class OrderCommand implements ICommand {
             double sum = Integer.valueOf(requestParameters.get("number")) * exposition.getTicketPrice();
             request.setAttribute("sum", sum);
             request.setAttribute("orderSuccess", new Object());
-
-            try {
-                response.sendRedirect("path.page.order");
-            } catch (IOException e) {
-                LOGGER.error(e.getClass().getSimpleName() + " occurred in " + this.getClass().getSimpleName());
-            }
         } else {
             request.setAttribute("orderFail", new Object());
         }

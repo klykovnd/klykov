@@ -1,11 +1,11 @@
-package com.expocalendar.project.web.service.implementation;
+package com.expocalendar.project.service.implementation;
 
 import com.expocalendar.project.entities.Account;
 import com.expocalendar.project.entities.CreditCard;
 import com.expocalendar.project.persistence.abstraction.interfaces.AccountDAO;
 import com.expocalendar.project.web.exceptions.PasswordException;
 import com.expocalendar.project.web.exceptions.RegistrationException;
-import com.expocalendar.project.web.service.interfaces.AuthorizationService;
+import com.expocalendar.project.service.interfaces.AuthorizationService;
 import org.apache.log4j.Logger;
 
 import java.util.Map;

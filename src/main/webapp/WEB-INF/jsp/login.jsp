@@ -11,7 +11,7 @@
     <link type="text/css" rel="stylesheet" href="css/materialize.min.css" media="screen,projection"/>
     <!--Let browser know website is optimized for mobile-->
     <meta title="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title><fmt:message key="page.signIn" bundle="${lang}"/></title>
+    <title>Login</title>
 </head>
 <body>
 

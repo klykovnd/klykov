@@ -4,8 +4,8 @@ import com.expocalendar.project.entities.ExpoHall;
 import com.expocalendar.project.entities.Exposition;
 import com.expocalendar.project.web.controller.ControllerHelper;
 import com.expocalendar.project.web.management.PagesManager;
-import com.expocalendar.project.web.service.ServiceFactory;
-import com.expocalendar.project.web.service.interfaces.SelectionService;
+import com.expocalendar.project.service.ServiceFactory;
+import com.expocalendar.project.service.interfaces.SelectionService;
 import org.apache.log4j.Logger;
 
 import javax.servlet.http.HttpServletRequest;

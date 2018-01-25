@@ -6,9 +6,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title><fmt:message key="page.error" bundle="${lang}"/></title>
+    <title>Error</title>
 </head>
 <body>
-<h1>Something wrong</h1>
+<h1>Sorry, unable to handle your request</h1>
 </body>
 </html>

@@ -13,7 +13,7 @@
     <meta title="viewport" content="width=device-width, initial-scale=1.0"/>
     <!--Card StyleSheet-->
     <link type="text/css" rel="stylesheet" href="css/card_dummy.css"/>
-    <title><fmt:message key="page.account" bundle="${lang}"/></title>
+    <title>Account</title>
 </head>
 <body>
 
@@ -89,7 +89,7 @@
                 <c:forEach items="${sessionScope.orders}" var="entry">
                     <li class="collection-item">
 
-                        <fmt:message key="account.noorders" bundle="${lang}"/>
+
                         <div>
 
                             <b><fmt:message key="account.order.number" bundle="${lang}"/>:</b> <c:out value="${entry.key.orderKey}"/><br>
@@ -126,13 +126,8 @@
                     </li>
                 </c:forEach>
             </ul>
-
-
         </div>
-
-
     </div>
-
 </div>
 <br/>
 <br/>

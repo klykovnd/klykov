@@ -4,8 +4,8 @@ import com.expocalendar.project.web.controller.ControllerHelper;
 import com.expocalendar.project.web.exceptions.PasswordException;
 import com.expocalendar.project.web.exceptions.RegistrationException;
 import com.expocalendar.project.web.management.PagesManager;
-import com.expocalendar.project.web.service.interfaces.AuthorizationService;
-import com.expocalendar.project.web.service.ServiceFactory;
+import com.expocalendar.project.service.interfaces.AuthorizationService;
+import com.expocalendar.project.service.ServiceFactory;
 import org.apache.log4j.Logger;
 
 
@@ -41,7 +41,7 @@ public class RegistrationCommand implements ICommand {
             setAttributes(requestParameters, session);
         }
 
-
+        LOGGER.info(this.getClass().getSimpleName() + " executed");
         return PagesManager.getProperty("path.page.login");
     }
 

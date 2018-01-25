@@ -1,4 +1,4 @@
-package com.expocalendar.project.web.service.interfaces;
+package com.expocalendar.project.service.interfaces;
 
 
 import java.net.MalformedURLException;

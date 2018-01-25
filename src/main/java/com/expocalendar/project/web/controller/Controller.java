@@ -1,6 +1,8 @@
 package com.expocalendar.project.web.controller;
 
 import com.expocalendar.project.web.command.ICommand;
+import com.expocalendar.project.web.command.LoginCommand;
+import org.apache.log4j.Logger;
 
 
 import javax.servlet.RequestDispatcher;
@@ -12,6 +14,8 @@ import java.io.IOException;
 
 
 public class Controller extends HttpServlet {
+
+    private final static Logger LOGGER = Logger.getLogger(Controller.class);
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -27,7 +31,9 @@ public class Controller extends HttpServlet {
 
     private void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        LOGGER.info(this.getClass().getSimpleName() + " processing new request");
         String page;
+
         ControllerHelper controllerHelper = ControllerHelper.getInstance();
 
         ICommand command = controllerHelper.defineCommand(request.getParameter("command"));

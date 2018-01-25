@@ -13,7 +13,7 @@
     <meta title="viewport" content="width=device-width, initial-scale=1.0"/>
     <!--Card StyleSheet-->
     <link type="text/css" rel="stylesheet" href="css/card_dummy.css"/>
-    <title><fmt:message key="page.signUp" bundle="${lang}"/></title>
+    <title>Registration</title>
 </head>
 <body>
 

@@ -1,10 +1,10 @@
-package com.expocalendar.project.web.service;
+package com.expocalendar.project.service;
 
 import com.expocalendar.project.entities.Account;
 import com.expocalendar.project.persistence.abstraction.interfaces.AccountDAO;;
 import com.expocalendar.project.web.exceptions.RegistrationException;
-import com.expocalendar.project.web.service.implementation.AuthorizationServiceImpl;
-import com.expocalendar.project.web.service.interfaces.AuthorizationService;
+import com.expocalendar.project.service.implementation.AuthorizationServiceImpl;
+import com.expocalendar.project.service.interfaces.AuthorizationService;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 import org.junit.Before;

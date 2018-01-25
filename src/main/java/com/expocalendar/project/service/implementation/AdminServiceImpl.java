@@ -1,11 +1,11 @@
-package com.expocalendar.project.web.service.implementation;
+package com.expocalendar.project.service.implementation;
 
 import com.expocalendar.project.entities.ExpoHall;
 import com.expocalendar.project.entities.Exposition;
 import com.expocalendar.project.persistence.abstraction.interfaces.ExpoHallDAO;
 import com.expocalendar.project.persistence.abstraction.interfaces.ExpositionDAO;
-import com.expocalendar.project.web.service.interfaces.AdminService;
-import com.expocalendar.project.web.service.Validator;
+import com.expocalendar.project.service.interfaces.AdminService;
+import com.expocalendar.project.service.Validator;
 import org.apache.log4j.Logger;
 
 import java.net.MalformedURLException;
@@ -41,7 +41,7 @@ public class AdminServiceImpl implements AdminService {
 
     @Override
     public boolean deleteExposition(int expositionId) {
-       return expositionDAO.deleteExposition(expositionId);
+        return expositionDAO.deleteExposition(expositionId);
     }
 
     @Override
