@@ -2,6 +2,7 @@ package com.expocalendar.project.web.service.implementation;
 
 import com.expocalendar.project.entities.ExpoHall;
 import com.expocalendar.project.entities.Exposition;
+import com.expocalendar.project.persistence.QueryHelper;
 import com.expocalendar.project.persistence.abstraction.interfaces.ExpoHallDAO;
 import com.expocalendar.project.persistence.abstraction.interfaces.ExpositionDAO;
 import com.expocalendar.project.web.service.interfaces.SelectionService;
@@ -37,14 +38,14 @@ public class SelectionServiceImpl implements SelectionService {
 
     @Override
     public List<Exposition> findExpositions(Map<String, String> requestParameters, int limit, int offset) {
-        String query = expositionDAO.parseQuery(requestParameters, limit, offset);
+        String query = QueryHelper.parseQuery(requestParameters, limit, offset);
         LOGGER.info("New query string formed from request parameters " + query);
         return expositionDAO.findExpositions(query);
     }
 
     @Override
     public int getNumberOfExpositions(Map<String, String> requestParameters) {
-        String countQuery = expositionDAO.countQuery(requestParameters);
+        String countQuery = QueryHelper.countQuery(requestParameters);
         LOGGER.info("New query string formed from request parameters " + countQuery);
         return expositionDAO.countExpositions(countQuery);
     }

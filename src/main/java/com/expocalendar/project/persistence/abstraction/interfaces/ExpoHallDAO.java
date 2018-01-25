@@ -10,9 +10,9 @@ public interface ExpoHallDAO {
 
     ExpoHall findExpoHall(int id);
 
-    void createExpoHall(ExpoHall expoHall);
+    boolean createExpoHall(ExpoHall expoHall);
 
-    void updateExpoHall(ExpoHall expoHall);
+    boolean updateExpoHall(ExpoHall expoHall);
 
-    void deleteExpoHall(int id);
+    boolean deleteExpoHall(int id);
 }

@@ -2,6 +2,7 @@ package com.expocalendar.project.persistence.implementation.mysql;
 
 import com.expocalendar.project.persistence.abstraction.interfaces.IDataSourceManager;
 import org.apache.log4j.Logger;
+
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import javax.sql.DataSource;
@@ -18,7 +19,7 @@ public class MySQLDataSourceManager implements IDataSourceManager {
     private MySQLDataSourceManager() {
     }
 
-    public synchronized static MySQLDataSourceManager getInstance() {
+    public static MySQLDataSourceManager getInstance() {
         if (instance == null) {
             instance = new MySQLDataSourceManager();
         }
@@ -38,4 +39,14 @@ public class MySQLDataSourceManager implements IDataSourceManager {
         return dataSource.getConnection();
     }
 
+    @Override
+    public void closeConnection(Connection connection) {
+        try {
+            if (connection != null) {
+                connection.close();
+            }
+        } catch (SQLException e) {
+            LOGGER.error("SQLException  occurred in " + getClass().getSimpleName(), e);
+        }
+    }
 }

@@ -3,10 +3,9 @@ package com.expocalendar.project.web.command;
 import com.expocalendar.project.web.controller.ControllerHelper;
 import com.expocalendar.project.web.exceptions.PasswordException;
 import com.expocalendar.project.web.exceptions.RegistrationException;
-import com.expocalendar.project.web.management.ConfigurationManager;
+import com.expocalendar.project.web.management.PagesManager;
 import com.expocalendar.project.web.service.interfaces.AuthorizationService;
 import com.expocalendar.project.web.service.ServiceFactory;
-import com.expocalendar.project.web.service.Validator;
 import org.apache.log4j.Logger;
 
 
@@ -26,29 +25,24 @@ public class RegistrationCommand implements ICommand {
         Map<String, String> requestParameters = ControllerHelper.getInstance().extractParameters(request);
         HttpSession session = request.getSession();
 
-        if (Validator.validAccountParameters(requestParameters)) {
-            try {
-                authorizationService.checkAccount(requestParameters);
-                authorizationService.createAccount(requestParameters);
-                request.setAttribute("regSuccess", new Object());
+        try {
 
-            } catch (PasswordException regException) {
-                session.removeAttribute("loginExists");
-                session.setAttribute("notEqualPasswords", new Object());
+            authorizationService.checkAccount(requestParameters);
+            authorizationService.createAccount(requestParameters);
+            request.setAttribute("regSuccess", new Object());
 
-            } catch (RegistrationException e) {
-                session.removeAttribute("notEqualPasswords");
-                session.setAttribute("loginExists", new Object());
+        } catch (PasswordException regException) {
+            request.setAttribute("notEqualPasswords", new Object());
 
-            } finally {
-                setAttributes(requestParameters, session);
-            }
+        } catch (RegistrationException e) {
+            request.setAttribute("loginExists", new Object());
 
-        } else {
-            request.setAttribute("fillAllFields", new Object());
+        } finally {
+            setAttributes(requestParameters, session);
         }
 
-        return ConfigurationManager.getProperty("path.page.registration");
+
+        return PagesManager.getProperty("path.page.login");
     }
 
     private void setAttributes(Map<String, String> requestParameters, HttpSession session) {

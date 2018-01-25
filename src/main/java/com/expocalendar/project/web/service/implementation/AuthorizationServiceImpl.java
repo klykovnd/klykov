@@ -6,11 +6,14 @@ import com.expocalendar.project.persistence.abstraction.interfaces.AccountDAO;
 import com.expocalendar.project.web.exceptions.PasswordException;
 import com.expocalendar.project.web.exceptions.RegistrationException;
 import com.expocalendar.project.web.service.interfaces.AuthorizationService;
+import org.apache.log4j.Logger;
 
 import java.util.Map;
 
 public class AuthorizationServiceImpl implements AuthorizationService {
     private AccountDAO accountDAO;
+
+    private final static Logger LOGGER = Logger.getLogger(AuthorizationServiceImpl.class);
 
     public AuthorizationServiceImpl(AccountDAO accountDAO) {
         this.accountDAO = accountDAO;
@@ -26,10 +29,11 @@ public class AuthorizationServiceImpl implements AuthorizationService {
         if (accountDAO.isExist(requestParameters.get("login"))) {
             throw new RegistrationException("login exists");
         }
+
     }
 
     @Override
-    public void createAccount(Map<String, String> requestParameters) {
+    public boolean createAccount(Map<String, String> requestParameters) {
         Account account = Account.newBuilder().setFirstName(requestParameters.get("firstName")).
                 setLastName(requestParameters.get("lastName")).
                 setLogin(requestParameters.get("login")).
@@ -42,7 +46,7 @@ public class AuthorizationServiceImpl implements AuthorizationService {
                 setMonth(Integer.valueOf(requestParameters.get("month"))).
                 setYear(Integer.valueOf(requestParameters.get("year"))).build();
 
-        accountDAO.createAccount(account, creditCard);
+        return accountDAO.createAccount(account, creditCard);
     }
 
     @Override

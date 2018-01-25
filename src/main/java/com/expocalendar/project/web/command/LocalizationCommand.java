@@ -13,9 +13,7 @@ public class LocalizationCommand implements ICommand {
     public String execute(HttpServletRequest request, HttpServletResponse response) {
         String locale = request.getParameter("locale");
         request.getSession().setAttribute("locale", locale);
-
         LOGGER.info(this.getClass().getSimpleName() + " executed");
-
         return request.getParameter("page");
     }
 }

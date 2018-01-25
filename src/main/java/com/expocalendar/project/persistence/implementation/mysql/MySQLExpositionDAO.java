@@ -3,14 +3,11 @@ package com.expocalendar.project.persistence.implementation.mysql;
 import com.expocalendar.project.entities.Exposition;
 import com.expocalendar.project.persistence.abstraction.interfaces.ExpositionDAO;
 import com.expocalendar.project.persistence.abstraction.interfaces.IDataSourceManager;
-import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 
 import java.sql.*;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 public class MySQLExpositionDAO implements ExpositionDAO {
     private static MySQLExpositionDAO instance;
@@ -40,14 +37,6 @@ public class MySQLExpositionDAO implements ExpositionDAO {
             "date_to = ?, theme = ?, ticket_price = ?, expohall_id = ?, picture = ?, " +
             "description = ?, begin_time = ? WHERE exposition_id = ?";
     private static final String DELETE_EXPOSITION = "DELETE FROM expositions WHERE exposition_id = ?";
-
-
-    private static final String SELECT_BY_DATE = "expositions WHERE " +
-            "(date_from BETWEEN '%s' AND '%s' OR date_to BETWEEN '%s' AND " +
-            "'%s' OR date_from <= '%s' AND date_to >= '%s')";
-    private static final String SELECT_BY_THEME = " AND theme = '%s'";
-    private static final String SELECT_BY_HALL = " AND expohall_id = %s";
-    private static final String LIMIT_OFFSET = " LIMIT %d OFFSET %d";
 
 
     private MySQLExpositionDAO() {
@@ -132,16 +121,18 @@ public class MySQLExpositionDAO implements ExpositionDAO {
     }
 
     @Override
-    public void createExposition(Exposition exposition) {
+    public boolean createExposition(Exposition exposition) {
+        boolean flag = false;
         try (Connection connection = dataSourceManager.createConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(INSERT_EXPOSITION)) {
             prepare(preparedStatement, exposition);
             preparedStatement.executeUpdate();
-
+            flag = true;
         } catch (SQLException e) {
             LOGGER.error("SQLException occurred in " + getClass().getSimpleName(), e);
         }
         LOGGER.info("New Expositions created");
+        return flag;
     }
 
     @Override
@@ -165,32 +156,36 @@ public class MySQLExpositionDAO implements ExpositionDAO {
 
 
     @Override
-    public void updateExposition(Exposition exposition) {
+    public boolean updateExposition(Exposition exposition) {
+        boolean flag = false;
         try (Connection connection = dataSourceManager.createConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(UPDATE_EXPOSITION)) {
             prepare(preparedStatement, exposition);
             preparedStatement.setInt(10, exposition.getId());
             preparedStatement.executeUpdate();
-
+            flag = true;
         } catch (SQLException e) {
             LOGGER.error("SQLException occurred in " + getClass().getSimpleName(), e);
         }
 
         LOGGER.info("Expositions data updated");
+        return flag;
     }
 
     @Override
-    public void deleteExposition(int expositionId) {
+    public boolean deleteExposition(int expositionId) {
+        boolean flag = false;
         try (Connection connection = dataSourceManager.createConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(DELETE_EXPOSITION)) {
             preparedStatement.setInt(1, expositionId);
             preparedStatement.executeUpdate();
-
+            flag = true;
         } catch (SQLException e) {
             LOGGER.error("SQLException occurred in " + getClass().getSimpleName(), e);
         }
 
         LOGGER.info("Expositions deleted from DB");
+        return flag;
     }
 
 
@@ -214,44 +209,4 @@ public class MySQLExpositionDAO implements ExpositionDAO {
         ps.setString(8, exposition.getDescription());
         ps.setTime(9, exposition.getBeginTime());
     }
-
-    public String parseQuery(Map<String, String> parameters, int limit, int offset) {
-        StringBuilder stringBuilder = new StringBuilder("SELECT * FROM ");
-
-        String dateFrom = parameters.get("dateFrom");
-        String dateTo = parameters.get("dateTo");
-
-        stringBuilder.append(String.format(SELECT_BY_DATE, dateFrom, dateTo, dateFrom, dateTo, dateFrom, dateTo));
-
-        if (!parameters.get("theme").equals("all")) {
-            stringBuilder.append(String.format(SELECT_BY_THEME, parameters.get("theme")));
-        }
-        if (!parameters.get("hallId").equalsIgnoreCase("")) {
-            stringBuilder.append(String.format(SELECT_BY_HALL, parameters.get("hallId")));
-        }
-        stringBuilder.append(" ORDER BY date_from ASC");
-        stringBuilder.append(String.format(LIMIT_OFFSET, limit, offset));
-
-        return stringBuilder.toString();
-    }
-
-
-    public String countQuery(Map<String, String> parameters) {
-        StringBuilder stringBuilder = new StringBuilder("SELECT COUNT(*) AS total FROM ");
-
-        String dateFrom = parameters.get("dateFrom");
-        String dateTo = parameters.get("dateTo");
-
-        stringBuilder.append(String.format(SELECT_BY_DATE, dateFrom, dateTo, dateFrom, dateTo, dateFrom, dateTo));
-
-        if (!parameters.get("theme").equals("all")) {
-            stringBuilder.append(String.format(SELECT_BY_THEME, parameters.get("theme")));
-        }
-        if (!parameters.get("hallId").equalsIgnoreCase("")) {
-            stringBuilder.append(String.format(SELECT_BY_HALL, parameters.get("hallId")));
-        }
-
-        return stringBuilder.toString();
-    }
-
 }

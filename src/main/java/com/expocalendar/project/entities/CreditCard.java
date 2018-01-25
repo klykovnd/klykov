@@ -2,6 +2,12 @@ package com.expocalendar.project.entities;
 
 import java.io.Serializable;
 
+
+/**
+ * CreditCard bean
+ *
+ * @author Nicolas
+ */
 public class CreditCard implements Serializable {
     private int id;
     private String number;
@@ -12,9 +18,16 @@ public class CreditCard implements Serializable {
     private int year;
 
 
+    /**
+     * default CreditCard constructor.
+     */
     public CreditCard() {
     }
 
+
+    /**
+     * CreditCard constructor for all fields.
+     */
     public CreditCard(int id, String number, int CVV, double balance, String holder, int month, int year) {
         this.id = id;
         this.number = number;
@@ -25,59 +38,135 @@ public class CreditCard implements Serializable {
         this.year = year;
     }
 
-
+    /**
+     * Getter for CreditCard id
+     *
+     * @return id refers to Account id
+     */
     public int getId() {
         return id;
     }
 
+    /**
+     * Setter for CreditCard id
+     *
+     * @param id refers to Account id
+     */
     public void setId(int id) {
         this.id = id;
     }
 
+
+    /**
+     * Getter for CreditCard number
+     *
+     * @return number of CreditCard
+     */
     public String getNumber() {
         return number;
     }
 
+
+    /**
+     * Setter for CreditCard number
+     *
+     * @param number of CreditCard
+     */
     public void setNumber(String number) {
         this.number = number;
     }
+
+    /**
+     * Setter for CreditCard CVV
+     *
+     * @return CVV of CreditCard
+     */
 
     public int getCVV() {
         return CVV;
     }
 
+    /**
+     * Setter for CreditCard CVV
+     *
+     * @param CVV of CreditCard
+     */
     public void setCVV(int CVV) {
         this.CVV = CVV;
     }
 
+
+    /**
+     * Getter for CreditCard balance
+     *
+     * @return balance of CreditCard
+     */
     public double getBalance() {
         return balance;
     }
 
+    /**
+     * Setter for CreditCard balance
+     *
+     * @param balance of CreditCard
+     */
     public void setBalance(double balance) {
         this.balance = balance;
     }
 
+
+    /**
+     * Getter for CreditCard holder
+     *
+     * @return holder of CreditCard
+     */
     public String getHolder() {
         return holder;
     }
 
+    /**
+     * Setter for CreditCard holder
+     *
+     * @param holder of CreditCard
+     */
     public void setHolder(String holder) {
         this.holder = holder;
     }
+
+    /**
+     * Getter for CreditCard expiration month
+     *
+     * @return month of CreditCard expiration
+     */
 
     public int getMonth() {
         return month;
     }
 
+    /**
+     * Setter for CreditCard expiration month
+     *
+     * @param month of CreditCard expiration
+     */
     public void setMonth(int month) {
         this.month = month;
     }
 
+
+    /**
+     * Setter for CreditCard expiration year
+     *
+     * @return year of CreditCard expiration
+     */
     public int getYear() {
         return year;
     }
 
+    /**
+     * Setter for CreditCard expiration expiration year
+     *
+     * @param year of CreditCard expiration
+     */
     public void setYear(int year) {
         this.year = year;
     }
@@ -126,10 +215,17 @@ public class CreditCard implements Serializable {
                 '}';
     }
 
+
+    /**
+     * @return new CreditCard Builder
+     */
     public static Builder newBuilder() {
         return new Builder();
     }
 
+    /**
+     * CreditCard Builder
+     */
     public static class Builder {
         private int id;
         private String number;
@@ -177,6 +273,9 @@ public class CreditCard implements Serializable {
             return this;
         }
 
+        /**
+         * @return new CreditCard bean using constructor
+         */
         public CreditCard build() {
             return new CreditCard(id, number, CVV, balance, holder, month, year);
         }

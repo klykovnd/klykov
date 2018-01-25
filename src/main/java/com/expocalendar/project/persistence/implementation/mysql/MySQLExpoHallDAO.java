@@ -71,46 +71,51 @@ public class MySQLExpoHallDAO implements ExpoHallDAO {
     }
 
     @Override
-    public void createExpoHall(ExpoHall expoHall) {
+    public boolean createExpoHall(ExpoHall expoHall) {
+        boolean flag = false;
         try (Connection connection = dataSourceManager.createConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(INSERT_EXPOHALL)) {
             preparedStatement.setString(1, expoHall.getName());
             preparedStatement.setString(2, expoHall.getAddress());
             preparedStatement.executeUpdate();
-
+            flag = true;
         } catch (SQLException e) {
             LOGGER.error("SQLException occurred in " + getClass().getSimpleName(), e);
         }
         LOGGER.info("New ExpoHall created");
-
+        return flag;
     }
 
     @Override
-    public void updateExpoHall(ExpoHall expoHall) {
+    public boolean updateExpoHall(ExpoHall expoHall) {
+        boolean flag = false;
         try (Connection connection = dataSourceManager.createConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(UPDATE_EXPOHALL)) {
             preparedStatement.setString(1, expoHall.getName());
             preparedStatement.setString(2, expoHall.getAddress());
             preparedStatement.setInt(3, expoHall.getId());
             preparedStatement.executeUpdate();
-
+            flag = true;
         } catch (SQLException e) {
             LOGGER.error("SQLException occurred in " + getClass().getSimpleName(), e);
         }
         LOGGER.info("ExpoHall data updated");
+        return flag;
     }
 
     @Override
-    public void deleteExpoHall(int id) {
+    public boolean deleteExpoHall(int id) {
+        boolean flag = false;
         try (Connection connection = dataSourceManager.createConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(DELETE_EXPOHALL)) {
             preparedStatement.setInt(1, id);
             preparedStatement.executeUpdate();
-
+            flag = true;
         } catch (SQLException e) {
             LOGGER.error("SQLException occurred in " + getClass().getSimpleName(), e);
         }
         LOGGER.info("ExpoHall deleted");
+        return flag;
     }
 
     private ExpoHall processRow(ResultSet rs) throws SQLException {

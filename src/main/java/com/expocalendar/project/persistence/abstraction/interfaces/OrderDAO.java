@@ -10,6 +10,6 @@ public interface OrderDAO {
 
     Map<Order, Exposition> getOrders(int accountId);
 
-    void saveOrder(String orderKey, int accountId, int expositionId, int ticketNumber, double remainder);
+    boolean saveOrder(Order order, Exposition exposition, int accountId, double remainder);
 
 }

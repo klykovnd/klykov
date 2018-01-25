@@ -2,7 +2,7 @@ package com.expocalendar.project.web.command;
 
 
 import com.expocalendar.project.web.controller.ControllerHelper;
-import com.expocalendar.project.web.management.ConfigurationManager;
+import com.expocalendar.project.web.management.PagesManager;
 import com.expocalendar.project.web.service.interfaces.AdminService;
 import com.expocalendar.project.web.service.ServiceFactory;
 import com.expocalendar.project.web.service.interfaces.SelectionService;
@@ -25,27 +25,33 @@ public class CreationCommand implements ICommand {
         AdminService adminService = serviceFactory.getAdminService();
         SelectionService selectionService = serviceFactory.getSelectionService();
 
-        Map<String, String> requestParameters = ControllerHelper.getInstance().extractParameters(request);
+        ControllerHelper controllerHelper = ControllerHelper.getInstance();
+
+        Map<String, String> requestParameters;
 
         String obj = request.getParameter("object");
 
         switch (obj) {
             case "exposition":
                 try {
+                    requestParameters = controllerHelper.extractParameters(request);
                     adminService.createExposition(requestParameters);
+                    request.getSession().setAttribute("themes", selectionService.findThemes());
                     request.getSession().setAttribute("allExpositions", selectionService.getAllExpositions());
+
                 } catch (MalformedURLException e) {
                     LOGGER.error("MalformedURLException occurred in " + this.getClass().getSimpleName(), e);
                 }
                 break;
 
             case "hall":
+                requestParameters = controllerHelper.extractParameters(request);
                 adminService.createExpoHall(requestParameters);
                 request.getSession().setAttribute("halls", selectionService.getExpoHalls());
         }
 
-        LOGGER.info(this.getClass().getSimpleName()+ " executed");
+        LOGGER.info(this.getClass().getSimpleName() + " executed");
 
-        return ConfigurationManager.getProperty("path.page.admin");
+        return PagesManager.getProperty("path.page.admin");
     }
 }

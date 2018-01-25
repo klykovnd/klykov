@@ -13,7 +13,7 @@ import java.io.IOException;
 public class EncodingFilter implements Filter {
     private String code;
 
-    public void init(FilterConfig fConfig) throws ServletException {
+    public void init(FilterConfig fConfig)  {
         code = fConfig.getInitParameter("encoding");
     }
 

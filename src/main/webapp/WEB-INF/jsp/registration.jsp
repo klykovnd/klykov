@@ -13,7 +13,7 @@
     <meta title="viewport" content="width=device-width, initial-scale=1.0"/>
     <!--Card StyleSheet-->
     <link type="text/css" rel="stylesheet" href="css/card_dummy.css"/>
-    <title>Sign Up</title>
+    <title><fmt:message key="page.signUp" bundle="${lang}"/></title>
 </head>
 <body>
 
@@ -49,7 +49,7 @@
             </c:if>
         </div>
 
-        <form class="col s12" action="app" method="post">
+        <form class="col s12" action="registration" method="post">
             <input type="hidden" name="command" value="registration"/>
             <div class="row">
                 <div class="input-field col s3 offset-s3">

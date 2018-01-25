@@ -3,7 +3,7 @@ package com.expocalendar.project.web.command;
 import com.expocalendar.project.entities.ExpoHall;
 import com.expocalendar.project.entities.Exposition;
 import com.expocalendar.project.web.controller.ControllerHelper;
-import com.expocalendar.project.web.management.ConfigurationManager;
+import com.expocalendar.project.web.management.PagesManager;
 import com.expocalendar.project.web.service.ServiceFactory;
 import com.expocalendar.project.web.service.Validator;
 import com.expocalendar.project.web.service.interfaces.SelectionService;
@@ -31,7 +31,7 @@ public class SelectionCommand implements ICommand {
 
         LOGGER.info(this.getClass().getSimpleName() + " executed");
 
-        return ConfigurationManager.getProperty("path.page.main");
+        return PagesManager.getProperty("path.page.main");
     }
 
     private void setAttributes(HttpServletRequest request, Map<String, String> requestParameters) {

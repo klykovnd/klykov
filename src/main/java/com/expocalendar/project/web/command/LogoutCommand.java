@@ -1,6 +1,6 @@
 package com.expocalendar.project.web.command;
 
-import com.expocalendar.project.web.management.ConfigurationManager;
+import com.expocalendar.project.web.management.PagesManager;
 import org.apache.log4j.Logger;
 
 import javax.servlet.http.HttpServletRequest;
@@ -16,6 +16,6 @@ public class LogoutCommand implements ICommand {
 
         LOGGER.info(this.getClass().getSimpleName() + " executed");
 
-        return ConfigurationManager.getProperty("path.page.index");
+        return PagesManager.getProperty("path.page.index");
     }
 }

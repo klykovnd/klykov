@@ -2,6 +2,11 @@ package com.expocalendar.project.entities;
 
 import java.io.Serializable;
 
+/**
+ * Account bean
+ *
+ * @author Nicolas
+ */
 public class Account implements Serializable {
     private int id;
     private String firstName;
@@ -12,14 +17,14 @@ public class Account implements Serializable {
     private String email;
 
     /**
-     *default Account constructor.
+     * default Account constructor.
      */
     public Account() {
     }
 
 
     /**
-     *Account constructor for all fields.
+     * Account constructor for all fields.
      */
     public Account(int id, String firstName, String lastName,
                    String login, String password, String role, String email) {
@@ -35,16 +40,16 @@ public class Account implements Serializable {
 
 
     /**
-     *Getter for Account id
+     * Getter for Account id
      *
-     * @return id
+     * @return id primary identifier
      */
     public int getId() {
         return id;
     }
 
     /**
-     *Setter for Account id
+     * Setter for Account id
      *
      * @param id primary identifier
      */
@@ -53,7 +58,7 @@ public class Account implements Serializable {
     }
 
     /**
-     *Getter for Account firstName
+     * Getter for Account firstName
      *
      * @return firstName Account holder's first name
      */
@@ -62,7 +67,7 @@ public class Account implements Serializable {
     }
 
     /**
-     *Setter for Account firstName
+     * Setter for Account firstName
      *
      * @param firstName Account holder's first name
      */
@@ -71,7 +76,7 @@ public class Account implements Serializable {
     }
 
     /**
-     *Getter for Id
+     * Getter for Id
      *
      * @return lastName Account holder's last name
      */
@@ -80,25 +85,25 @@ public class Account implements Serializable {
     }
 
     /**
-     *Setter for lastName
+     * Setter for lastName
      *
-     *@param lastName Account holder's last name
+     * @param lastName Account holder's last name
      */
     public void setLastName(String lastName) {
         this.lastName = lastName;
     }
 
     /**
-     *Getter for Login
+     * Getter for Login
      *
-     * @return login
+     * @return login for authentication
      */
     public String getLogin() {
         return login;
     }
 
     /**
-     *Setter for login
+     * Setter for login
      *
      * @param login for authentication
      */
@@ -107,16 +112,16 @@ public class Account implements Serializable {
     }
 
     /**
-     *Getter for password
+     * Getter for password
      *
-     * @return password
+     * @return password for authentication
      */
     public String getPassword() {
         return password;
     }
 
     /**
-     *Getter for password
+     * Getter for password
      *
      * @param password for authentication
      */
@@ -125,25 +130,25 @@ public class Account implements Serializable {
     }
 
     /**
-     *Getter for email
+     * Getter for email
      *
-     * @return email
+     * @return email of account holder
      */
     public String getEmail() {
         return email;
     }
 
     /**
-     *Setter for email
+     * Setter for email
      *
-     *@param email real Account email
+     * @param email of account holder
      */
     public void setEmail(String email) {
         this.email = email;
     }
 
     /**
-     *Getter for Account role
+     * Getter for Account role
      *
      * @return Account role
      */
@@ -152,9 +157,9 @@ public class Account implements Serializable {
     }
 
     /**
-     *Setter for role
+     * Setter for role
      *
-     * @param role Account authentication role
+     * @param role Account role
      */
     public void setRole(String role) {
         this.role = role;
@@ -199,10 +204,17 @@ public class Account implements Serializable {
                 '}';
     }
 
+    /**
+     * @return new Builder for Account
+     */
+
     public static Builder newBuilder() {
         return new Builder();
     }
 
+    /**
+     * Account Builder
+     */
     public static class Builder {
         private int id;
         private String firstName;
@@ -250,6 +262,10 @@ public class Account implements Serializable {
             return this;
         }
 
+
+        /**
+         * @return new Account bean using constructor
+         */
         public Account build() {
             return new Account(id, firstName, lastName, login, password, role, email);
         }

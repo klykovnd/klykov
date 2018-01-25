@@ -34,16 +34,6 @@ public class Validator {
     }
 
 
-    public static boolean validCard(Map<String, String> requestParameters, CreditCard creditCard, double withdraw) {
-        return creditCard.getBalance() >= withdraw &&
-                requestParameters.get("cardHolder").equals(creditCard.getHolder()) &&
-                requestParameters.get("cardNumber").equals(creditCard.getNumber()) &&
-                Integer.valueOf(requestParameters.get("cvv")) == (creditCard.getCVV()) &&
-                Integer.valueOf(requestParameters.get("month")) == (creditCard.getMonth()) &&
-                Integer.valueOf(requestParameters.get("year")) == (creditCard.getYear());
-    }
-
-
     private static boolean invalidDateRange(Map<String, String> requestParameters) {
         DateFormat format = new SimpleDateFormat("yyyy-MM-dd");
         Date date1 = new Date();
@@ -76,7 +66,12 @@ public class Validator {
         requestParameters.put("beginTime", time);
     }
 
-    public static boolean validAccountParameters(Map<String, String> requestParameters) {
-        return !requestParameters.containsValue(null);
+    public static boolean validCard(Map<String, String> requestParameters, CreditCard creditCard, double withdraw) {
+        return creditCard.getBalance() >= withdraw &&
+                requestParameters.get("cardHolder").equals(creditCard.getHolder()) &&
+                requestParameters.get("cardNumber").equals(creditCard.getNumber()) &&
+                Integer.valueOf(requestParameters.get("cvv")) == (creditCard.getCVV()) &&
+                Integer.valueOf(requestParameters.get("month")) == (creditCard.getMonth()) &&
+                Integer.valueOf(requestParameters.get("year")) == (creditCard.getYear());
     }
 }

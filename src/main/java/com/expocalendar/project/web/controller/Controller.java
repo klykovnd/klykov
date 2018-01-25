@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
+
 public class Controller extends HttpServlet {
 
     @Override
@@ -27,8 +28,10 @@ public class Controller extends HttpServlet {
     private void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String page;
+        ControllerHelper controllerHelper = ControllerHelper.getInstance();
 
-        ICommand command = ControllerHelper.getInstance().defineCommand(request.getParameter("command"));
+        ICommand command = controllerHelper.defineCommand(request.getParameter("command"));
+
         page = command.execute(request, response);
 
         RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(page);

@@ -12,7 +12,7 @@
     <link type="text/css" rel="stylesheet" href="css/materialize.min.css" media="screen,projection"/>
     <!--Let browser know website is optimized for mobile-->
     <meta title="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Administration</title>
+    <title><fmt:message key="page.admin" bundle="${lang}"/></title>
 </head>
 <body>
 <c:import url="parts/header.jsp"/><br/>
@@ -37,12 +37,12 @@
     <div class="row">
 
         <div class="col s6">
-            <h5>Добавить новую выставку</h5>
+            <h5><fmt:message key="admin.createExposiiton" bundle="${lang}"/></h5>
             <hr>
         </div>
 
         <div class="col s6">
-            <h5>Добавить выставочный зал</h5>
+            <h5><fmt:message key="admin.createHall" bundle="${lang}"/></h5>
             <hr>
         </div>
 
@@ -50,7 +50,7 @@
 
 
     <div class="row">
-        <form class="col s6" action="app" method="post">
+        <form class="col s6" action="admin" method="post">
             <input type="hidden" name="command" value="creation">
             <input type="hidden" name="object" value="exposition">
             <div class="row">
@@ -149,7 +149,7 @@
 
 
         <div class="row">
-            <form class="col s6" action="app" method="post">
+            <form class="col s6" action="admin" method="post">
                 <input type="hidden" name="command" value="creation">
                 <input type="hidden" name="object" value="hall">
                 <div class="row">
@@ -191,12 +191,12 @@
     <div class="row">
 
         <div class="col s6">
-            <h5>Редактировать выставку</h5>
+            <h5><fmt:message key="admin.updateExposition" bundle="${lang}"/></h5>
             <hr>
         </div>
 
         <div class="col s6">
-            <h5>Редактировать зал</h5>
+            <h5><fmt:message key="admin.updateHall" bundle="${lang}"/></h5>
             <hr>
         </div>
 
@@ -236,7 +236,7 @@
             <div class="col s6">
                 <c:if test="${sessionScope.updExposition!=null}">
 
-                    <form action="app" method="post">
+                    <form action="admin" method="post">
                         <input type="hidden" name="command" value="update">
                         <input type="hidden" name="object" value="exposition">
                         <input type="hidden" name="expositionId" value="${sessionScope.updExposition.id}"/>
@@ -359,7 +359,7 @@
 
             <div class="col s6">
                 <c:if test="${sessionScope.updHall!=null}">
-                    <form action="app" method="post">
+                    <form action="admin" method="post">
                         <input type="hidden" name="command" value="update">
                         <input type="hidden" name="object" value="hall">
                         <input type="hidden" name="hallId" value="${sessionScope.updHall.id}"/>
@@ -404,7 +404,6 @@
                             </form>
                         </div>
                     </div>
-
 
                 </c:if>
             </div>

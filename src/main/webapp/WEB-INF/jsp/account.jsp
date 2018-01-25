@@ -13,7 +13,7 @@
     <meta title="viewport" content="width=device-width, initial-scale=1.0"/>
     <!--Card StyleSheet-->
     <link type="text/css" rel="stylesheet" href="css/card_dummy.css"/>
-    <title>Sign Up</title>
+    <title><fmt:message key="page.account" bundle="${lang}"/></title>
 </head>
 <body>
 
@@ -26,6 +26,10 @@
     </c:otherwise>
 </c:choose>
 
+<fmt:setBundle basename="pagecontent" var="lang"/>
+<jsp:useBean id="today" class="java.util.Date"/>
+
+
 <c:import url="parts/header.jsp"/><br/>
 
 <div class="container">
@@ -35,7 +39,7 @@
     </div>
 
     <div class="row">
-        <form class="col s6" action="app" method="post">
+        <form class="col s6" action="login" method="post">
             <input type="hidden" name="command" value="update"/>
             <input type="hidden" name="object" value="account">
             <input type="hidden" name="accountId" value="${sessionScope.account.id}"/>
@@ -81,29 +85,42 @@
 
         <div class="col s6">
             <ul class="collection with-header">
-                <li class="collection-header"><h4>Мои Билеты</h4></li>
+                <li class="collection-header"><h4><fmt:message key="account.orders" bundle="${lang}"/></h4></li>
                 <c:forEach items="${sessionScope.orders}" var="entry">
                     <li class="collection-item">
+
+                        <fmt:message key="account.noorders" bundle="${lang}"/>
                         <div>
-                            № Заказа: <c:out value="${entry.key.orderKey}"/><br>
-                            Название выставки: <c:out value="${entry.value.title}"/><br>
-                            Количество билетов: <c:out value="${entry.key.ticketNumber}"/><br>
 
-                            <form action="app" method="post">
-                                <input type="hidden" name="command" value="send">
-                                <input type="hidden" name="hallId" value="${entry.value.expoHallId}">
-                                <input type="hidden" name="orderKey" value="${entry.key.orderKey}">
-                                <input type="hidden" name="ticketsNumber" value="${entry.key.ticketNumber}">
-                                <div class="row">
-                                    <div class="input-field col s8">
-                                        <button class="btn waves-effect waves-light pink darken-4" type="submit"><fmt:message
-                                                key="account.send" bundle="${lang}"/>
-                                            <i class="material-icons right">send</i>
-                                        </button>
-                                    </div>
-                                </div>
-                            </form>
+                            <b><fmt:message key="account.order.number" bundle="${lang}"/>:</b> <c:out value="${entry.key.orderKey}"/><br>
+                            <b><fmt:message key="order.title" bundle="${lang}"/>:</b> <c:out value="${entry.value.title}"/><br>
+                                <b><fmt:message key="order.date"  bundle="${lang}"/>:</b> <fmt:formatDate type="date" value="${entry.value.dateFrom}"/>- <fmt:formatDate type="date" value="${entry.value.dateTo}"/><br>
+                                    <b><fmt:message key="order.number" bundle="${lang}"/></b> <c:out value="${entry.key.ticketsNumber}"/><br>
+                            <br>
+                            <br>
 
+                            <c:choose>
+                                <c:when test="${today lt entry.key.dateValid}">
+                                    <form action="app" method="post">
+                                        <input type="hidden" name="command" value="send">
+                                        <input type="hidden" name="hallId" value="${entry.value.expoHallId}">
+                                        <input type="hidden" name="orderKey" value="${entry.key.orderKey}">
+                                        <input type="hidden" name="ticketsNumber" value="${entry.key.ticketsNumber}">
+                                        <input type="hidden" name="dateValid" value="${entry.key.dateValid}">
+                                        <div class="row">
+                                            <div class="input-field col s8">
+                                                <button class="btn waves-effect waves-light pink darken-4" type="submit"><fmt:message
+                                                        key="account.send" bundle="${lang}"/>
+                                                    <i class="material-icons right">send</i>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </c:when>
+                                <c:otherwise>
+                                    <b class="red-text text-darken-2">  <fmt:message key="account.expired" bundle="${lang}"/></b>
+                                </c:otherwise>
+                            </c:choose>
 
                         </div>
                     </li>
@@ -117,8 +134,11 @@
     </div>
 
 </div>
-
-
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
 <br/>
 <c:import url="parts/footer.jsp"/>
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>

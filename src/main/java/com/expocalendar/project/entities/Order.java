@@ -1,32 +1,84 @@
 package com.expocalendar.project.entities;
 
 import java.io.Serializable;
+import java.sql.Date;
 
+/**
+ * Order bean
+ *
+ * @author Nicolas
+ */
 public class Order implements Serializable {
     private String orderKey;
     private int ticketsNumber;
-
-    public Order(String orderKey, int ticketNumber) {
-        this.orderKey = orderKey;
-        this.ticketsNumber = ticketNumber;
+    private Date dateValid;
+    /**
+     *  Order default constructor
+     */
+    public Order() {
     }
+    /**
+     *  Order constructor for all fields
+     */
+    public Order(String orderKey, int ticketsNumber, Date dateValid) {
+        this.orderKey = orderKey;
+        this.ticketsNumber = ticketsNumber;
+        this.dateValid = dateValid;
+    }
+
+    /**
+     * Getter for Order unique key
+     *
+     * @return Order primary identifier
+     */
 
     public String getOrderKey() {
         return orderKey;
     }
+    /**
+     * Setter for Order unique key
+     *
+     * @param orderKey Order primary identifier
+     */
 
-    public Order setOrderKey(String orderKey) {
+    public void setOrderKey(String orderKey) {
         this.orderKey = orderKey;
-        return this;
     }
 
-    public int getTicketNumber() {
+    /**
+     * Getter for tickets number in Order
+     *
+     * @return Order tickets number
+     */
+    public int getTicketsNumber() {
         return ticketsNumber;
     }
 
-    public Order setTicketNumber(int ticketNumber) {
-        this.ticketsNumber = ticketNumber;
-        return this;
+    /**
+     * Setter for tickets number in Order
+     *
+     * @param ticketsNumber tickets number in Order
+     */
+    public void setTicketsNumber(int ticketsNumber) {
+        this.ticketsNumber = ticketsNumber;
+    }
+
+    /**
+     * Getter for Date utill order valid
+     *
+     * @return Date until order is valid
+     */
+
+    public Date getDateValid() {
+        return dateValid;
+    }
+    /**
+     * Setter for Date until order valid
+     *
+     * @param dateValid Date until order is valid
+     */
+    public void setDateValid(Date dateValid) {
+        this.dateValid = dateValid;
     }
 
     @Override
@@ -37,13 +89,15 @@ public class Order implements Serializable {
         Order order = (Order) o;
 
         if (ticketsNumber != order.ticketsNumber) return false;
-        return orderKey != null ? orderKey.equals(order.orderKey) : order.orderKey == null;
+        if (orderKey != null ? !orderKey.equals(order.orderKey) : order.orderKey != null) return false;
+        return dateValid != null ? dateValid.equals(order.dateValid) : order.dateValid == null;
     }
 
     @Override
     public int hashCode() {
         int result = orderKey != null ? orderKey.hashCode() : 0;
         result = 31 * result + ticketsNumber;
+        result = 31 * result + (dateValid != null ? dateValid.hashCode() : 0);
         return result;
     }
 
@@ -51,7 +105,8 @@ public class Order implements Serializable {
     public String toString() {
         return "Order{" +
                 "orderKey='" + orderKey + '\'' +
-                ", ticketNumber=" + ticketsNumber +
+                ", ticketsNumber=" + ticketsNumber +
+                ", dateValid=" + dateValid +
                 '}';
     }
 }

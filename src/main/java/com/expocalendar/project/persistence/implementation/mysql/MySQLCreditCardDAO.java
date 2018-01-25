@@ -24,8 +24,6 @@ public class MySQLCreditCardDAO implements CreditCardDAO {
     private static final int YEAR = 7;
 
     private static final String FIND_CARD = "SELECT * FROM cards WHERE card_id = ?";
-    private static final String ADD_FUNDS = "UPDATE cards SET balance = ? WHERE card_id = ?";
-
 
     private MySQLCreditCardDAO() {
         dataSourceManager = MySQLDataSourceManager.getInstance();
@@ -53,20 +51,6 @@ public class MySQLCreditCardDAO implements CreditCardDAO {
         }
         LOGGER.info("Requested CreditCard found for further validation");
         return creditCard;
-    }
-
-    @Override
-    public void addFunds(int id, double sum) {
-        try (Connection connection = dataSourceManager.createConnection();
-             PreparedStatement ps = connection.prepareStatement(ADD_FUNDS)) {
-            ps.setDouble(1, sum);
-            ps.setInt(2, id);
-            ps.executeUpdate();
-
-        } catch (SQLException e) {
-            LOGGER.error("SQLException occurred in " + getClass().getSimpleName(), e);
-        }
-        LOGGER.info("Funds added");
     }
 
     private CreditCard processRow(ResultSet rs) throws SQLException {

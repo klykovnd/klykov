@@ -5,4 +5,7 @@ import java.sql.SQLException;
 
 public interface IDataSourceManager {
     Connection createConnection() throws SQLException;
+
+    void closeConnection(Connection connection);
+
 }

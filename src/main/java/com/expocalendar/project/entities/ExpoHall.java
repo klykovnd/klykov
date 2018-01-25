@@ -2,47 +2,91 @@ package com.expocalendar.project.entities;
 
 import java.io.Serializable;
 
+
+/**
+ * ExpoHall bean
+ *
+ * @author Nicolas
+ */
 public class ExpoHall implements Serializable {
     private int id;
     private String name;
     private String address;
 
+    /**
+     * ExpoHall default constructor
+     */
     public ExpoHall() {
     }
 
+    /**
+     * ExpoHall constructor for not generated fields
+     */
     public ExpoHall(String name, String address) {
         this.name = name;
         this.address = address;
     }
 
+    /**
+     * ExpoHall constructor for all fields.
+     */
     public ExpoHall(int id, String name, String address) {
         this.id = id;
         this.name = name;
         this.address = address;
     }
 
+    /**
+     * Getter for ExpoHall id
+     *
+     * @return ExpoHall primary identifier
+     */
     public int getId() {
         return id;
     }
 
+
+    /**
+     * Setter for ExpoHall id
+     *
+     * @param id primary identifier
+     */
     public void setId(int id) {
         this.id = id;
     }
 
+    /**
+     * Getter for ExpoHall name
+     *
+     * @return name
+     */
     public String getName() {
         return name;
     }
 
+    /**
+     * Setter for ExpoHall name
+     *
+     * @param name of ExpoHall
+     */
     public void setName(String name) {
         this.name = name;
     }
-
+    /**
+     * Getter for ExpoHall address
+     *
+     * @return address
+     */
     public String getAddress() {
         return address;
     }
-
-    public void setAddress(String city) {
-        this.address = city;
+    /**
+     * Setter for ExpoHall address
+     *
+     * @param address of ExpoHall
+     */
+    public void setAddress(String address) {
+        this.address = address;
     }
 
     @Override

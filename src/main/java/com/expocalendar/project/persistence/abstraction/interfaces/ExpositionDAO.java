@@ -17,14 +17,10 @@ public interface ExpositionDAO {
 
     List<String> findThemes();
 
-    void createExposition(Exposition exposition);
+    boolean createExposition(Exposition exposition);
 
-    void updateExposition(Exposition exposition);
+    boolean updateExposition(Exposition exposition);
 
-    void deleteExposition(int expositionId);
-
-    String parseQuery(Map<String, String> parameters, int limit, int offset);
-
-    String countQuery(Map<String, String> parameters);
+    boolean deleteExposition(int expositionId);
 
 }

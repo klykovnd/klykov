@@ -6,6 +6,7 @@ import com.expocalendar.project.persistence.abstraction.interfaces.ExpoHallDAO;
 import com.expocalendar.project.persistence.abstraction.interfaces.ExpositionDAO;
 import com.expocalendar.project.web.service.interfaces.AdminService;
 import com.expocalendar.project.web.service.Validator;
+import org.apache.log4j.Logger;
 
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -17,6 +18,7 @@ public class AdminServiceImpl implements AdminService {
     private ExpositionDAO expositionDAO;
     private ExpoHallDAO expoHallDAO;
 
+    private final static Logger LOGGER = Logger.getLogger(AdminServiceImpl.class);
 
     public AdminServiceImpl(ExpositionDAO expositionDAO, ExpoHallDAO expoHallDAO) {
         this.expositionDAO = expositionDAO;
@@ -24,40 +26,40 @@ public class AdminServiceImpl implements AdminService {
     }
 
     @Override
-    public void createExposition(Map<String, String> requestParameters) throws MalformedURLException {
+    public boolean createExposition(Map<String, String> requestParameters) throws MalformedURLException {
         Exposition exposition = buildExposition(requestParameters);
-        expositionDAO.createExposition(exposition);
+        return expositionDAO.createExposition(exposition);
+
     }
 
     @Override
-    public void updateExposition(Map<String, String> requestParameters) throws MalformedURLException {
+    public boolean updateExposition(Map<String, String> requestParameters) throws MalformedURLException {
         Exposition exposition = buildExposition(requestParameters);
         exposition.setId(Integer.valueOf(requestParameters.get("expositionId")));
-        expositionDAO.updateExposition(exposition);
-
+        return expositionDAO.updateExposition(exposition);
     }
 
     @Override
-    public void deleteExposition(int expositionId) {
-        expositionDAO.deleteExposition(expositionId);
+    public boolean deleteExposition(int expositionId) {
+       return expositionDAO.deleteExposition(expositionId);
     }
 
     @Override
-    public void createExpoHall(Map<String, String> requestParameters) {
+    public boolean createExpoHall(Map<String, String> requestParameters) {
         ExpoHall expoHall = new ExpoHall(requestParameters.get("name"), requestParameters.get("address"));
-        expoHallDAO.createExpoHall(expoHall);
+        return expoHallDAO.createExpoHall(expoHall);
     }
 
     @Override
-    public void updateExpoHall(Map<String, String> requestParameters) {
+    public boolean updateExpoHall(Map<String, String> requestParameters) {
         ExpoHall expoHall = new ExpoHall(Integer.valueOf(requestParameters.get("hallId")),
                 requestParameters.get("name"), requestParameters.get("address"));
-        expoHallDAO.updateExpoHall(expoHall);
+        return expoHallDAO.updateExpoHall(expoHall);
     }
 
     @Override
-    public void deleteExpoHall(int expoHallId) {
-        expoHallDAO.deleteExpoHall(expoHallId);
+    public boolean deleteExpoHall(int expoHallId) {
+        return expoHallDAO.deleteExpoHall(expoHallId);
     }
 
 

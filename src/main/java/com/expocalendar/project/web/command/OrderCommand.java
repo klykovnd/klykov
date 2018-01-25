@@ -1,13 +1,15 @@
 package com.expocalendar.project.web.command;
 
 import com.expocalendar.project.entities.Account;
+import com.expocalendar.project.entities.Exposition;
 import com.expocalendar.project.web.controller.ControllerHelper;
-import com.expocalendar.project.web.management.ConfigurationManager;
+import com.expocalendar.project.web.management.PagesManager;
 import com.expocalendar.project.web.service.ServiceFactory;
 import org.apache.log4j.Logger;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
 import java.util.Map;
 
 public class OrderCommand implements ICommand {
@@ -20,11 +22,25 @@ public class OrderCommand implements ICommand {
 
         Account account = (Account) request.getSession().getAttribute("account");
 
-        ServiceFactory.getInstance().getOrderService().processOrder(account, requestParameters);
+        boolean transaction = ServiceFactory.getInstance().getOrderService().processOrder(account, requestParameters);
 
+        if (transaction) {
+            Exposition exposition = (Exposition) request.getSession().getAttribute("exposition");
+            double sum = Integer.valueOf(requestParameters.get("number")) * exposition.getTicketPrice();
+            request.setAttribute("sum", sum);
+            request.setAttribute("orderSuccess", new Object());
+
+            try {
+                response.sendRedirect("path.page.order");
+            } catch (IOException e) {
+                LOGGER.error(e.getClass().getSimpleName() + " occurred in " + this.getClass().getSimpleName());
+            }
+        } else {
+            request.setAttribute("orderFail", new Object());
+        }
         LOGGER.info(this.getClass().getSimpleName() + " executed");
 
-        return ConfigurationManager.getProperty("path.page.account");
+        return PagesManager.getProperty("path.page.order");
 
     }
 }

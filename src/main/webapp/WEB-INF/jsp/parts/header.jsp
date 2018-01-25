@@ -12,7 +12,6 @@
     </c:otherwise>
 </c:choose>
 
-
 <fmt:setBundle basename="pagecontent" var="lang" scope="session"/>
 
 <nav>

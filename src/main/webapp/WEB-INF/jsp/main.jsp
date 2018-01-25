@@ -10,7 +10,8 @@
     <link type="text/css" rel="stylesheet" href="css/materialize.min.css" media="screen,projection"/>
     <!--Let browser know website is optimized for mobile-->
     <meta title="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Title</title>
+    <fmt:setBundle basename="pagecontent" var="lang"/>
+    <title><fmt:message key="page.main" bundle="${lang}"/></title>
 </head>
 <body>
 
@@ -22,11 +23,9 @@
         <fmt:setLocale value="${sessionScope.locale}"/>
     </c:otherwise>
 </c:choose>
-
-<fmt:setBundle basename="pagecontent" var="lang"/>
 <jsp:useBean id="today" class="java.util.Date"/>
 <fmt:formatDate value="${today}" var="now" pattern="yyyy-MM-dd"/>
-
+<fmt:setBundle basename="pagecontent" var="lang"/>
 <c:import url="parts/header.jsp"/><br/>
 
 <!--Search form here -->
@@ -58,6 +57,7 @@
             </div>
             <div class="input-field col s3">
                 <i class="material-icons prefix">account_balance</i>
+
                 <select name="hallId">
                     <option value=""><fmt:message key="main.all" bundle="${lang}"/></option>
                     <c:forEach var="hall" items="${sessionScope.halls}">
@@ -66,6 +66,7 @@
                 </select>
                 <label><fmt:message key="main.expohall" bundle="${lang}"/></label>
             </div>
+
             <div class="input-field col s2">
                 <button class="btn waves-effect waves-light pink darken-4" type="submit"><fmt:message key="main.search"
                                                                                                       bundle="${lang}"/>
@@ -74,14 +75,15 @@
             </div>
         </form>
     </div>
-    <!--Expositions Cards there-->
-    <div class="row">
 
+
+
+
+    <!--Expositions Cards here-->
+    <div class="row">
         <c:if test="${not empty sessionScope.nothingFound}">
             <fmt:message key="message.nothingFound" bundle="${lang}"/>
         </c:if>
-
-
         <c:forEach items="${sessionScope.expositions}" var="exposition">
             <div class="col s4">
                 <div class="card medium">
@@ -89,13 +91,9 @@
                         <img class="activator" src="${exposition.picture}">
                     </div>
                     <div class="card-content">
-                        <span class="card-title activator grey-text text-darken-4"> <c:out value="${exposition.title}"/> <i
-                                class="material-icons right">more_vert</i></span>
-                        <c:forEach var="hall" items="${sessionScope.halls}">
-                            <c:if test="${hall.id == exposition.expoHallId}">
-                                <p><c:out value="${hall.name}"/></p>
-                            </c:if>
-                        </c:forEach>
+                        <span class="card-title activator grey-text text-darken-4"><b> <c:out value="${exposition.title}"/></b> <i class="material-icons right">more_vert</i></span>
+                        <p><fmt:formatDate type="date" value="${exposition.dateFrom}"/> -
+                            <fmt:formatDate type="date" value="${exposition.dateTo}"/></p>
                     </div>
                     <div class="card-action">
                         <!--Order Page link-->
@@ -110,17 +108,25 @@
                         </c:if>
                     </div>
                     <div class="card-reveal">
-                        <span class="card-title grey-text text-darken-4">${exposition.title}<i
+                        <span class="card-title grey-text text-darken-4"> <b>${exposition.title} </b><i
                                 class="material-icons right">close</i></span>
-                        <p><fmt:formatDate type="date" value="${exposition.dateFrom}"/> - <fmt:formatDate type="date"
-                                                                                                          value="${exposition.dateTo}"/></p>
-                        <p><c:out value="${exposition.theme}"/></p>
+                        <p> <fmt:formatDate type="date" value="${exposition.dateFrom}"/> -
+                            <fmt:formatDate type="date" value="${exposition.dateTo}"/></p>
 
                         <fmt:formatDate value="${exposition.beginTime}" var="time" pattern="HH:mm"/>
+                        <p><fmt:message key="main.begin" bundle="${lang}"/> <c:out value="${time}"/></p>
 
-                        <p><c:out value="${time}"/></p>
+                        <p><b> <fmt:message key="main.theme" bundle="${lang}"/>:</b> <c:out value="${exposition.theme}"/></p>
 
-                        <p><c:out value="${exposition.description}"/></p>
+                        <c:forEach var="hall" items="${sessionScope.halls}">
+                            <c:if test="${hall.id == exposition.expoHallId}">
+                               <b><fmt:message key="main.expohall" bundle="${lang}"/>:</b> <c:out value="${hall.name}"/> <br>
+                        <i><c:out value="${hall.address}"/></i>
+                            </c:if>
+                        </c:forEach>
+
+                        <p><b><fmt:message key="exposition.description" bundle="${lang}"/>:</b>
+                         <c:out value="${exposition.description}"/>
 
                     </div>
                 </div>
