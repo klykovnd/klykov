@@ -235,10 +235,14 @@ public class Exposition implements Serializable {
 
         if (id != that.id) return false;
         if (Double.compare(that.ticketPrice, ticketPrice) != 0) return false;
+        if (expoHallId != that.expoHallId) return false;
         if (title != null ? !title.equals(that.title) : that.title != null) return false;
         if (theme != null ? !theme.equals(that.theme) : that.theme != null) return false;
         if (dateFrom != null ? !dateFrom.equals(that.dateFrom) : that.dateFrom != null) return false;
-        return dateTo != null ? dateTo.equals(that.dateTo) : that.dateTo == null;
+        if (dateTo != null ? !dateTo.equals(that.dateTo) : that.dateTo != null) return false;
+        if (beginTime != null ? !beginTime.equals(that.beginTime) : that.beginTime != null) return false;
+        if (picture != null ? !picture.equals(that.picture) : that.picture != null) return false;
+        return description != null ? description.equals(that.description) : that.description == null;
     }
 
     @Override

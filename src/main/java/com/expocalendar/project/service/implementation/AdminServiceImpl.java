@@ -18,8 +18,6 @@ public class AdminServiceImpl implements AdminService {
     private ExpositionDAO expositionDAO;
     private ExpoHallDAO expoHallDAO;
 
-    private final static Logger LOGGER = Logger.getLogger(AdminServiceImpl.class);
-
     public AdminServiceImpl(ExpositionDAO expositionDAO, ExpoHallDAO expoHallDAO) {
         this.expositionDAO = expositionDAO;
         this.expoHallDAO = expoHallDAO;

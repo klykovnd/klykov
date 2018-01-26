@@ -30,7 +30,7 @@
 <!--Search form here -->
 <div class="container">
     <div class="row">
-        <form class="col s12" action="app" method="get">
+        <form class="col s12" action="main" method="post">
             <input type="hidden" name="command" value="selection">
             <div class="input-field col s2">
                 <i class="material-icons prefix">date_range</i>

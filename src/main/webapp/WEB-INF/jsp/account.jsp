@@ -94,7 +94,7 @@
 
                             <b><fmt:message key="account.order.number" bundle="${lang}"/>:</b> <c:out value="${entry.key.orderKey}"/><br>
                             <b><fmt:message key="order.title" bundle="${lang}"/>:</b> <c:out value="${entry.value.title}"/><br>
-                                <b><fmt:message key="order.date"  bundle="${lang}"/>:</b> <fmt:formatDate type="date" value="${entry.value.dateFrom}"/>- <fmt:formatDate type="date" value="${entry.value.dateTo}"/><br>
+                                <b><fmt:message key="order.date"  bundle="${lang}"/>:</b> <fmt:formatDate type="date" value="${entry.value.dateFrom}"/> - <fmt:formatDate type="date" value="${entry.value.dateTo}"/><br>
                                     <b><fmt:message key="order.number" bundle="${lang}"/></b> <c:out value="${entry.key.ticketsNumber}"/><br>
                             <br>
                             <br>

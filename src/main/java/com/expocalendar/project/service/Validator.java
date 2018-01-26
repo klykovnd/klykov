@@ -1,6 +1,7 @@
 package com.expocalendar.project.service;
 
 import com.expocalendar.project.entities.CreditCard;
+import org.apache.log4j.Logger;
 
 import java.text.DateFormat;
 import java.text.ParseException;
@@ -9,6 +10,10 @@ import java.util.Date;
 import java.util.Map;
 
 public class Validator {
+    private final static String DATE_PATTERN = "yyyy-MM-dd";
+    private final static String CARD_DATE_PATTERN = "MMyy";
+
+    private final static Logger LOGGER = Logger.getLogger(Validator.class);
 
     public static void validateSelectionParameters(Map<String, String> requestParameters) {
         requestParameters.putIfAbsent("theme", "all");
@@ -29,13 +34,13 @@ public class Validator {
 
     private static String getCurrentDate() {
         Date date = new Date();
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        SimpleDateFormat sdf = new SimpleDateFormat(DATE_PATTERN);
         return sdf.format(date);
     }
 
 
     private static boolean invalidDateRange(Map<String, String> requestParameters) {
-        DateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+        DateFormat format = new SimpleDateFormat(DATE_PATTERN);
         Date date1 = new Date();
         Date date2 = new Date();
         try {
@@ -43,13 +48,12 @@ public class Validator {
             date2 = format.parse(requestParameters.get("dateTo"));
 
         } catch (ParseException e) {
-            e.printStackTrace();
+            LOGGER.error("ParseException occurred in " + Validator.class.getSimpleName(), e);
         }
 
         return date1.after(date2);
-
     }
-    
+
     private static void swapDate(Map<String, String> requestParameters) {
         String dateFrom = requestParameters.get("dateFrom");
         String dateTo = requestParameters.get("dateTo");
@@ -67,11 +71,21 @@ public class Validator {
     }
 
     public static boolean validCard(Map<String, String> requestParameters, CreditCard creditCard, double withdraw) {
+        String target = requestParameters.get("month") + requestParameters.get("year");
+        DateFormat df = new SimpleDateFormat(CARD_DATE_PATTERN);
+        Date result = null;
+        try {
+            result = df.parse(target);
+        } catch (ParseException e) {
+            LOGGER.error("ParseException occurred in " + Validator.class.getSimpleName(), e);
+        }
+
         return creditCard.getBalance() >= withdraw &&
                 requestParameters.get("cardHolder").equals(creditCard.getHolder()) &&
                 requestParameters.get("cardNumber").equals(creditCard.getNumber()) &&
                 Integer.valueOf(requestParameters.get("cvv")) == (creditCard.getCVV()) &&
                 Integer.valueOf(requestParameters.get("month")) == (creditCard.getMonth()) &&
-                Integer.valueOf(requestParameters.get("year")) == (creditCard.getYear());
+                Integer.valueOf(requestParameters.get("year")) == (creditCard.getYear()) &&
+                result != null && result.after(new Date());
     }
 }

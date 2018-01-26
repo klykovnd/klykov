@@ -27,7 +27,6 @@ public class RedirectCommand implements ICommand {
     @Override
     public String execute(HttpServletRequest request, HttpServletResponse response) {
         ServiceFactory serviceFactory = ServiceFactory.getInstance();
-
         SelectionService selectionService = serviceFactory.getSelectionService();
         OrderService orderService = serviceFactory.getOrderService();
 
@@ -49,7 +48,7 @@ public class RedirectCommand implements ICommand {
                 url = getProperty("path.page.order");
                 break;
             case MAIN:
-                url = getProperty("path.page.index");
+                url = getProperty("path.page.main");
                 break;
             case INDEX:
                 url = getProperty("path.page.index");

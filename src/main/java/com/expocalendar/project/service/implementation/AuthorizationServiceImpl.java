@@ -13,8 +13,6 @@ import java.util.Map;
 public class AuthorizationServiceImpl implements AuthorizationService {
     private AccountDAO accountDAO;
 
-    private final static Logger LOGGER = Logger.getLogger(AuthorizationServiceImpl.class);
-
     public AuthorizationServiceImpl(AccountDAO accountDAO) {
         this.accountDAO = accountDAO;
     }

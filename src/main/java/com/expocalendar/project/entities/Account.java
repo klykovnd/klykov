@@ -177,6 +177,7 @@ public class Account implements Serializable {
         if (lastName != null ? !lastName.equals(account.lastName) : account.lastName != null) return false;
         if (login != null ? !login.equals(account.login) : account.login != null) return false;
         if (password != null ? !password.equals(account.password) : account.password != null) return false;
+        if (role != null ? !role.equals(account.role) : account.role != null) return false;
         return email != null ? email.equals(account.email) : account.email == null;
     }
 
@@ -187,6 +188,7 @@ public class Account implements Serializable {
         result = 31 * result + (lastName != null ? lastName.hashCode() : 0);
         result = 31 * result + (login != null ? login.hashCode() : 0);
         result = 31 * result + (password != null ? password.hashCode() : 0);
+        result = 31 * result + (role != null ? role.hashCode() : 0);
         result = 31 * result + (email != null ? email.hashCode() : 0);
         return result;
     }
